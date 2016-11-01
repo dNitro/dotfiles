@@ -3,12 +3,10 @@
 # from: https://bitbucket.org/snippets/nicolapaolucci/7rE9K
 # =========================================================
 
-source $HOME/.init/logger.sh
-
 echo ''
 
-info "Installing .myconfig bare repository ..."
-info "Stock configuration files will automatically move to .config-backup"
+printf "\r  [ \033[00;34m..\033[0m ] Installing .myconfig bare repository ...\n"
+printf "\r  [ \033[00;34m..\033[0m ] Stock configuration files will automatically move to .config-backup\n"
 
 git clone --bare https://github.com/dNitro/dotfiles.git $HOME/.myconfig
 
@@ -21,9 +19,9 @@ mkdir -p .config-backup
 config checkout
 
 if [ $? = 0 ]; then
-  info "Checked out config.";
+  printf "\r  [ \033[00;34m..\033[0m ] Checked out config.\n"
   else
-    info "Backing up pre-existing dot files.";
+    printf "\r  [ \033[00;34m..\033[0m ] Backing up pre-existing dot files.\n"
     config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
 fi;
 
@@ -33,5 +31,5 @@ config config status.showUntrackedFiles no
 
 echo "alias nit='$(which git) --git-dir=$HOME/.myconfig/ --work-tree=$HOME'" >> $HOME/.zsh/aliases
 
-success 'Done.'
+printf "\r\033[2K  [ \033[00;32mOK\033[0m ] Done!\n"
 echo ''
