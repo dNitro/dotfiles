@@ -9,16 +9,31 @@ autoload -Uz vcs_info
 
 # Updates cursor shape based on vi mode
 zle-keymap-select() {
-    case $KEYMAP in
-        vicmd)      print -n -- "\E]50;CursorShape=0\C-G";
-                    ;;  # block cursor
-        main|viins) print -n -- "\E]50;CursorShape=1\C-G";
-                    ;;  # line cursor
-    esac
+    if [ -z "$TMUX" ]; then
+        case $KEYMAP in
+            vicmd)      print -n -- "\E]50;CursorShape=0\C-G";
+                        ;;  # block cursor
+            main|viins) print -n -- "\E]50;CursorShape=1\C-G";
+                        ;;  # line cursor
+        esac
+    else
+        case $KEYMAP in
+            vicmd)      print -n -- "\EPtmux;\E\E]50;CursorShape=0\C-G\E\\";
+                        ;;  # block cursor
+            main|viins) print -n -- "\EPtmux;\E\E]50;CursorShape=1\C-G\E\\";
+                        ;;  # line cursor
+        esac
+    fi
     zle reset-prompt
     zle -R
 }
-zle-line-finish() { print -n -- "\E]50;CursorShape=0\C-G" }
+zle-line-finish() {
+    if [ -z "$TMUX" ]; then
+        print -n -- "\E]50;CursorShape=0\C-G"
+    else
+        print -n -- "\EPtmux;\E\E]50;CursorShape=0\C-G\E\\"
+    fi
+}
 zle -N zle-keymap-select
 zle -N zle-line-finish
 zle -A zle-keymap-select zle-line-init
