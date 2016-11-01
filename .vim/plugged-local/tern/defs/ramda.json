@@ -1,0 +1,1415 @@
+{
+  "!name": "ramda",
+  "R": {
+    "__": {
+      "!cat": "Function",
+      "!doc": "A special placeholder value used to specify 'gaps' within curried functions, allowing partial application of any combination of arguments, regardless of their positions.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#__"
+    },
+    "add": {
+      "!cat": "Math",
+      "!doc": "Number → Number → Number\\nAdds two values.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#add"
+    },
+    "addIndex": {
+      "!cat": "Function",
+      "!doc": "((a … → b) … → [a] → *) → (a …, Int, [a] → b) … → [a] → *)\\nCreates a new list iteration function from an existing one by adding two new parameters to its callback function: the current index, and the entire list.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#addIndex"
+    },
+    "adjust": {
+      "!cat": "List",
+      "!doc": "(a → a) → Number → [a] → [a]\\nApplies a function to the value at the given index of an array, returning a new copy of the array with the element at the given index replaced with the result of the function application.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#adjust"
+    },
+    "all": {
+      "!cat": "List",
+      "!doc": "(a → Boolean) → [a] → Boolean\\nReturns true if all elements of the list match the predicate, false if there are any that don't.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#all"
+    },
+    "allPass": {
+      "!cat": "Logic",
+      "!doc": "[(*… → Boolean)] → (*… → Boolean)\\nTakes a list of predicates and returns a predicate that returns true for a given list of arguments if every one of the provided predicates is satisfied by those arguments.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#allPass"
+    },
+    "allUniq": {
+      "!cat": "List",
+      "!doc": "[a] → Boolean\\nReturns true if all elements are unique, in R.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#allUniq"
+    },
+    "always": {
+      "!cat": "Function",
+      "!doc": "a → (* → a)\\nReturns a function that always returns the given value.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#always"
+    },
+    "and": {
+      "!cat": "Logic",
+      "!doc": "* → * → *\\nReturns true if both arguments are true; false otherwise.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#and"
+    },
+    "any": {
+      "!cat": "List",
+      "!doc": "(a → Boolean) → [a] → Boolean\\nReturns true if at least one of elements of the list match the predicate, false otherwise.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#any"
+    },
+    "anyPass": {
+      "!cat": "Logic",
+      "!doc": "[(*… → Boolean)] → (*… → Boolean)\\nTakes a list of predicates and returns a predicate that returns true for a given list of arguments if at least one of the provided predicates is satisfied by those arguments.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#anyPass"
+    },
+    "ap": {
+      "!cat": "Function",
+      "!doc": "[f] → [a] → [f a]\\nap applies a list of functions to a list of values.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#ap"
+    },
+    "aperture": {
+      "!cat": "List",
+      "!doc": "Number → [a] → [[a]]\\nReturns a new list, composed of n-tuples of consecutive elements If n is greater than the length of the list, an empty list is returned.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#aperture"
+    },
+    "append": {
+      "!cat": "List",
+      "!doc": "a → [a] → [a]\\nReturns a new list containing the contents of the given list, followed by the given element.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#append"
+    },
+    "apply": {
+      "!cat": "Function",
+      "!doc": "(*… → a) → [*] → a\\nApplies function fn to the argument list args.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#apply"
+    },
+    "applySpec": {
+      "!cat": "Function",
+      "!doc": "{k: ((a, b, …, m) → v)} → ((a, b, …, m) → {k: v})\\nGiven a spec object recursively mapping properties to functions, creates a function producing an object of the same structure, by mapping each property to the result of calling its associated function with the supplied arguments.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#applySpec"
+    },
+    "assoc": {
+      "!cat": "Object",
+      "!doc": "String → a → {k: v} → {k: v}\\nMakes a shallow clone of an object, setting or overriding the specified property with the given value.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#assoc"
+    },
+    "assocPath": {
+      "!cat": "Object",
+      "!doc": "[String] → a → {k: v} → {k: v}\\nMakes a shallow clone of an object, setting or overriding the nodes required to create the given path, and placing the specific value at the tail end of that path.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#assocPath"
+    },
+    "binary": {
+      "!cat": "Function",
+      "!doc": "(* → c) → (a, b → c)\\nWraps a function of any arity (including nullary) in a function that accepts exactly 2 parameters.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#binary"
+    },
+    "bind": {
+      "!cat": "Function",
+      "!doc": "(* → *) → {*} → (* → *)\\nCreates a function that is bound to a context.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#bind"
+    },
+    "both": {
+      "!cat": "Logic",
+      "!doc": "(*… → Boolean) → (*… → Boolean) → (*… → Boolean)\\nA function wrapping calls to the two functions in an && operation, returning the result of the first function if it is false-y and the result of the second function otherwise.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#both"
+    },
+    "call": {
+      "!cat": "Function",
+      "!doc": "(*… → a),*… → a\\nReturns the result of calling its first argument with the remaining arguments.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#call"
+    },
+    "chain": {
+      "!cat": "List",
+      "!doc": "(a → [b]) → [a] → [b]\\nchain maps a function over a list and concatenates the results.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#chain"
+    },
+    "clamp": {
+      "!cat": "Relation",
+      "!doc": "Ord a => a → a → a → a\\nRestricts a number to be within a range.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#clamp"
+    },
+    "clone": {
+      "!cat": "Object",
+      "!doc": "{*} → {*}\\nCreates a deep copy of the value which may contain (nested) Arrays and Objects, Numbers, Strings, Booleans and Dates.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#clone"
+    },
+    "comparator": {
+      "!cat": "Function",
+      "!doc": "(a, b → Boolean) → (a, b → Number)\\nMakes a comparator function out of a function that reports whether the first element is less than the second.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#comparator"
+    },
+    "complement": {
+      "!cat": "Logic",
+      "!doc": "(*… → *) → (*… → Boolean)\\nTakes a function f and returns a function g such that:  applying g to zero or more arguments will give true if applying the same arguments to f gives a logical false value; and  applying g to zero or more arguments will give false if applying",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#complement"
+    },
+    "compose": {
+      "!cat": "Function",
+      "!doc": "((y → z), (x → y), …, (o → p), ((a, b, …, n) → o)) → ((a, b, …, n) → z)\\nPerforms right-to-left function composition.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#compose"
+    },
+    "composeK": {
+      "!cat": "Function",
+      "!doc": "Chain m => ((y → m z), (x → m y), …, (a → m b)) → (m a → m z)\\nReturns the right-to-left Kleisli composition of the provided functions, each of which must return a value of a type supported by chain.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#composeK"
+    },
+    "composeP": {
+      "!cat": "Function",
+      "!doc": "((y → Promise z), (x → Promise y), …, (a → Promise b)) → (a → Promise z)\\nPerforms right-to-left composition of one or more Promise-returning functions.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#composeP"
+    },
+    "concat": {
+      "!cat": "List",
+      "!doc": "[a] → [a] → [a]\\nString → String → String\\nReturns the result of concatenating the given lists or strings.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#concat"
+    },
+    "cond": {
+      "!cat": "Logic",
+      "!doc": "[[(*… → Boolean),(*… → *)]] → (*… → *)\\nReturns a function, fn, which encapsulates if/else-if/else logic.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#cond"
+    },
+    "construct": {
+      "!cat": "Function",
+      "!doc": "(* → {*}) → (* → {*})\\nWraps a constructor function inside a curried function that can be called with the same arguments and returns the same type.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#construct"
+    },
+    "constructN": {
+      "!cat": "Function",
+      "!doc": "Number → (* → {*}) → (* → {*})\\nWraps a constructor function inside a curried function that can be called with the same arguments and returns the same type.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#constructN"
+    },
+    "contains": {
+      "!cat": "List",
+      "!doc": "a → [a] → Boolean\\nReturns true if the specified value is equal, in R.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#contains"
+    },
+    "converge": {
+      "!cat": "Function",
+      "!doc": "(x1 → x2 → … → z) → [(a → b → … → x1), (a → b → … → x2), …] → (a → b → … → z)\\nAccepts a converging function and a list of branching functions and returns a new function.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#converge"
+    },
+    "countBy": {
+      "!cat": "Relation",
+      "!doc": "(a → String) → [a] → {*}\\nCounts the elements of a list according to how many match each value of a key generated by the supplied function.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#countBy"
+    },
+    "curry": {
+      "!cat": "Function",
+      "!doc": "(* → a) → (* → a)\\nReturns a curried equivalent of the provided function.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#curry"
+    },
+    "curryN": {
+      "!cat": "Function",
+      "!doc": "Number → (* → a) → (* → a)\\nReturns a curried equivalent of the provided function, with the specified arity.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#curryN"
+    },
+    "dec": {
+      "!cat": "Math",
+      "!doc": "Number → Number\\nDecrements its argument.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#dec"
+    },
+    "defaultTo": {
+      "!cat": "Logic",
+      "!doc": "a → b → a | b\\nReturns the second argument if it is not null, undefined or NaN otherwise the first argument is returned.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#defaultTo"
+    },
+    "difference": {
+      "!cat": "Relation",
+      "!doc": "[*] → [*] → [*]\\nFinds the set (i.",
+        "!type": "",
+        "!url": "http://ramdajs.com/0.21.0/docs/#difference"
+    },
+    "differenceWith": {
+      "!cat": "Relation",
+      "!doc": "(a → a → Boolean) → [*] → [*] → [*]\\nFinds the set (i.",
+        "!type": "",
+        "!url": "http://ramdajs.com/0.21.0/docs/#differenceWith"
+    },
+    "dissoc": {
+      "!cat": "Object",
+      "!doc": "String → {k: v} → {k: v}\\nReturns a new object that does not contain a prop property.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#dissoc"
+    },
+    "dissocPath": {
+      "!cat": "Object",
+      "!doc": "[String] → {k: v} → {k: v}\\nMakes a shallow clone of an object, omitting the property at the given path.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#dissocPath"
+    },
+    "divide": {
+      "!cat": "Math",
+      "!doc": "Number → Number → Number\\nDivides two numbers.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#divide"
+    },
+    "drop": {
+      "!cat": "List",
+      "!doc": "Number → [a] → [a]\\nNumber → String → String\\nReturns all but the first n elements of the given list, string, or transducer/transformer (or object with a drop method).",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#drop"
+    },
+    "dropLast": {
+      "!cat": "List",
+      "!doc": "Number → [a] → [a]\\nNumber → String → String\\nReturns a list containing all but the last n elements of the given list.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#dropLast"
+    },
+    "dropLastWhile": {
+      "!cat": "List",
+      "!doc": "(a → Boolean) → [a] → [a]\\nReturns a new list containing all but last then elements of a given list, passing each value from the right to the supplied predicate function, skipping elements while the predicate function returns true.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#dropLastWhile"
+    },
+    "dropRepeats": {
+      "!cat": "List",
+      "!doc": "[a] → [a]\\nReturns a new list without any consecutively repeating elements.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#dropRepeats"
+    },
+    "dropRepeatsWith": {
+      "!cat": "List",
+      "!doc": "(a, a → Boolean) → [a] → [a]\\nReturns a new list without any consecutively repeating elements.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#dropRepeatsWith"
+    },
+    "dropWhile": {
+      "!cat": "List",
+      "!doc": "(a → Boolean) → [a] → [a]\\nReturns a new list containing the last n elements of a given list, passing each value to the supplied predicate function, skipping elements while the predicate function returns true.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#dropWhile"
+    },
+    "either": {
+      "!cat": "Logic",
+      "!doc": "(*… → Boolean) → (*… → Boolean) → (*… → Boolean)\\nA function wrapping calls to the two functions in an || operation, returning the result of the first function if it is truth-y and the result of the second function otherwise.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#either"
+    },
+    "empty": {
+      "!cat": "Function",
+      "!doc": "a → a\\nReturns the empty value of its argument's type.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#empty"
+    },
+    "eqBy": {
+      "!cat": "Relation",
+      "!doc": "(a → b) → a → a → Boolean\\nTakes a function and two values in its domain and returns true if the values map to the same value in the codomain; false otherwise.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#eqBy"
+    },
+    "eqProps": {
+      "!cat": "Object",
+      "!doc": "k → {k: v} → {k: v} → Boolean\\nReports whether two objects have the same value, in R.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#eqProps"
+    },
+    "equals": {
+      "!cat": "Relation",
+      "!doc": "a → b → Boolean\\nReturns true if its arguments are equivalent, false otherwise.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#equals"
+    },
+    "evolve": {
+      "!cat": "Object",
+      "!doc": "{k: (v → v)} → {k: v} → {k: v}\\nCreates a new object by recursively evolving a shallow copy of object, according to the transformation functions.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#evolve"
+    },
+    "F": {
+      "!cat": "Function",
+      "!doc": "* → Boolean\\nA function that always returns false.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#F"
+    },
+    "filter": {
+      "!cat": "List",
+      "!doc": "Filterable f => (a → Boolean) → f a → f a\\nTakes a predicate and a 'filterable', and returns a new filterable of the same type containing the members of the given filterable which satisfy the given predicate.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#filter"
+    },
+    "find": {
+      "!cat": "List",
+      "!doc": "(a → Boolean) → [a] → a | undefined\\nReturns the first element of the list which matches the predicate, or undefined if no element matches.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#find"
+    },
+    "findIndex": {
+      "!cat": "List",
+      "!doc": "(a → Boolean) → [a] → Number\\nReturns the index of the first element of the list which matches the predicate, or -1 if no element matches.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#findIndex"
+    },
+    "findLast": {
+      "!cat": "List",
+      "!doc": "(a → Boolean) → [a] → a | undefined\\nReturns the last element of the list which matches the predicate, or undefined if no element matches.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#findLast"
+    },
+    "findLastIndex": {
+      "!cat": "List",
+      "!doc": "(a → Boolean) → [a] → Number\\nReturns the index of the last element of the list which matches the predicate, or -1 if no element matches.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#findLastIndex"
+    },
+    "flatten": {
+      "!cat": "List",
+      "!doc": "[a] → [b]\\nReturns a new list by pulling every item out of it (and all its sub-arrays) and putting them in a new array, depth-first.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#flatten"
+    },
+    "flip": {
+      "!cat": "Function",
+      "!doc": "(a → b → c → … → z) → (b → a → c → … → z)\\nReturns a new function much like the supplied one, except that the first two arguments' order is reversed.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#flip"
+    },
+    "forEach": {
+      "!cat": "List",
+      "!doc": "(a → *) → [a] → [a]\\nIterate over an input list, calling a provided function fn for each element in the list.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#forEach"
+    },
+    "fromPairs": {
+      "!cat": "List",
+      "!doc": "[[k,v]] → {k: v}\\nCreates a new object out of a list key-value pairs.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#fromPairs"
+    },
+    "groupBy": {
+      "!cat": "List",
+      "!doc": "(a → String) → [a] → {String: [a]}\\nSplits a list into sub-lists stored in an object, based on the result of calling a String-returning function on each element, and grouping the results according to values returned.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#groupBy"
+    },
+    "groupWith": {
+      "!cat": "List",
+      "!doc": "(a, a → Boolean) → [a] → [[a]]\\nTakes a list and returns a list of lists where each sublist's elements are all 'equal' according to the provided equality function.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#groupWith"
+    },
+    "gt": {
+      "!cat": "Relation",
+      "!doc": "Ord a => a → a → Boolean\\nReturns true if the first argument is greater than the second; false otherwise.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#gt"
+    },
+    "gte": {
+      "!cat": "Relation",
+      "!doc": "Ord a => a → a → Boolean\\nReturns true if the first argument is greater than or equal to the second; false otherwise.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#gte"
+    },
+    "has": {
+      "!cat": "Object",
+      "!doc": "s → {s: x} → Boolean\\nReturns whether or not an object has an own property with the specified name  Try in REPLvar hasName = R.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#has"
+    },
+    "hasIn": {
+      "!cat": "Object",
+      "!doc": "s → {s: x} → Boolean\\nReturns whether or not an object or its prototype chain has a property with the specified name  ",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#hasIn"
+    },
+    "head": {
+      "!cat": "List",
+      "!doc": "[a] → a | Undefined\\nString → String\\nReturns the first element of the given list or string.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#head"
+    },
+    "identical": {
+      "!cat": "Relation",
+      "!doc": "a → a → Boolean\\nReturns true if its arguments are identical, false otherwise.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#identical"
+    },
+    "identity": {
+      "!cat": "Function",
+      "!doc": "a → a\\nA function that does nothing but return the parameter supplied to it.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#identity"
+    },
+    "ifElse": {
+      "!cat": "Logic",
+      "!doc": "(*… → Boolean) → (*… → *) → (*… → *) → (*… → *)\\nCreates a function that will process either the onTrue or the onFalse function depending upon the result of the condition predicate.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#ifElse"
+    },
+    "inc": {
+      "!cat": "Math",
+      "!doc": "Number → Number\\nIncrements its argument.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#inc"
+    },
+    "indexBy": {
+      "!cat": "List",
+      "!doc": "(a → String) → [{k: v}] → {k: {k: v}}\\nGiven a function that generates a key, turns a list of objects into an object indexing the objects by the given key.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#indexBy"
+    },
+    "indexOf": {
+      "!cat": "List",
+      "!doc": "a → [a] → Number\\nReturns the position of the first occurrence of an item in an array, or -1 if the item is not included in the array.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#indexOf"
+    },
+    "init": {
+      "!cat": "List",
+      "!doc": "[a] → [a]\\nString → String\\nReturns all but the last element of the given list or string.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#init"
+    },
+    "insert": {
+      "!cat": "List",
+      "!doc": "Number → a → [a] → [a]\\nInserts the supplied element into the list, at index index.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#insert"
+    },
+    "insertAll": {
+      "!cat": "List",
+      "!doc": "Number → [a] → [a] → [a]\\nInserts the sub-list into the list, at index index.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#insertAll"
+    },
+    "intersection": {
+      "!cat": "Relation",
+      "!doc": "[*] → [*] → [*]\\nCombines two lists into a set (i.",
+        "!type": "",
+        "!url": "http://ramdajs.com/0.21.0/docs/#intersection"
+    },
+    "intersectionWith": {
+      "!cat": "Relation",
+      "!doc": "(a → a → Boolean) → [*] → [*] → [*]\\nCombines two lists into a set (i.",
+        "!type": "",
+        "!url": "http://ramdajs.com/0.21.0/docs/#intersectionWith"
+    },
+    "intersperse": {
+      "!cat": "List",
+      "!doc": "a → [a] → [a]\\nCreates a new list with the separator interposed between elements.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#intersperse"
+    },
+    "into": {
+      "!cat": "List",
+      "!doc": "a → (b → b) → [c] → a\\nTransforms the items of the list with the transducer and appends the transformed items to the accumulator using an appropriate iterator function based on the accumulator type.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#into"
+    },
+    "invert": {
+      "!cat": "Object",
+      "!doc": "{s: x} → {x: [ s, … ]}\\nSame as R.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#invert"
+    },
+    "invertObj": {
+      "!cat": "Object",
+      "!doc": "{s: x} → {x: s}\\nReturns a new object with the keys of the given object as values, and the values of the given object, which are coerced to strings, as keys.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#invertObj"
+    },
+    "invoker": {
+      "!cat": "Function",
+      "!doc": "Number → String → (a → b → … → n → Object → *)\\nTurns a named method with a specified arity into a function that can be called directly supplied with arguments and a target object.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#invoker"
+    },
+    "is": {
+      "!cat": "Type",
+      "!doc": "(* → {*}) → a → Boolean\\nSee if an object (val) is an instance of the supplied constructor.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#is"
+    },
+    "isArrayLike": {
+      "!cat": "Type",
+      "!doc": "* → Boolean\\nTests whether or not an object is similar to an array.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#isArrayLike"
+    },
+    "isEmpty": {
+      "!cat": "Logic",
+      "!doc": "a → Boolean\\nReturns true if the given value is its type's empty value; false otherwise.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#isEmpty"
+    },
+    "isNil": {
+      "!cat": "Type",
+      "!doc": "* → Boolean\\nChecks if the input value is null or undefined.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#isNil"
+    },
+    "join": {
+      "!cat": "List",
+      "!doc": "String → [a] → String\\nReturns a string made by inserting the separator between each element and concatenating all the elements into a single string.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#join"
+    },
+    "juxt": {
+      "!cat": "Function",
+      "!doc": "[(a, b, …, m) → n] → ((a, b, …, m) → [n])\\njuxt applies a list of functions to a list of values.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#juxt"
+    },
+    "keys": {
+      "!cat": "Object",
+      "!doc": "{k: v} → [k]\\nReturns a list containing the names of all the enumerable own properties of the supplied object.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#keys"
+    },
+    "keysIn": {
+      "!cat": "Object",
+      "!doc": "{k: v} → [k]\\nReturns a list containing the names of all the properties of the supplied object, including prototype properties.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#keysIn"
+    },
+    "last": {
+      "!cat": "List",
+      "!doc": "[a] → a | Undefined\\nString → String\\nReturns the last element of the given list or string.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#last"
+    },
+    "lastIndexOf": {
+      "!cat": "List",
+      "!doc": "a → [a] → Number\\nReturns the position of the last occurrence of an item in an array, or -1 if the item is not included in the array.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#lastIndexOf"
+    },
+    "length": {
+      "!cat": "List",
+      "!doc": "[a] → Number\\nReturns the number of elements in the array by returning list.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#length"
+    },
+    "lens": {
+      "!cat": "Object",
+      "!doc": "(s → a) → ((a, s) → s) → Lens s a\\nLens s a = Functor f => (a → f a) → s → f s\\nReturns a lens for the given getter and setter functions.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#lens"
+    },
+    "lensIndex": {
+      "!cat": "Object",
+      "!doc": "Number → Lens s a\\nLens s a = Functor f => (a → f a) → s → f s\\nReturns a lens whose focus is the specified index.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#lensIndex"
+    },
+    "lensPath": {
+      "!cat": "Object",
+      "!doc": "[String] → Lens s a\\nLens s a = Functor f => (a → f a) → s → f s\\nReturns a lens whose focus is the specified path.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#lensPath"
+    },
+    "lensProp": {
+      "!cat": "Object",
+      "!doc": "String → Lens s a\\nLens s a = Functor f => (a → f a) → s → f s\\nReturns a lens whose focus is the specified property.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#lensProp"
+    },
+    "lift": {
+      "!cat": "Function",
+      "!doc": "(*… → *) → ([*]… → [*])\\n'lifts' a function of arity > 1 so that it may 'map over' a list, Function or other object that satisfies the FantasyLand Apply spec.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#lift"
+    },
+    "liftN": {
+      "!cat": "Function",
+      "!doc": "Number → (*… → *) → ([*]… → [*])\\n'lifts' a function to be the specified arity, so that it may 'map over' that many lists, Functions or other objects that satisfy the FantasyLand Apply spec.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#liftN"
+    },
+    "lt": {
+      "!cat": "Relation",
+      "!doc": "Ord a => a → a → Boolean\\nReturns true if the first argument is less than the second; false otherwise.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#lt"
+    },
+    "lte": {
+      "!cat": "Relation",
+      "!doc": "Ord a => a → a → Boolean\\nReturns true if the first argument is less than or equal to the second; false otherwise.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#lte"
+    },
+    "map": {
+      "!cat": "List",
+      "!doc": "Functor f => (a → b) → f a → f b\\nTakes a function and a functor, applies the function to each of the functor's values, and returns a functor of the same shape.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#map"
+    },
+    "mapAccum": {
+      "!cat": "List",
+      "!doc": "(acc → x → (acc, y)) → acc → [x] → (acc, [y])\\nThe mapAccum function behaves like a combination of map and reduce; it applies a function to each element of a list, passing an accumulating parameter from left to right, and returning a final value of this accumulator together with the new list.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#mapAccum"
+    },
+    "mapAccumRight": {
+      "!cat": "List",
+      "!doc": "(acc → x → (acc, y)) → acc → [x] → (acc, [y])\\nThe mapAccumRight function behaves like a combination of map and reduce; it applies a function to each element of a list, passing an accumulating parameter from right to left, and returning a final value of this accumulator together with the new list.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#mapAccumRight"
+    },
+    "mapObjIndexed": {
+      "!cat": "Object",
+      "!doc": "((*, String, Object) → *) → Object → Object\\nAn Object-specific version of map.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#mapObjIndexed"
+    },
+    "match": {
+      "!cat": "String",
+      "!doc": "RegExp → String → [String | Undefined]\\nTests a regular expression against a String.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#match"
+    },
+    "mathMod": {
+      "!cat": "Math",
+      "!doc": "Number → Number → Number\\nmathMod behaves like the modulo operator should mathematically, unlike the % operator (and by extension, R.",
+        "!type": "",
+        "!url": "http://ramdajs.com/0.21.0/docs/#mathMod"
+    },
+    "max": {
+      "!cat": "Relation",
+      "!doc": "Ord a => a → a → a\\nReturns the larger of its two arguments.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#max"
+    },
+    "maxBy": {
+      "!cat": "Relation",
+      "!doc": "Ord b => (a → b) → a → a → a\\nTakes a function and two values, and returns whichever value produces the larger result when passed to the provided function.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#maxBy"
+    },
+    "mean": {
+      "!cat": "Math",
+      "!doc": "[Number] → Number\\nReturns the mean of the given list of numbers.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#mean"
+    },
+    "median": {
+      "!cat": "Math",
+      "!doc": "[Number] → Number\\nReturns the median of the given list of numbers.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#median"
+    },
+    "memoize": {
+      "!cat": "Function",
+      "!doc": "(*… → a) → (*… → a)\\nCreates a new function that, when invoked, caches the result of calling fn for a given argument set and returns the result.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#memoize"
+    },
+    "merge": {
+      "!cat": "Object",
+      "!doc": "{k: v} → {k: v} → {k: v}\\nCreate a new object with the own properties of the first object merged with the own properties of the second object.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#merge"
+    },
+    "mergeAll": {
+      "!cat": "List",
+      "!doc": "[{k: v}] → {k: v}\\nMerges a list of objects together into one object.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#mergeAll"
+    },
+    "mergeWith": {
+      "!cat": "Object",
+      "!doc": "(a → a → a) → {a} → {a} → {a}\\nCreates a new object with the own properties of the two provided objects.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#mergeWith"
+    },
+    "mergeWithKey": {
+      "!cat": "Object",
+      "!doc": "(String → a → a → a) → {a} → {a} → {a}\\nCreates a new object with the own properties of the two provided objects.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#mergeWithKey"
+    },
+    "min": {
+      "!cat": "Relation",
+      "!doc": "Ord a => a → a → a\\nReturns the smaller of its two arguments.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#min"
+    },
+    "minBy": {
+      "!cat": "Relation",
+      "!doc": "Ord b => (a → b) → a → a → a\\nTakes a function and two values, and returns whichever value produces the smaller result when passed to the provided function.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#minBy"
+    },
+    "modulo": {
+      "!cat": "Math",
+      "!doc": "Number → Number → Number\\nDivides the second parameter by the first and returns the remainder.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#modulo"
+    },
+    "multiply": {
+      "!cat": "Math",
+      "!doc": "Number → Number → Number\\nMultiplies two numbers.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#multiply"
+    },
+    "nAry": {
+      "!cat": "Function",
+      "!doc": "Number → (* → a) → (* → a)\\nWraps a function of any arity (including nullary) in a function that accepts exactly n parameters.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#nAry"
+    },
+    "negate": {
+      "!cat": "Math",
+      "!doc": "Number → Number\\nNegates its argument.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#negate"
+    },
+    "none": {
+      "!cat": "List",
+      "!doc": "(a → Boolean) → [a] → Boolean\\nReturns true if no elements of the list match the predicate, false otherwise.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#none"
+    },
+    "not": {
+      "!cat": "Logic",
+      "!doc": "* → Boolean\\nA function that returns the ! of its argument.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#not"
+    },
+    "nth": {
+      "!cat": "List",
+      "!doc": "Number → [a] → a | Undefined\\nNumber → String → String\\nReturns the nth element of the given list or string.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#nth"
+    },
+    "nthArg": {
+      "!cat": "Function",
+      "!doc": "Number → *… → *\\nReturns a function which returns its nth argument.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#nthArg"
+    },
+    "objOf": {
+      "!cat": "Object",
+      "!doc": "String → a → {String:a}\\nCreates an object containing a single key:value pair.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#objOf"
+    },
+    "of": {
+      "!cat": "Function",
+      "!doc": "a → [a]\\nReturns a singleton array containing the value provided.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#of"
+    },
+    "omit": {
+      "!cat": "Object",
+      "!doc": "[String] → {String: *} → {String: *}\\nReturns a partial copy of an object omitting the keys specified.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#omit"
+    },
+    "once": {
+      "!cat": "Function",
+      "!doc": "(a… → b) → (a… → b)\\nAccepts a function fn and returns a function that guards invocation of fn such that fn can only ever be called once, no matter how many times the returned function is invoked.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#once"
+    },
+    "or": {
+      "!cat": "Logic",
+      "!doc": "* → * → *\\nReturns true if one or both of its arguments are true.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#or"
+    },
+    "over": {
+      "!cat": "Object",
+      "!doc": "Lens s a → (a → a) → s → s\\nLens s a = Functor f => (a → f a) → s → f s\\nReturns the result of 'setting' the portion of the given data structure focused by the given lens to the result of applying the given function to the focused value.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#over"
+    },
+    "pair": {
+      "!cat": "List",
+      "!doc": "a → b → (a,b)\\nTakes two arguments, fst and snd, and returns [fst, snd].",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#pair"
+    },
+    "partial": {
+      "!cat": "Function",
+      "!doc": "((a, b, c, …, n) → x) → [a, b, c, …] → ((d, e, f, …, n) → x)\\nTakes a function f and a list of arguments, and returns a function g.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#partial"
+    },
+    "partialRight": {
+      "!cat": "Function",
+      "!doc": "((a, b, c, …, n) → x) → [d, e, f, …, n] → ((a, b, c, …) → x)\\nTakes a function f and a list of arguments, and returns a function g.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#partialRight"
+    },
+    "partition": {
+      "!cat": "List",
+      "!doc": "Filterable f => (a → Boolean) → f a → [f a, f a]\\nTakes a predicate and a list or other 'filterable' object and returns the pair of filterable objects of the same type of elements which do and do not satisfy, the predicate, respectively.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#partition"
+    },
+    "path": {
+      "!cat": "Object",
+      "!doc": "[String] → {k: v} → v | Undefined\\nRetrieve the value at a given path.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#path"
+    },
+    "pathEq": {
+      "!cat": "Relation",
+      "!doc": "[String] → * → {String: *} → Boolean\\nDetermines whether a nested path on an object has a specific value, in R.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#pathEq"
+    },
+    "pathOr": {
+      "!cat": "Object",
+      "!doc": "a → [String] → Object → a\\nIf the given, non-null object has a value at the given path, returns the value at that path.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#pathOr"
+    },
+    "pathSatisfies": {
+      "!cat": "Logic",
+      "!doc": "(a → Boolean) → [String] → Object → Boolean\\nReturns true if the specified object property at given path satisfies the given predicate; false otherwise.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#pathSatisfies"
+    },
+    "pick": {
+      "!cat": "Object",
+      "!doc": "[k] → {k: v} → {k: v}\\nReturns a partial copy of an object containing only the keys specified.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#pick"
+    },
+    "pickAll": {
+      "!cat": "Object",
+      "!doc": "[k] → {k: v} → {k: v}\\nSimilar to pick except that this one includes a key: undefined pair for properties that don't exist.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#pickAll"
+    },
+    "pickBy": {
+      "!cat": "Object",
+      "!doc": "(v, k → Boolean) → {k: v} → {k: v}\\nReturns a partial copy of an object containing only the keys that satisfy the supplied predicate.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#pickBy"
+    },
+    "pipe": {
+      "!cat": "Function",
+      "!doc": "(((a, b, …, n) → o), (o → p), …, (x → y), (y → z)) → ((a, b, …, n) → z)\\nPerforms left-to-right function composition.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#pipe"
+    },
+    "pipeK": {
+      "!cat": "Function",
+      "!doc": "Chain m => ((a → m b), (b → m c), …, (y → m z)) → (m a → m z)\\nReturns the left-to-right Kleisli composition of the provided functions, each of which must return a value of a type supported by chain.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#pipeK"
+    },
+    "pipeP": {
+      "!cat": "Function",
+      "!doc": "((a → Promise b), (b → Promise c), …, (y → Promise z)) → (a → Promise z)\\nPerforms left-to-right composition of one or more Promise-returning functions.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#pipeP"
+    },
+    "pluck": {
+      "!cat": "List",
+      "!doc": "k → [{k: v}] → [v]\\nReturns a new list by plucking the same named property off all objects in the list supplied.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#pluck"
+    },
+    "prepend": {
+      "!cat": "List",
+      "!doc": "a → [a] → [a]\\nReturns a new list with the given element at the front, followed by the contents of the list.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#prepend"
+    },
+    "product": {
+      "!cat": "Math",
+      "!doc": "[Number] → Number\\nMultiplies together all the elements of a list.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#product"
+    },
+    "project": {
+      "!cat": "Object",
+      "!doc": "[k] → [{k: v}] → [{k: v}]\\nReasonable analog to SQL select statement.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#project"
+    },
+    "prop": {
+      "!cat": "Object",
+      "!doc": "s → {s: a} → a | Undefined\\nReturns a function that when supplied an object returns the indicated property of that object, if it exists.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#prop"
+    },
+    "propEq": {
+      "!cat": "Relation",
+      "!doc": "String → a → Object → Boolean\\nReturns true if the specified object property is equal, in R.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#propEq"
+    },
+    "propIs": {
+      "!cat": "Type",
+      "!doc": "Type → String → Object → Boolean\\nReturns true if the specified object property is of the given type; false otherwise.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#propIs"
+    },
+    "propOr": {
+      "!cat": "Object",
+      "!doc": "a → String → Object → a\\nIf the given, non-null object has an own property with the specified name, returns the value of that property.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#propOr"
+    },
+    "props": {
+      "!cat": "Object",
+      "!doc": "[k] → {k: v} → [v]\\nActs as multiple prop: array of keys in, array of values out.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#props"
+    },
+    "propSatisfies": {
+      "!cat": "Logic",
+      "!doc": "(a → Boolean) → String → {String: a} → Boolean\\nReturns true if the specified object property satisfies the given predicate; false otherwise.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#propSatisfies"
+    },
+    "range": {
+      "!cat": "List",
+      "!doc": "Number → Number → [Number]\\nReturns a list of numbers from from (inclusive) to to (exclusive).",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#range"
+    },
+    "reduce": {
+      "!cat": "List",
+      "!doc": "((a, b) → a) → a → [b] → a\\nReturns a single item by iterating through the list, successively calling the iterator function and passing it an accumulator value and the current value from the array, and then passing the result to the next call.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#reduce"
+    },
+    "reduceBy": {
+      "!cat": "List",
+      "!doc": "((a, b) → a) → a → (b → String) → [b] → {String: a}\\nGroups the elements of the list according to the result of calling the String-returning function keyFn on each element and reduces the elements of each group to a single value via the reducer function valueFn.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#reduceBy"
+    },
+    "reduced": {
+      "!cat": "List",
+      "!doc": "a → *\\nReturns a value wrapped to indicate that it is the final value of the reduce and transduce functions.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#reduced"
+    },
+    "reduceRight": {
+      "!cat": "List",
+      "!doc": "(a,b → a) → a → [b] → a\\nReturns a single item by iterating through the list, successively calling the iterator function and passing it an accumulator value and the current value from the array, and then passing the result to the next call.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#reduceRight"
+    },
+    "reject": {
+      "!cat": "List",
+      "!doc": "Filterable f => (a → Boolean) → f a → f a\\nThe complement of filter.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#reject"
+    },
+    "remove": {
+      "!cat": "List",
+      "!doc": "Number → Number → [a] → [a]\\nRemoves the sub-list of list starting at index start and containing count elements.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#remove"
+    },
+    "repeat": {
+      "!cat": "List",
+      "!doc": "a → n → [a]\\nReturns a fixed list of size n containing a specified identical value.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#repeat"
+    },
+    "replace": {
+      "!cat": "String",
+      "!doc": "RegExp|String → String → String → String\\nReplace a substring or regex match in a string with a replacement.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#replace"
+    },
+    "reverse": {
+      "!cat": "List",
+      "!doc": "[a] → [a]\\nString → String\\nReturns a new list or string with the elements or characters in reverse order.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#reverse"
+    },
+    "scan": {
+      "!cat": "List",
+      "!doc": "(a,b → a) → a → [b] → [a]\\nScan is similar to reduce, but returns a list of successively reduced values from the left  ",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#scan"
+    },
+    "sequence": {
+      "!cat": "List",
+      "!doc": "(Applicative f, Traversable t) => (a → f a) → t (f a) → f (t a)\\nTransforms a Traversable of Applicative into an Applicative of Traversable.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#sequence"
+    },
+    "set": {
+      "!cat": "Object",
+      "!doc": "Lens s a → a → s → s\\nLens s a = Functor f => (a → f a) → s → f s\\nReturns the result of 'setting' the portion of the given data structure focused by the given lens to the given value.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#set"
+    },
+    "slice": {
+      "!cat": "List",
+      "!doc": "Number → Number → [a] → [a]\\nNumber → Number → String → String\\nReturns the elements of the given list or string (or object with a slice method) from fromIndex (inclusive) to toIndex (exclusive).",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#slice"
+    },
+    "sort": {
+      "!cat": "List",
+      "!doc": "(a,a → Number) → [a] → [a]\\nReturns a copy of the list, sorted according to the comparator function, which should accept two values at a time and return a negative number if the first value is smaller, a positive number if it's larger, and zero if they are equal.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#sort"
+    },
+    "sortBy": {
+      "!cat": "Relation",
+      "!doc": "Ord b => (a → b) → [a] → [a]\\nSorts the list according to the supplied function.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#sortBy"
+    },
+    "split": {
+      "!cat": "String",
+      "!doc": "(String | RegExp) → String → [String]\\nSplits a string into an array of strings based on the given separator.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#split"
+    },
+    "splitAt": {
+      "!cat": "List",
+      "!doc": "Number → [a] → [[a], [a]]\\nNumber → String → [String, String]\\nSplits a given list or string at a given index.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#splitAt"
+    },
+    "splitEvery": {
+      "!cat": "List",
+      "!doc": "Number → [a] → [[a]]\\nNumber → String → [String]\\nSplits a collection into slices of the specified length.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#splitEvery"
+    },
+    "splitWhen": {
+      "!cat": "List",
+      "!doc": "(a → Boolean) → [a] → [[a], [a]]\\nTakes a list and a predicate and returns a pair of lists with the following properties:  the result of concatenating the two output lists is equivalent to the input list; none of the elements of the first output list satisfies the predicate; and if the second output list is non-empty, its first element satisfies the predicate.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#splitWhen"
+    },
+    "subtract": {
+      "!cat": "Math",
+      "!doc": "Number → Number → Number\\nSubtracts its second argument from its first argument.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#subtract"
+    },
+    "sum": {
+      "!cat": "Math",
+      "!doc": "[Number] → Number\\nAdds together all the elements of a list.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#sum"
+    },
+    "symmetricDifference": {
+      "!cat": "Relation",
+      "!doc": "[*] → [*] → [*]\\nFinds the set (i.",
+        "!type": "",
+        "!url": "http://ramdajs.com/0.21.0/docs/#symmetricDifference"
+    },
+    "symmetricDifferenceWith": {
+      "!cat": "Relation",
+      "!doc": "(a → a → Boolean) → [a] → [a] → [a]\\nFinds the set (i.",
+        "!type": "",
+        "!url": "http://ramdajs.com/0.21.0/docs/#symmetricDifferenceWith"
+    },
+    "T": {
+      "!cat": "Function",
+      "!doc": "* → Boolean\\nA function that always returns true.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#T"
+    },
+    "tail": {
+      "!cat": "List",
+      "!doc": "[a] → [a]\\nString → String\\nReturns all but the first element of the given list or string (or object with a tail method).",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#tail"
+    },
+    "take": {
+      "!cat": "List",
+      "!doc": "Number → [a] → [a]\\nNumber → String → String\\nReturns the first n elements of the given list, string, or transducer/transformer (or object with a take method).",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#take"
+    },
+    "takeLast": {
+      "!cat": "List",
+      "!doc": "Number → [a] → [a]\\nNumber → String → String\\nReturns a new list containing the last n elements of the given list.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#takeLast"
+    },
+    "takeLastWhile": {
+      "!cat": "List",
+      "!doc": "(a → Boolean) → [a] → [a]\\nReturns a new list containing the last n elements of a given list, passing each value to the supplied predicate function, and terminating when the predicate function returns false.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#takeLastWhile"
+    },
+    "takeWhile": {
+      "!cat": "List",
+      "!doc": "(a → Boolean) → [a] → [a]\\nReturns a new list containing the first n elements of a given list, passing each value to the supplied predicate function, and terminating when the predicate function returns false.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#takeWhile"
+    },
+    "tap": {
+      "!cat": "Function",
+      "!doc": "(a → *) → a → a\\nRuns the given function with the supplied object, then returns the object.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#tap"
+    },
+    "test": {
+      "!cat": "String",
+      "!doc": "RegExp → String → Boolean\\nDetermines whether a given string matches a given regular expression.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#test"
+    },
+    "times": {
+      "!cat": "List",
+      "!doc": "(Number → a) → Number → [a]\\nCalls an input function n times, returning an array containing the results of those function calls.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#times"
+    },
+    "toLower": {
+      "!cat": "String",
+      "!doc": "String → String\\nThe lower case version of a string.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#toLower"
+    },
+    "toPairs": {
+      "!cat": "Object",
+      "!doc": "{String: *} → [[String,*]]\\nConverts an object into an array of key, value arrays.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#toPairs"
+    },
+    "toPairsIn": {
+      "!cat": "Object",
+      "!doc": "{String: *} → [[String,*]]\\nConverts an object into an array of key, value arrays.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#toPairsIn"
+    },
+    "toString": {
+      "!cat": "String",
+      "!doc": "* → String\\nReturns the string representation of the given value.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#toString"
+    },
+    "toUpper": {
+      "!cat": "String",
+      "!doc": "String → String\\nThe upper case version of a string.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#toUpper"
+    },
+    "transduce": {
+      "!cat": "List",
+      "!doc": "(c → c) → (a,b → a) → a → [b] → a\\nInitializes a transducer using supplied iterator function.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#transduce"
+    },
+    "transpose": {
+      "!cat": "List",
+      "!doc": "[[a]] → [[a]]\\nTransposes the rows and columns of a 2D list.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#transpose"
+    },
+    "traverse": {
+      "!cat": "List",
+      "!doc": "(Applicative f, Traversable t) => (a → f a) → (a → f b) → t a → f (t b)\\nMaps an Applicative-returning function over a Traversable, then uses sequence to transform the resulting Traversable of Applicative into an Applicative of Traversable.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#traverse"
+    },
+    "trim": {
+      "!cat": "String",
+      "!doc": "String → String\\nRemoves (strips) whitespace from both ends of the string.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#trim"
+    },
+    "tryCatch": {
+      "!cat": "Function",
+      "!doc": "(…x → a) → ((e, …x) → a) → (…x → a)\\ntryCatch takes two functions, a tryer and a catcher.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#tryCatch"
+    },
+    "type": {
+      "!cat": "Type",
+      "!doc": "(* → {*}) → String\\nGives a single-word string description of the (native) type of a value, returning such answers as 'Object', 'Number', 'Array', or 'Null'.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#type"
+    },
+    "unapply": {
+      "!cat": "Function",
+      "!doc": "([*…] → a) → (*… → a)\\nTakes a function fn, which takes a single array argument, and returns a function which:  takes any number of positional arguments; passes these arguments to fn as an array; and returns the result.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#unapply"
+    },
+    "unary": {
+      "!cat": "Function",
+      "!doc": "(* → b) → (a → b)\\nWraps a function of any arity (including nullary) in a function that accepts exactly 1 parameter.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#unary"
+    },
+    "uncurryN": {
+      "!cat": "Function",
+      "!doc": "Number → (a → b) → (a → c)\\nReturns a function of arity n from a (manually) curried function.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#uncurryN"
+    },
+    "unfold": {
+      "!cat": "List",
+      "!doc": "(a → [b]) → * → [b]\\nBuilds a list from a seed value.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#unfold"
+    },
+    "union": {
+      "!cat": "Relation",
+      "!doc": "[*] → [*] → [*]\\nCombines two lists into a set (i.",
+        "!type": "",
+        "!url": "http://ramdajs.com/0.21.0/docs/#union"
+    },
+    "unionWith": {
+      "!cat": "Relation",
+      "!doc": "(a → a → Boolean) → [*] → [*] → [*]\\nCombines two lists into a set (i.",
+        "!type": "",
+        "!url": "http://ramdajs.com/0.21.0/docs/#unionWith"
+    },
+    "uniq": {
+      "!cat": "List",
+      "!doc": "[a] → [a]\\nReturns a new list containing only one copy of each element in the original list.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#uniq"
+    },
+    "uniqBy": {
+      "!cat": "List",
+      "!doc": "(a → b) → [a] → [a]\\nReturns a new list containing only one copy of each element in the original list, based upon the value returned by applying the supplied function to each list element.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#uniqBy"
+    },
+    "uniqWith": {
+      "!cat": "List",
+      "!doc": "(a, a → Boolean) → [a] → [a]\\nReturns a new list containing only one copy of each element in the original list, based upon the value returned by applying the supplied predicate to two list elements.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#uniqWith"
+    },
+    "unless": {
+      "!cat": "Logic",
+      "!doc": "(a → Boolean) → (a → a) → a → a\\nTests the final argument by passing it to the given predicate function.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#unless"
+    },
+    "unnest": {
+      "!cat": "List",
+      "!doc": "Chain c => c (c a) → c a\\nShorthand for R.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#unnest"
+    },
+    "until": {
+      "!cat": "Logic",
+      "!doc": "(a → Boolean) → (a → a) → a → a\\nTakes a predicate, a transformation function, and an initial value, and returns a value of the same type as the initial value.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#until"
+    },
+    "update": {
+      "!cat": "List",
+      "!doc": "Number → a → [a] → [a]\\nReturns a new copy of the array with the element at the provided index replaced with the given value.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#update"
+    },
+    "useWith": {
+      "!cat": "Function",
+      "!doc": "(x1 → x2 → … → z) → [(a → x1), (b → x2), …] → (a → b → … → z)\\nAccepts a function fn and a list of transformer functions and returns a new curried function.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#useWith"
+    },
+    "values": {
+      "!cat": "Object",
+      "!doc": "{k: v} → [v]\\nReturns a list of all the enumerable own properties of the supplied object.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#values"
+    },
+    "valuesIn": {
+      "!cat": "Object",
+      "!doc": "{k: v} → [v]\\nReturns a list of all the properties, including prototype properties, of the supplied object.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#valuesIn"
+    },
+    "view": {
+      "!cat": "Object",
+      "!doc": "Lens s a → s → a\\nLens s a = Functor f => (a → f a) → s → f s\\nReturns a 'view' of the given data structure, determined by the given lens.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#view"
+    },
+    "when": {
+      "!cat": "Logic",
+      "!doc": "(a → Boolean) → (a → a) → a → a\\nTests the final argument by passing it to the given predicate function.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#when"
+    },
+    "where": {
+      "!cat": "Object",
+      "!doc": "{String: (* → Boolean)} → {String: *} → Boolean\\nTakes a spec object and a test object; returns true if the test satisfies the spec.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#where"
+    },
+    "whereEq": {
+      "!cat": "Object",
+      "!doc": "{String: *} → {String: *} → Boolean\\nTakes a spec object and a test object; returns true if the test satisfies the spec, false otherwise.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#whereEq"
+    },
+    "without": {
+      "!cat": "List",
+      "!doc": "[a] → [a] → [a]\\nReturns a new list without values in the first argument.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#without"
+    },
+    "wrap": {
+      "!cat": "Function",
+      "!doc": "(a… → b) → ((a… → b) → a… → c) → (a… → c)\\nWrap a function inside another to allow you to make adjustments to the parameters, or do other processing either before the internal function is called or with its results.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#wrap"
+    },
+    "xprod": {
+      "!cat": "List",
+      "!doc": "[a] → [b] → [[a,b]]\\nCreates a new list out of the two supplied by creating each possible pair from the lists.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#xprod"
+    },
+    "zip": {
+      "!cat": "List",
+      "!doc": "[a] → [b] → [[a,b]]\\nCreates a new list out of the two supplied by pairing up equally-positioned items from both lists.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#zip"
+    },
+    "zipObj": {
+      "!cat": "List",
+      "!doc": "[String] → [*] → {String: *}\\nCreates a new object out of a list of keys and a list of values.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#zipObj"
+    },
+    "zipWith": {
+      "!cat": "List",
+      "!doc": "(a,b → c) → [a] → [b] → [c]\\nCreates a new list out of the two supplied by applying the function to each equally-positioned pair in the lists.",
+      "!type": "",
+      "!url": "http://ramdajs.com/0.21.0/docs/#zipWith"
+    }
+  }
+}

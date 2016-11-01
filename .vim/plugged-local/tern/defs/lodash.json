@@ -1,0 +1,1561 @@
+{
+  "!name": "lodash",
+  "_": {
+    "add": {
+      "!doc": "Adds two numbers.",
+      "!type": "fn(augend: number, addend: number) -> number",
+      "!url": "https://lodash.com/docs#add"
+    },
+    "after": {
+      "!doc": "This method creates a function that invokes func once it’s called n or more times.",
+      "!type": "fn(n: number, func: fn()) -> !1",
+      "!url": "https://lodash.com/docs#after"
+    },
+    "ary": {
+      "!doc": "Creates a function that invokes func, with up to n arguments, ignoring any additional arguments.",
+      "!type": "fn(func: fn(), n?: number) -> !0",
+      "!url": "https://lodash.com/docs#ary"
+    },
+    "assign": {
+      "!doc": "Assigns own enumerable string keyed properties of source objects to the destination object.",
+      "!type": "fn(object: ?, source1?: ?, source2?: ?) -> !0",
+      "!effects": ["copy !1 !0", "copy !2 !0"],
+      "!url": "https://lodash.com/docs#assign"
+    },
+    "assignIn": {
+      "!doc": "This method is like _.assign except that it iterates over own and inherited source properties.",
+      "!type": "fn(object: ?, source1?: ?, source2?: ?) -> !0",
+      "!effects": ["copy !1 !0", "copy !2 !0"],
+      "!url": "https://lodash.com/docs#assignIn"
+    },
+    "assignInWith": {
+      "!doc": "This method is like _.assignIn except that it accepts customizer which is invoked to produce the assigned values.",
+      "!type": "fn(object: ?, source: ?, customizer?: fn(objVal: ?, srcVal: ?, key: ?, object: ?, source: ?)) -> !0",
+      "!effects": ["call !2 !0.<i> !1.<i> number !0 !1"],
+      "!url": "https://lodash.com/docs#assignInWith"
+    },
+    "assignWith": {
+      "!doc": "This method is like _.assign except that it accepts customizer which is invoked to produce the assigned values.",
+      "!type": "fn(object: ?, source: ?, customizer?: fn(objVal: ?, srcVal: ?, key: ?, object: ?, source: ?)) -> !0",
+      "!effects": ["call !2 !0.<i> !1.<i> number !0 !1"],
+      "!url": "https://lodash.com/docs#assignWith"
+    },
+    "at": {
+      "!doc": "Creates an array of values corresponding to paths of object.",
+      "!type": "fn(object: ?, paths?: [string]) -> [?]",
+      "!url": "https://lodash.com/docs#at"
+    },
+    "attemp": {
+      "!doc": "Attempts to invoke func, returning either the result or the caught error object. Any additional arguments are provided to func when it’s invoked.",
+      "!type": "fn(func: fn(), args?: ?) -> !0.!ret",
+      "!url": "https://lodash.com/docs#attemp"
+    },
+    "before": {
+      "!doc": "Creates a function that invokes func, with the this binding and arguments of the created function, while it’s called less than n times.",
+      "!type": "fn(n: number, func: fn()) -> !1",
+      "!url": "https://lodash.com/docs#before"
+    },
+    "bind": {
+      "!doc": "Creates a function that invokes func with the this binding of thisArg and partials prepended to the arguments it receives.",
+      "!type": "fn(func: ?, thisArg: ?, partials?: ?) -> !0",
+      "!url": "https://lodash.com/docs#bind"
+    },
+    "bindAll": {
+      "!doc": "Binds methods of an object to the object itself, overwriting the existing method.",
+      "!type": "fn(object: ?, methodNames?: [string]) -> !0",
+      "!url": "https://lodash.com/docs#bindAll"
+    },
+    "bindKey": {
+      "!doc": "Creates a function that invokes the method at object[key] with partials prepended to the arguments it receives.",
+      "!type": "fn(object: ?, key: string, partials?: ?) -> fn()",
+      "!url": "https://lodash.com/docs#bindKey"
+    },
+    "castArray": {
+      "!doc": "Casts value as an array if it’s not one.",
+      "!type": "fn(value: ?) -> [?]",
+      "!url": "https://lodash.com/docs#castArray"
+    },
+    "camelCase": {
+      "!doc": "Converts string to camel case.",
+      "!type": "fn(string?: string) -> string",
+      "!url": "https://lodash.com/docs#camelCase"
+    },
+    "capitalize": {
+      "!doc": "Converts the first character of string to upper case and the remaining to lower case.",
+      "!type": "fn(string?: string) -> string",
+      "!url": "https://lodash.com/docs#capitalize"
+    },
+    "ceil": {
+      "!doc": "Computes number rounded up to precision.",
+      "!type": "fn(number: number, precision?: number) -> number",
+      "!url": "https://lodash.com/docs#ceil"
+    },
+    "clamp": {
+      "!doc": "Clamps number within the inclusive lower and upper bounds.",
+      "!type": "fn(number: number, lower?: number, upper: number) -> number",
+      "!url": "https://lodash.com/docs#"
+    },
+    "create": {
+      "!doc": "Creates an object that inherits from the prototype object. If a properties object is given, its own enumerable string keyed properties are assigned to the created object.",
+      "!type": "fn(prototype: ?, properties?: ?) -> ?",
+      "!url": "https://lodash.com/docs#create"
+    },
+    "chain": {
+      "!doc": "Creates a lodash wrapper instance that wraps value with explicit method chain sequences enabled. The result of such sequences must be unwrapped with _#value.",
+      "!type": "fn(value: ?) -> ?",
+      "!url": "https://lodash.com/docs#chain"
+    },
+    "chunk": {
+      "!doc": "Creates an array of elements split into groups the length of size. If array can’t be split evenly, the final chunk will be the remaining elements.",
+      "!type": "fn(array: [?], size?: number) -> [?]",
+      "!url": "https://lodash.com/docs#chunk"
+    },
+    "clone": {
+      "!doc": "Creates a shallow clone of value",
+      "!type": "fn(value: ?) -> !0",
+      "!url": "https://lodash.com/docs#clone"
+    },
+    "cloneDeep": {
+      "!doc": "This method is like _.clone except that it recursively clones value.",
+      "!type": "fn(value: ?) -> !0",
+      "!url": "https://lodash.com/docs#cloneDeep"
+    },
+    "cloneDeepWith": {
+      "!doc": "This method is like _.cloneWith except that it recursively clones value.",
+      "!type": "fn(value: ?, customizer?: fn(value: ?, key?: ?, object?: ?, stack?: ?)) -> !0",
+      "!url": "https://lodash.com/docs#cloneDeepWith"
+    },
+    "cloneWith": {
+      "!doc": "This method is like _.clone except that it accepts customizer which is invoked to produce the cloned value.",
+      "!type": "fn(value: ?, customizer?: fn(value: ?, key?: ?, object?: ?, stack?: ?)) -> !0",
+      "!url": "https://lodash.com/docs#cloneWith"
+    },
+    "compact": {
+      "!doc": "Creates an array with all falsey values removed. The values false, null, 0, '', undefined, and NaN are falsey.",
+      "!type": "fn(array: [?]) -> [?]",
+      "!url": "https://lodash.com/docs#compact"
+    },
+    "concat": {
+      "!doc": "Creates a new array concatenating array with any additional arrays and/or values.",
+      "!type": "fn(array: [?], values?: ?) -> [?]",
+      "!url": "https://lodash.com/docs#concat"
+    },
+    "cond": {
+      "!doc": "Creates a function that iterates over pairs and invokes the corresponding function of the first predicate to return truthy.",
+      "!type": "fn(pairs: [fn()]) -> fn()",
+      "!url": "https://lodash.com/docs#cond"
+    },
+    "conforms": {
+      "!doc": "Creates a function that invokes the predicate properties of source with the corresponding property values of a given object, returning true if all predicates return truthy, else false.",
+      "!type": "fn(source: ?) -> fn()",
+      "!url": "https://lodash.com/docs#conforms"
+    },
+    "constant": {
+      "!doc": "Creates a function that returns value.",
+      "!type": "fn(value: ?) -> fn() -> !0",
+      "!url": "https://lodash.com/docs#constant"
+    },
+    "countBy": {
+      "!doc": "Creates an object composed of keys generated from the results of running each element of collection thru iteratee.",
+      "!type": "fn(collection: ?, iteratee?: ?) -> ?",
+      "!url": "https://lodash.com/docs#countBy"
+    },
+    "curry": {
+      "!doc": "Creates a function that accepts arguments of func and either invokes func returning its result, if at least arity number of arguments have been provided, or returns a function that accepts the remaining func arguments, and so on.",
+      "!type": "fn(func: fn(), arity?: number) -> !0",
+      "!url": "https://lodash.com/docs#curry"
+    },
+    "curryRight": {
+      "!doc": "This method is like _.curry except that arguments are applied to func in the manner of _.partialRight instead of _.partial.",
+      "!type": "fn(func: fn(), arity?: number) -> !0",
+      "!url": "https://lodash.com/docs#curryRight"
+    },
+    "debounce": {
+      "!doc": "Creates a debounced function that delays invoking func until after wait milliseconds have elapsed since the last time the debounced function was invoked.",
+      "!type": "fn(func: fn(), wait?: number, options?: ?) -> !0",
+      "!url": "https://lodash.com/docs#debounce"
+    },
+    "deburr": {
+      "!doc": "Deburrs string by converting latin-1 supplementary letters to basic latin letters and removing combining diacritical marks.",
+      "!type": "fn(string?: string) -> string",
+      "!url": "https://lodash.com/docs#deburr"
+    },
+    "defaults": {
+      "!doc": "Assigns own and inherited enumerable string keyed properties of source objects to the destination object for all destination properties that resolve to undefined.",
+      "!type": "fn(object: ?, source1?: ?, source2?: ?) -> !0",
+      "!effects": ["copy !1 !0, copy !2 !0"],
+      "!url": "https://lodash.com/docs#defaults"
+    },
+    "defaultsDeep": {
+      "!doc": "This method is like _.defaults except that it recursively assigns default properties.",
+      "!type": "fn(object: ?, source1?: ?, source2?: ?) -> !0",
+      "!effects": ["copy !1 !0, copy !2 !0"],
+      "!url": "https://lodash.com/docs#defaultsDeep"
+    },
+    "defer": {
+      "!doc": "Defers invoking the func until the current call stack has cleared. Any additional arguments are provided to func when it’s invoked.",
+      "!type": "fn(func: fn(), args?: ?) -> number",
+      "!url": "https://lodash.com/docs#defer"
+    },
+    "delay": {
+      "!doc": "Invokes func after wait milliseconds. Any additional arguments are provided to func when it’s invoked.",
+      "!type": "fn(func: fn(), wait: number, args?: ?) -> number",
+      "!url": "https://lodash.com/docs#delay"
+    },
+    "difference": {
+      "!doc": "Creates an array of unique array values not included in the other given arrays using SameValueZero for equality comparisons.",
+      "!type": "fn(array: [?], values?: [?]) -> [?]",
+      "!url": "https://lodash.com/docs#difference"
+    },
+    "differenceBy": {
+      "!doc": "This method is like _.difference except that it accepts iteratee which is invoked for each element of array and values to generate the criterion by which they're compared.",
+      "!type": "fn(array: [?], values?: [?], iteratee?: ?) -> [?]",
+      "!url": "https://lodash.com/docs#differenceBy"
+    },
+    "differenceWith": {
+      "!doc": "This method is like _.difference except that it accepts comparator which is invoked to compare elements of array to values.",
+      "!type": "fn(array: [?], values?: [?], comparator?: fn(arrVal: ?, othVal: ?) -> ?) -> [?]",
+      "!url": "https://lodash.com/docs#differenceWith"
+    },
+    "divide": {
+      "!doc": "Divide two numbers.",
+      "!type": "fn(dividend: number, divisor: number) -> number",
+      "!url": "https://lodash.com/docs#divide"
+    },
+    "drop": {
+      "!doc": "Creates a slice of array with n elements dropped from the beginning.",
+      "!type": "fn(array: [?], n?: number) -> !0",
+      "!url": "https://lodash.com/docs#drop"
+    },
+    "dropRight": {
+      "!doc": "Creates a slice of array with n elements dropped from the end.",
+      "!type": "fn(array: [?], n?: number) -> !0",
+      "!url": "https://lodash.com/docs#dropRight"
+    },
+    "dropRightWhile": {
+      "!doc": "Creates a slice of array excluding elements dropped from the end. Elements are dropped until predicate returns falsey.",
+      "!type": "fn(array: [?], predicate?: ?) -> !0",
+      "!url": "https://lodash.com/docs#dropRightWhile"
+    },
+    "endsWith": {
+      "!doc": "Checks if string ends with the given target string.",
+      "!type": "fn(string?: string, target?: string, position?: number) -> bool",
+      "!url": "https://lodash.com/docs#endsWith"
+    },
+    "entries": "_.toPairs",
+    "entriesIn": "_.toPairsIn",
+    "eq": {
+      "!doc": "Performs a SameValueZero comparison between two values to determine if they are equivalent.",
+      "!type": "fn(value: ?, other: ?) -> bool",
+      "!url": "https://lodash.com/docs#eq"
+    },
+    "escape": {
+      "!doc": "Converts the characters '&', '<', '>', '\"', \"'\", and '`' in string to their corresponding HTML entities.",
+      "!type": "fn(string?: string) -> string",
+      "!url": "https://lodash.com/docs#escape"
+    },
+    "escapeRegExp": {
+      "!doc": "Escapes the RegExp special characters '^', '$', '\\', '.', '*', '+', '?', '(', ')', '[', ']', '{', '}', and '|' in string.",
+      "!type": "fn(string?: string) -> string",
+      "!url": "https://lodash.com/docs#escapeRegExp"
+    },
+    "every": {
+      "!doc": "Checks if predicate returns truthy for all elements of collection. Iteration is stopped once predicate returns falsey.",
+      "!type": "fn(collection: ?, predicate?: fn(value: ?, key: ?, collection: ?) -> bool) -> bool",
+      "!effects": ["call !1 this=!0.<i> !0.<i> number !0"],
+      "!url": "https://lodash.com/docs#every"
+    },
+    "extend": "_.assignIn",
+    "extendWith": "_.assignInWith",
+    "fill": {
+      "!doc": "Fills elements of array with value from start up to, but not including, end.",
+      "!type": "fn(array: [?], value: ?, start?: number, end?: number) -> [?]",
+      "!url": "https://lodash.com/docs#fill"
+    },
+    "filter": {
+      "!doc": "Iterates over elements of collection, returning an array of all elements predicate returns truthy for.",
+      "!type": "fn(collection: ?, predicate?: fn(value: ?, key: ?, collection: ?) -> bool) -> !0",
+      "!effects": ["call !1 this=!0.<i> !0.<i> number !0"],
+      "!url": "https://lodash.com/docs#filter"
+    },
+    "find": {
+      "!doc": "Iterates over elements of collection, returning the first element predicate returns truthy for.",
+      "!type": "fn(collection: ?, predicate?: fn(value: ?, key: ?, collection: ?) -> bool, fromIndex?: number) -> ?",
+      "!url": "https://lodash.com/docs#find"
+    },
+    "findLast": {
+      "!doc": "This method is like _.find except that it iterates over elements of collection from right to left.",
+      "!type": "fn(collection: ?, predicate?: fn(value: ?, key: ?, collection: ?) -> bool, fromIndex?: number) -> ?",
+      "!url": "https://lodash.com/docs#findLast"
+    },
+    "findIndex": {
+      "!doc": "This method is like _.find except that it returns the index of the first element predicate returns truthy for instead of the element itself.",
+      "!type": "fn(array: [?], predicate?: fn(value: ?, key: ?, collection: ?) -> bool, fromIndex?: number) -> number",
+      "!url": "https://lodash.com/docs#findIndex"
+    },
+    "findKey": {
+      "!doc": "This method is like _.find except that it returns the key of the first element predicate returns truthy for instead of the element itself.",
+      "!type": "fn(object: ?, predicate?: fn(value: ?, key: ?, collection: ?) -> bool) -> ?",
+      "!url": "https://lodash.com/docs#findKey"
+    },
+    "findLastIndex": {
+      "!doc": "This method is like _.findIndex except that it iterates over elements of collection from right to left.",
+      "!type": "fn(array: [?], predicate?: fn(value: ?, key: ?, collection: ?) -> bool, fromIndex?: number) -> number",
+      "!url": "https://lodash.com/docs#findLastIndex"
+    },
+    "findLastKey": {
+      "!doc": "This method is like _.findKey except that it iterates over elements of a collection in the opposite order.",
+      "!type": "fn(object: ?, predicate?: fn(value: ?, key: ?, collection: ?) -> bool) -> ?",
+      "!url": "https://lodash.com/docs#findLastKey"
+    },
+    "flatMap": {
+      "!doc": "Creates a flattened array of values by running each element in collection thru iteratee and flattening the mapped results.",
+      "!type": "fn(collection: ?, iteratee?: fn(value: ?, key: ?, collection: ?)) -> [?]",
+      "!url": "https://lodash.com/docs#flatMap"
+    },
+    "flatMapDeep": {
+      "!doc": "This method is like _.flatMap except that it recursively flattens the mapped results.",
+      "!type": "fn(collection: ?, iteratee?: fn(value: ?, key: ?, collection: ?)) -> [?]",
+      "!url": "https://lodash.com/docs#flatMapDeep"
+    },
+    "flatMapDepth": {
+      "!doc": "This method is like _.flatMap except that it recursively flattens the mapped results up to depth times.",
+      "!type": "fn(collection: ?, iteratee?: fn(value: ?, key: ?, collection: ?), depth?: number) -> [?]",
+      "!url": "https://lodash.com/docs#flatMapDepth"
+    },
+    "flatten": {
+      "!doc": "Flattens array a single level deep.",
+      "!type": "fn(array: [?]) -> [?]",
+      "!url": "https://lodash.com/docs#flatten"
+    },
+    "flattenDeep": {
+      "!doc": "Recursively flattens array.",
+      "!type": "fn(array: [?]) -> [?]",
+      "!url": "https://lodash.com/docs#flattenDeep"
+    },
+    "flattenDepth": {
+      "!doc": "Recursively flatten array up to depth times.",
+      "!type": "fn(array: [?], depth?: number) -> [?]",
+      "!url": "https://lodash.com/docs#flattenDepth"
+    },
+    "flip": {
+      "!doc": "Creates a function that invokes func with arguments reversed.",
+      "!type": "fn(func: fn()) -> !0",
+      "!url": "https://lodash.com/docs#flip"
+    },
+    "floor": {
+      "!doc": "Computes number rounded down to precision.",
+      "!type": "fn(number: number, precision?: number) -> number",
+      "!url": "https://lodash.com/docs#floor"
+    },
+    "flow": {
+      "!doc": "Creates a function that returns the result of invoking the given functions with the this binding of the created function, where each successive invocation is supplied the return value of the previous.",
+      "!type": "fn(funcs?: [fn()]) -> fn()",
+      "!url": "https://lodash.com/docs#flow"
+    },
+    "flowRight": {
+      "!doc": "This method is like _.flow except that it creates a function that invokes the given functions from right to left.",
+      "!type": "fn(funcs?: [fn()]) -> fn()",
+      "!url": "https://lodash.com/docs#flowRight"
+    },
+    "forEach": {
+      "!doc": "Iterates over elements of collection and invokes iteratee for each element.",
+      "!type": "fn(collection: ?, iteratee?: fn(value: ?, key: ?, collection: ?) -> !0)",
+      "!effects": ["call !1 this=!0.<i> !0.<i> number !0"],
+      "!url": "https://lodash.com/docs#forEach"
+    },
+    "forEachRight": {
+      "!doc": "This method is like _.forEach except that it iterates over elements of collection from right to left.",
+      "!type": "fn(collection: ?, iteratee?: fn(value: ?, key: ?, collection: ?) -> !0)",
+      "!effects": ["call !1 this=!0.<i> !0.<i> number !0"],
+      "!url": "https://lodash.com/docs#forEachRight"
+    },
+    "forIn": {
+      "!doc": "Iterates over own and inherited enumerable string keyed properties of an object and invokes iteratee for each property.",
+      "!type": "fn(object: ?, iteratee?: fn(value: ?, key: ?, object: ?)) -> !0",
+      "!effects": ["call !1 !0.<i> string !0"],
+      "!url": "https://lodash.com/docs#forIn"
+    },
+    "forInRight": {
+      "!doc": "This method is like _.forIn except that it iterates over properties of object in the opposite order.",
+      "!type": "fn(object: ?, iteratee?: fn(value: ?, key: ?, object: ?)) -> !0",
+      "!effects": ["call !1 !0.<i> string !0"],
+      "!url": "https://lodash.com/docs#forInRight"
+    },
+    "forOwn": {
+      "!doc": "Iterates over own enumerable string keyed properties of an object and invokes iteratee for each property.",
+      "!type": "fn(object: ?, iteratee?: fn(value: ?, key: ?, object: ?)) -> !0",
+      "!effects": ["call !1 !0.<i> string !0"],
+      "!url": "https://lodash.com/docs#forOwn"
+    },
+    "forOwnRight": {
+      "!doc": "This method is like _.forOwn except that it iterates over properties of object in the opposite order.",
+      "!type": "fn(object: ?, iteratee?: fn(value: ?, key: ?, object: ?)) -> !0",
+      "!effects": ["call !1 !0.<i> string !0"],
+      "!url": "https://lodash.com/docs#forOwnRight"
+    },
+    "fromPairs": {
+      "!doc": "The inverse of _.toPairs; this method returns an object composed from key-value pairs.",
+      "!type": "fn(pairs: [?]) -> ?",
+      "!url": "https://lodash.com/docs#fromPairs"
+    },
+    "functions": {
+      "!doc": "Creates an array of function property names from own enumerable properties of object.",
+      "!type": "fn(object: ?) -> [string]",
+      "!url": "https://lodash.com/docs#functions"
+    },
+    "functionsIn": {
+      "!doc": "Creates an array of function property names from own and inherited enumerable properties of object.",
+      "!type": "fn(object: ?) -> [string]",
+      "!url": "https://lodash.com/docs#functionsIn"
+    },
+    "gt": {
+      "!doc": "Checks if value is greater than other.",
+      "!type": "fn(value: ?, other: ?) -> bool",
+      "!url": "https://lodash.com/docs#gt"
+    },
+    "gte": {
+      "!doc": "Checks if value is greater than or equal to other.",
+      "!type": "fn(value: ?, other: ?) -> bool",
+      "!url": "https://lodash.com/docs#gte"
+    },
+    "get": {
+      "!doc": "Gets the value at path of object. If the resolved value is undefined, the defaultValue is used in its place.",
+      "!type": "fn(object: ?, path: string, defaultValue?: ?) -> ?",
+      "!url": "https://lodash.com/docs#get"
+    },
+    "groupBy": {
+      "!doc": "Creates an object composed of keys generated from the results of running each element of collection thru iteratee.",
+      "!type": "fn(collection: ?, iteratee?: fn(value: ?)) -> ?",
+      "!url": "https://lodash.com/docs#groupBy"
+    },
+    "has": {
+      "!doc": "Checks if path is a direct property of object.",
+      "!type": "fn(object: ?, path: [string]) -> bool",
+      "!url": "https://lodash.com/docs#has"
+    },
+    "hasIn": {
+      "!doc": "Checks if path is a direct or inherited property of object.",
+      "!type": "fn(object: ?, path: [string]) -> bool",
+      "!url": "https://lodash.com/docs#hasIn"
+    },
+    "head": {
+      "!doc": "Gets the first element of array.",
+      "!type": "fn(array: [?]) -> !0.<i>",
+      "!url": "https://lodash.com/docs#head"
+    },
+    "identity": {
+      "!doc": "This method returns the first argument given to it.",
+      "!type": "fn(value: ?) -> !0",
+      "!url": "https://lodash.com/docs#identity"
+    },
+    "includes": {
+      "!doc": "Checks if value is in collection.",
+      "!type": "fn(collection: ?, value: ?, fromIndex?: number) -> bool",
+      "!url": "https://lodash.com/docs#includes"
+    },
+    "indexOf": {
+      "!doc": "Gets the index at which the first occurrence of value is found in array using SameValueZero for equality comparisons.",
+      "!type": "fn(array: [?], value: ?, fromIndex?: number) -> number",
+      "!url": "https://lodash.com/docs#indexOf"
+    },
+    "initial": {
+      "!doc": "Gets all but the last element of array.",
+      "!type": "fn(array: [?]) -> !0",
+      "!url": "https://lodash.com/docs#initial"
+    },
+    "inRange": {
+      "!doc": "Checks if n is between start and up to, but not including, end. If end is not specified, it’s set to start with start then set to 0. If start is greater than end the params are swapped to support negative ranges.",
+      "!type": "fn(number: number, start?: number, end: number) -> bool",
+      "!url": "https://lodash.com/docs#inRange"
+    },
+    "intersection": {
+      "!doc": "Creates an array of unique values that are included in all given arrays using SameValueZero for equality comparisons.",
+      "!type": "fn(arrays?: [?]) -> !0",
+      "!url": "https://lodash.com/docs#intersection"
+    },
+    "intersectionBy": {
+      "!doc": "This method is like _.intersection except that it accepts iteratee which is invoked for each element of each arrays to generate the criterion by which they're compared.",
+      "!type": "fn(arrays?: [?], iteratee?: ?) -> !0",
+      "!url": "https://lodash.com/docs#intersectionBy"
+    },
+    "intersectionWith": {
+      "!doc": "This method is like _.intersection except that it accepts comparator which is invoked to compare elements of arrays.",
+      "!type": "fn(arrays?: [?], comparator?: fn(arrVal: ?, othVal: ?)) -> !0",
+      "!url": "https://lodash.com/docs#intersectionWith"
+    },
+    "invokeMap": {
+      "!doc": "Invokes the method at path of each element in collection, returning an array of the results of each invoked method.",
+      "!type": "fn(collection: ?, path: fn(), args?: ?) -> [?]",
+      "!url": "https://lodash.com/docs#invokeMap"
+    },
+    "invert": {
+      "!doc": "Creates an object composed of the inverted keys and values of object.",
+      "!type": "fn(object: ?) -> !0",
+      "!url": "https://lodash.com/docs#invert"
+    },
+    "invertBy": {
+      "!doc": "This method is like _.invert except that the inverted object is generated from the results of running each element of object thru iteratee.",
+      "!type": "fn(object: ?, iteratee?: fn(value: ?)) -> !0",
+      "!url": "https://lodash.com/docs#invertBy"
+    },
+    "invoke": {
+      "!doc": "Invokes the method at path of object.",
+      "!type": "fn(object: ?, path: string, args?: ?) -> [?]",
+      "!url": "https://lodash.com/docs#invoke"
+    },
+    "isArguments": {
+      "!doc": "Checks if value is likely an arguments object.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isArguments"
+    },
+    "isArray": {
+      "!doc": "Checks if value is classified as an Array object.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isArray"
+    },
+    "isArrayBuffer": {
+      "!doc": "Checks if value is classified as an ArrayBuffer object.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isArrayBuffer"
+    },
+    "isArrayLike": {
+      "!doc": "Checks if value is array-like.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isArrayLike"
+    },
+    "isArrayLikeObject": {
+      "!doc": "This method is like _.isArrayLike except that it also checks if value is an object.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isArrayLikeObject"
+    },
+    "isBoolean": {
+      "!doc": "Checks if value is classified as a boolean primitive or object.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isBoolean"
+    },
+    "isBuffer": {
+      "!doc": "Checks if value is a buffer.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isBuffer"
+    },
+    "isDate": {
+      "!doc": "Checks if value is classified as a Date object.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isDate"
+    },
+    "isElement": {
+      "!doc": "Checks if value is likely a DOM element.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isElement"
+    },
+    "isEmpty": {
+      "!doc": "Checks if value is an empty object, collection, map, or set.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isEmpty"
+    },
+    "isEqual": {
+      "!doc": "Performs a deep comparison between two values to determine if they are equivalent.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isEqual"
+    },
+    "isEqualWith": {
+      "!doc": "This method is like _.isEqual except that it accepts customizer which is invoked to compare values.",
+      "!type": "fn(value: ?, other: ?, customizer?: fn()) -> bool",
+      "!url": "https://lodash.com/docs#isEqualWith"
+    },
+    "isError": {
+      "!doc": "hecks if value is an Error, EvalError, RangeError, ReferenceError, SyntaxError, TypeError, or URIError object.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isError"
+    },
+    "isFinite": {
+      "!doc": "Checks if value is a finite primitive number. ",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isFinite"
+    },
+    "isFunction": {
+      "!doc": "Checks if value is classified as a Function object.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isFunction"
+    },
+    "isInteger": {
+      "!doc": "Checks if value is an integer. ",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isInteger"
+    },
+    "isLength": {
+      "!doc": "Checks if value is a valid array-like length.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isLength"
+    },
+    "isMap": {
+      "!doc": "Checks if value is classified as a Map object.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isMap"
+    },
+    "isMatch": {
+      "!doc": "Performs a partial deep comparison between object and source to determine if object contains equivalent property values.",
+      "!type": "fn(object: ?, source: ?) -> bool",
+      "!url": "https://lodash.com/docs#isMatch"
+    },
+    "isMatchWith": {
+      "!doc": "This method is like _.isMatch except that it accepts customizer which is invoked to compare values.",
+      "!type": "fn(object: ?, source: ?, customizer?: fn()) -> bool",
+      "!url": "https://lodash.com/docs#isMatchWith"
+    },
+    "isNaN": {
+      "!doc": "Checks if value is NaN.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isNaN"
+    },
+    "isNative": {
+      "!doc": "Checks if value is a pristine native function.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isNative"
+    },
+    "isNil": {
+      "!doc": "Checks if value is null or undefined.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isNil"
+    },
+    "isNull": {
+      "!doc": "Checks if value is null.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isNull"
+    },
+    "isNumber": {
+      "!doc": "Checks if value is classified as a Number primitive or object.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isNumber"
+    },
+    "isObject": {
+      "!doc": "Checks if value is the language type of Object. (e.g. arrays, functions, objects, regexes, new Number(0), and new String(''))",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isObject"
+    },
+    "isObjectLike": {
+      "!doc": "Checks if value is object-like. A value is object-like if it’s not null and has a typeof result of object.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isObjectLike"
+    },
+    "isPlainObject": {
+      "!doc": "Checks if value is a plain object, that is, an object created by the Object constructor or one with a [[Prototype]] of null.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isPlainObject"
+    },
+    "isRegExp": {
+      "!doc": "Checks if value is classified as a RegExp object.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isRegExp"
+    },
+    "isSafeInteger": {
+      "!doc": "Checks if value is a safe integer. An integer is safe if it’s an IEEE-754 double precision number which isn’t the result of a rounded unsafe integer.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isSafeInteger"
+    },
+    "isSet": {
+      "!doc": "Checks if value is classified as a Set object.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isSet"
+    },
+    "isString": {
+      "!doc": "Checks if value is classified as a String primitive or object.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isString"
+    },
+    "isSymbol": {
+      "!doc": "Checks if value is classified as a Symbol primitive or object.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isSymbol"
+    },
+    "isTypedArray": {
+      "!doc": "Checks if value is classified as a typed array.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isTypedArray"
+    },
+    "isUndefined": {
+      "!doc": "Checks if value is undefined.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isUndefined"
+    },
+    "isWeakMap": {
+      "!doc": "Checks if value is classified as a WeakMap object.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isWeakMap"
+    },
+    "isWeakSet": {
+      "!doc": "Checks if value is classified as a WeakSet object.",
+      "!type": "fn(value: ?) -> bool",
+      "!url": "https://lodash.com/docs#isWeakSet"
+    },
+    "iteratee": {
+      "!doc": "Creates a function that invokes func with the arguments of the created function.",
+      "!type": "fn(func?: ?) -> fn()",
+      "!url": "https://lodash.com/docs#iteratee"
+    },
+    "join": {
+      "!doc": "Converts all elements in array into a string separated by separator.",
+      "!type": "fn(array: [?], separator?: string) -> string",
+      "!url": "https://lodash.com/docs#join"
+    },
+    "kebabCase": {
+      "!doc": "Converts string to kebab case.",
+      "!type": "fn(string?: string) -> string",
+      "!url": "https://lodash.com/docs#kebabCase"
+    },
+    "keyBy": {
+      "!doc": "Creates an object composed of keys generated from the results of running each element of collection thru iteratee.",
+      "!type": "fn(collection: ?, iteratee?: fn(value: ?)) -> ?",
+      "!url": "https://lodash.com/docs#keyBy"
+    },
+    "keys": {
+      "!doc": "Creates an array of the own enumerable property names of object.",
+      "!type": "fn(object: ?) -> [string]",
+      "!url": "https://lodash.com/docs#keys"
+    },
+    "keysIn": {
+      "!doc": "Creates an array of the own and inherited enumerable property names of object.",
+      "!type": "fn(object: ?) -> [string]",
+      "!url": "https://lodash.com/docs#keysIn"
+    },
+    "last": {
+      "!doc": "Gets the last element of array.",
+      "!type": "fn(array: [?]) -> !0.<length-1>",
+      "!url": "https://lodash.com/docs#last"
+    },
+    "lastIndexOf": {
+      "!doc": "This method is like _.indexOf except that it iterates over elements of array from right to left.",
+      "!type": "fn(array: [?], value: ?, fromIndex?: number) -> number",
+      "!url": "https://lodash.com/docs#lastIndexOf"
+    },
+    "lowerCase": {
+      "!doc": "Converts string, as space separated words, to lower case.",
+      "!type": "fn(string?: string) -> string",
+      "!url": "https://lodash.com/docs#lowerCase"
+    },
+    "lowerFirst": {
+      "!doc": "Converts the first character of string to lower case.",
+      "!type": "fn(string?: string) -> string",
+      "!url": "https://lodash.com/docs#lowerFirst"
+    },
+    "lt": {
+      "!doc": "Checks if value is less than other.",
+      "!type": "fn(value: ?, other: ?) -> bool",
+      "!url": "https://lodash.com/docs#lt"
+    },
+    "lte": {
+      "!doc": "Checks if value is less than other.",
+      "!type": "fn(value: ?, other: ?) -> bool",
+      "!url": "https://lodash.com/docs#lte"
+    },
+    "map": {
+      "!doc": "Creates an array of values by running each element in collection thru iteratee.",
+      "!type": "fn(collection: ?, iteratee?: fn(value: ?, key: ?, collection: ?)) -> !0",
+      "!url": "https://lodash.com/docs#map"
+    },
+    "mapKeys": {
+      "!doc": "This method creates an object with the same values as object and keys generated by running each own enumerable string keyed property of object thru iteratee.",
+      "!type": "fn(object: ?, iteratee?: fn(value: ?, key: ?, object: ?)) -> !0",
+      "!effects": ["call !1 !0.<i> string !0"],
+      "!url": "https://lodash.com/docs#mapKeys"
+    },
+    "mapValues": {
+      "!doc": "Creates an object with the same keys as object and values generated by running each own enumerable string keyed property of object thru iteratee.",
+      "!type": "fn(object: ?, iteratee?: fn(value: ?, key: ?, object: ?)) -> !0",
+      "!effects": ["call !1 !0.<i> string !0"],
+      "!url": "https://lodash.com/docs#"
+    },
+    "matches": {
+      "!doc": "Creates a function that performs a partial deep comparison between a given object and source, returning true if the given object has equivalent property values, else false.",
+      "!type": "fn(source: ?) -> fn()",
+      "!url": "https://lodash.com/docs#matches"
+    },
+    "matchesProperty": {
+      "!doc": "Creates a function that performs a partial deep comparison between the value at path of a given object to srcValue, returning true if the object value is equivalent, else false.",
+      "!type": "fn(path: string, srcValue: ?) -> fn()",
+      "!url": "https://lodash.com/docs#matchesProperty"
+    },
+    "max": {
+      "!doc": "Computes the maximum value of array. If array is empty or falsey, undefined is returned.",
+      "!type": "fn(array: [?]) -> ?",
+      "!url": "https://lodash.com/docs#max"
+    },
+    "maxBy": {
+      "!doc": "This method is like _.max except that it accepts iteratee which is invoked for each element in array to generate the criterion by which the value is ranked.",
+      "!type": "fn(array: [?], iteratee?: fn(value: ?)) -> ?",
+      "!url": "https://lodash.com/docs#maxBy"
+    },
+    "mean": {
+      "!doc": "Computes the mean of the values in array.",
+      "!type": "fn(array: [?]) -> number",
+      "!url": "https://lodash.com/docs#mean"
+    },
+    "meanBy": {
+      "!doc": "This method is like _.mean except that it accepts iteratee which is invoked for each element in array to generate the value to be averaged.",
+      "!type": "fn(array: [?], iteratee?: fn(value: ?)) -> number",
+      "!url": "https://lodash.com/docs#meanBy"
+    },
+    "memoize": {
+      "!doc": "Creates a function that memoizes the result of func.",
+      "!type": "fn(func: fn(), resolver?: fn(args: ?) -> ?) -> !0",
+      "!url": "https://lodash.com/docs#"
+    },
+    "merge": {
+      "!doc": "This method is like _.assign except that it recursively merges own and inherited enumerable string keyed properties of source objects into the destination object.",
+      "!type": "fn(object: ?, source1?: ?, source2?: ?) -> !0",
+      "!effects": ["copy !1 !0, copy !2 !0"],
+      "!url": "https://lodash.com/docs#merge"
+    },
+    "mergeWith": {
+      "!doc": "This method is like _.merge except that it accepts customizer which is invoked to produce the merged values of the destination and source properties.",
+      "!type": "fn(object: ?, source: ?, customizer: fn(objVal: ?, srcVal: ?, key: ?, object: ?, source: ?, stack: ?)) -> !0",
+      "!url": "https://lodash.com/docs#mergeWith"
+    },
+    "method": {
+      "!doc": "Creates a function that invokes the method at path of a given object. Any additional arguments are provided to the invoked method.",
+      "!type": "fn(path: string, args?: ?) -> fn()",
+      "!url": "https://lodash.com/docs#method"
+    },
+    "methodOf": {
+      "!doc": "The opposite of _.method; this method creates a function that invokes the method at a given path of object.",
+      "!type": "fn(object: ?, args?: ?) -> fn()",
+      "!url": "https://lodash.com/docs#methodOf"
+    },
+    "min": {
+      "!doc": "Computes the minimum value of array. If array is empty or falsey, undefined is returned.",
+      "!type": "fn(array: [?]) -> ?",
+      "!url": "https://lodash.com/docs#min"
+    },
+    "minBy": {
+      "!doc": "This method is like _.min except that it accepts iteratee which is invoked for each element in array to generate the criterion by which the value is ranked.",
+      "!type": "fn(array: [?], iteratee?: fn(value: ?)) -> ?",
+      "!url": "https://lodash.com/docs#minBy"
+    },
+    "mixin": {
+      "!doc": "Adds all own enumerable string keyed function properties of a source object to the destination object. If object is a function, then methods are added to its prototype as well.",
+      "!type": "fn(object?: ?, source: ?, options?: ?) -> !0",
+      "!url": "https://lodash.com/docs#mixin"
+    },
+    "multiply": {
+      "!doc": "Multiply two numbers.",
+      "!type": "fn(multiplier: number, multiplicand: nubmer) -> number",
+      "!url": "https://lodash.com/docs#multiply"
+    },
+    "negate": {
+      "!doc": "Creates a function that negates the result of the predicate func.",
+      "!type": "fn(predicate: fn()) -> fn()",
+      "!url": "https://lodash.com/docs#negate"
+    },
+    "noConflict": {
+      "!doc": "Reverts the _ variable to its previous value and returns a reference to the lodash function.",
+      "!type": "fn() -> _",
+      "!url": "https://lodash.com/docs#noConflict"
+    },
+    "noop": {
+      "!doc": "A method that returns undefined.",
+      "!type": "fn() -> undefined",
+      "!url": "https://lodash.com/docs#noop"
+    },
+    "now": {
+      "!doc": "Gets the timestamp of the number of milliseconds that have elapsed since the Unix epoch (1 January 1970 00:00:00 UTC).",
+      "!type": "fn() -> number",
+      "!url": "https://lodash.com/docs#now"
+    },
+    "nth": {
+      "!doc": "Gets the element at index n of array. If n is negative, the nth element from the end is returned.",
+      "!type": "fn(array: [?], n?: number) -> !0<!1>",
+      "!url": "https://lodash.com/docs#nth"
+    },
+    "nthArg": {
+      "!doc": "Creates a function that gets the argument at index n. If n is negative, the nth argument from the end is returned.",
+      "!type": "fn(n?: number) -> fn()",
+      "!url": "https://lodash.com/docs#nthArg"
+    },
+    "omit": {
+      "!doc": "The opposite of _.pick; this method creates an object composed of the own and inherited enumerable string keyed properties of object that are not omitted.",
+      "!type": "fn(object: ?, props?: string) -> !0",
+      "!url": "https://lodash.com/docs#omit"
+    },
+    "omitBy": {
+      "!doc": "The opposite of _.pickBy; this method creates an object composed of the own and inherited enumerable string keyed properties of object that predicate doesn’t return truthy for.",
+      "!type": "fn(object: ?, predicate?: fn(value: ?, key: ?) -> bool) -> !0",
+      "!url": "https://lodash.com/docs#omitBy"
+    },
+    "once": {
+      "!doc": "Creates a function that is restricted to invoking func once.",
+      "!type": "fn(func: fn() -> ?) -> !0",
+      "!url": "https://lodash.com/docs#once"
+    },
+    "orderBy": {
+      "!doc": "This method is like _.sortBy except that it allows specifying the sort orders of the iteratees to sort by.",
+      "!type": "fn(collection: ?, iteratees?: [?], orders?: [string]) -> !0",
+      "!url": "https://lodash.com/docs#orderBy"
+    },
+    "overArgs": {
+      "!doc": "Creates a function that invokes func with arguments transformed by corresponding transforms.",
+      "!type": "fn(func: fn()) -> fn()",
+      "!url": "https://lodash.com/docs#overArgs"
+    },
+    "over": {
+      "!doc": "Creates a function that invokes iteratees with the arguments it receives and returns their results.",
+      "!type": "fn(iteratees?: ?) -> fn()",
+      "!url": "https://lodash.com/docs#over"
+    },
+    "overEvery": {
+      "!doc": "Creates a function that checks if all of the predicates return truthy when invoked with the arguments it receives.",
+      "!type": "fn(predicates?: ?) -> fn()",
+      "!url": "https://lodash.com/docs#overEvery"
+    },
+    "overSome": {
+      "!doc": "Creates a function that checks if any of the predicates return truthy when invoked with the arguments it receives.",
+      "!type": "fn(predicates?: ?) -> fn()",
+      "!url": "https://lodash.com/docs#overSome"
+    },
+    "pad": {
+      "!doc": "Pads string on the left and right sides if it’s shorter than length. Padding characters are truncated if they can’t be evenly divided by length.",
+      "!type": "fn(string?: string, length?: number, chars?: string) -> string",
+      "!url": "https://lodash.com/docs#pad"
+    },
+    "padEnd": {
+      "!doc": "Pads string on the right side if it’s shorter than length. Padding characters are truncated if they exceed length.",
+      "!type": "fn(string?: string, length?: number, chars?: string) -> string",
+      "!url": "https://lodash.com/docs#padEnd"
+    },
+    "padStart": {
+      "!doc": "Pads string on the left side if it’s shorter than length. Padding characters are truncated if they exceed length.",
+      "!type": "fn(string?: string, length?: number, chars?: string) -> string",
+      "!url": "https://lodash.com/docs#padStart"
+    },
+    "parseInt": {
+      "!doc": "Converts string to an integer of the specified radix. If radix is undefined or 0, a radix of 10 is used unless value is a hexadecimal, in which case a radix of 16 is used.",
+      "!type": "fn(string: string, radix?: nubmer) -> number",
+      "!url": "https://lodash.com/docs#parseInt"
+    },
+    "partial": {
+      "!doc": "Creates a function that invokes func with partials prepended to the arguments it receives.",
+      "!type": "fn(func: fn(), partials?: ?) -> fn()",
+      "!url": "https://lodash.com/docs#partial"
+    },
+    "partialRight": {
+      "!doc": "This method is like _.partial except that partially applied arguments are appended to the arguments it receives.",
+      "!type": "fn(func: fn(), partials?: ?) -> fn()",
+      "!url": "https://lodash.com/docs#partialRight"
+    },
+    "partition": {
+      "!doc": "Creates an array of elements split into two groups, the first of which contains elements predicate returns truthy for, the second of which contains elements predicate returns falsey for.",
+      "!type": "fn(collection: ?, predicate?: fn(value: ?)) -> [?]",
+      "!url": "https://lodash.com/docs#partition"
+    },
+    "pick": {
+      "!doc": "Creates an object composed of the picked object properties.",
+      "!type": "fn(object: ?, props?: string) -> !0",
+      "!url": "https://lodash.com/docs#pick"
+    },
+    "pickBy": {
+      "!doc": "Creates an object composed of the object properties predicate returns truthy for.",
+      "!type": "fn(object: ?, predicate?: fn(value: ?, key: ?) -> bool) -> !0",
+      "!url": "https://lodash.com/docs#pickBy"
+    },
+    "property": {
+      "!doc": "Creates a function that returns the value at path of a given object",
+      "!type": "fn(path: string) -> fn()",
+      "!url": "https://lodash.com/docs#property"
+    },
+    "propertyOf": {
+      "!doc": "The opposite of _.property; this method creates a function that returns the value at a given path of object.",
+      "!type": "fn(object: ?) -> fn()",
+      "!url": "https://lodash.com/docs#propertyOf"
+    },
+    "prototype": {
+      "at": {
+        "!doc": "This method is the wrapper version of _.at.",
+        "!type": "fn(paths?: string) -> !this",
+        "!url": "https://lodash.com/docs#at"
+      },
+      "chain": {
+        "!doc": "Creates a lodash wrapper instance with explicit method chain sequences enabled.",
+        "!type": "fn() -> !this",
+        "!url": "https://lodash.com/docs#"
+      },
+      "commit": {
+        "!doc": "Executes the chain sequence and returns the wrapped result.",
+        "!type": "fn() -> !this",
+        "!url": "https://lodash.com/docs#commit"
+      },
+      "next": {
+        "!doc": "Gets the next value on a wrapped object following the iterator protocol.",
+        "!type": "fn() -> ?",
+        "!url": "https://lodash.com/docs#next"
+      },
+      "plant": {
+        "!doc": "Creates a clone of the chain sequence planting value as the wrapped value.",
+        "!type": "fn(value: ?) -> !this",
+        "!url": "https://lodash.com/docs#plant"
+      },
+      "reverse": {
+        "!doc": "This method is the wrapper version of _.reverse.",
+        "!type": "fn() -> !this",
+        "!url": "https://lodash.com/docs#reverse"
+      },
+      "value": {
+        "!doc": "Executes the chain sequence to resolve the unwrapped value.",
+        "!type": "fn() -> ?",
+        "!url": "https://lodash.com/docs#value"
+      }
+    },
+    "pull": {
+      "!doc": "Removes all given values from array using SameValueZero for equality comparisons.",
+      "!type": "fn(array: [?], values: ?) -> [?]",
+      "!url": "https://lodash.com/docs#pull"
+    },
+    "pullAll": {
+      "!doc": "This method is like _.pull except that it accepts an array of values to remove.",
+      "!type": "fn(array: [?], values: [?]) -> [?]",
+      "!url": "https://lodash.com/docs#pullAll"
+    },
+    "pullAllBy": {
+      "!doc": "This method is like _.pullAll except that it accepts iteratee which is invoked for each element of array and values to generate the criterion by which they're compared.",
+      "!type": "fn(array: [?], values: [?], iteratee?: ?) -> [?]",
+      "!url": "https://lodash.com/docs#pullAllBy"
+    },
+    "pullAllWith": {
+      "!doc": "This method is like _.pullAll except that it accepts comparator which is invoked to compare elements of array to values.",
+      "!type": "fn(array: [?], values: [?], comparator?: fn(arrVal: ?, othVal: ?) -> ?) -> [?]",
+      "!url": "https://lodash.com/docs#pullAllWith"
+    },
+    "pullAt": {
+      "!doc": "Removes elements from array corresponding to indexes and returns an array of removed elements.",
+      "!type": "fn(array: [?], indexes?: [number]) -> [?]",
+      "!url": "https://lodash.com/docs#pullAt"
+    },
+    "random": {
+      "!doc": "Produces a random number between the inclusive lower and upper bounds.",
+      "!type": "fn(lower?: number, upper?: number, floating?: bool) -> number",
+      "!url": "https://lodash.com/docs#random"
+    },
+    "range": {
+      "!doc": "Creates an array of numbers (positive and/or negative) progressing from start up to, but not including, end.",
+      "!type": "fn(start?: number, end: number, step?: number) -> [number]",
+      "!url": "https://lodash.com/docs#range"
+    },
+    "rangeRight": {
+      "!doc": "This method is like _.range except that it populates values in descending order.",
+      "!type": "fn(start?: number, end: number, step?: number) -> [number]",
+      "!url": "https://lodash.com/docs#rangeRight"
+    },
+    "rearg": {
+      "!doc": "Creates a function that invokes func with arguments arranged according to the specified indexes",
+      "!type": "fn(func: fn(), indexes: [number]) -> fn()",
+      "!url": "https://lodash.com/docs#rearg"
+    },
+    "reduce": {
+      "!doc": "Reduces collection to a value which is the accumulated result of running each element in collection thru iteratee, where each successive invocation is supplied the return value of the previous.",
+      "!type": "fn(collection: ?, iteratee?: fn(accumulator: ?, value: ?, key: ?, collection: ?) -> ?, accumulator?: ?) -> !1.!ret",
+      "!url": "https://lodash.com/docs#reduce"
+    },
+    "reduceRight": {
+      "!doc": "This method is like _.reduce except that it iterates over elements of collection from right to left.",
+      "!type": "fn(collection: ?, iteratee?: fn(accumulator: ?, value: ?, key: ?, collection: ?) -> ?, accumulator?: ?) -> !1.!ret",
+      "!url": "https://lodash.com/docs#reduceRight"
+    },
+    "reject": {
+      "!doc": "The opposite of _.filter; this method returns the elements of collection that predicate does not return truthy for.",
+      "!type": "fn(collection: ?, predicate?: fn() -> bool) -> [?]",
+      "!url": "https://lodash.com/docs#reject"
+    },
+    "remove": {
+      "!doc": "Removes all elements from array that predicate returns truthy for and returns an array of the removed elements.",
+      "!type": "fn(array: [?], predicate?: fn(value: ?, index: number, array: ?) -> bool) -> [?]",
+      "!effects": ["call !1 !0.<i> number !0"],
+      "!url": "https://lodash.com/docs#remove"
+    },
+    "repeat": {
+      "!doc": "Repeats the given string n times.",
+      "!type": "fn(string?: string, n?: number) -> string",
+      "!url": "https://lodash.com/docs#repeat"
+    },
+    "replace": {
+      "!doc": "Replaces matches for pattern in string with replacement.",
+      "!type": "fn(string?: string, pattern: string, replacement: string) -> string",
+      "!url": "https://lodash.com/docs#replace"
+    },
+    "rest": {
+      "!doc": "Creates a function that invokes func with the this binding of the created function and arguments from start and beyond provided as an array.",
+      "!type": "fn(func: fn(), start?: number) -> !0",
+      "!url": "https://lodash.com/docs#rest"
+    },
+    "result": {
+      "!doc": "This method is like _.get except that if the resolved value is a function it’s invoked with the this binding of its parent object and its result is returned.",
+      "!type": "fn(object: ?, path: string, defaultValue?: ?) -> ?",
+      "!url": "https://lodash.com/docs#result"
+    },
+    "reverse": {
+      "!doc": "Reverses array so that the first element becomes the last, the second element becomes the second to last, and so on.",
+      "!type": "fn(array: [?]) -> !0",
+      "!url": "https://lodash.com/docs#reverse"
+    },
+    "round": {
+      "!doc": "Computes number rounded to precision.",
+      "!type": "fn(number: number, precision?: number) -> number",
+      "!url": "https://lodash.com/docs#round"
+    },
+    "runInContext": {
+      "!doc": "Create a new pristine lodash function using the context object.",
+      "!type": "fn(context?: ?) -> _",
+      "!url": "https://lodash.com/docs#runInContext"
+    },
+    "sample": {
+      "!doc": "Gets a random element from collection.",
+      "!type": "fn(collection: ?) -> ?",
+      "!url": "https://lodash.com/docs#sample"
+    },
+    "sampleSize": {
+      "!doc": "Gets n random elements at unique keys from collection up to the size of collection.",
+      "!type": "fn(collection: ?, n?: number) -> [?]",
+      "!url": "https://lodash.com/docs#sampleSize"
+    },
+    "set": {
+      "!doc": "Sets the value at path of object. If a portion of path doesn’t exist, it’s created.",
+      "!type": "fn(object: ?, path: string, value: ?) -> !0",
+      "!url": "https://lodash.com/docs#set"
+    },
+    "setWith": {
+      "!doc": "This method is like _.set except that it accepts customizer which is invoked to produce the objects of path.",
+      "!type": "fn(object: ?, path: string, value: ?, customizer?: fn(value: ?, key: ?, object: ?)) -> !0",
+      "!url": "https://lodash.com/docs#setWith"
+    },
+    "shuffle": {
+      "!doc": "Creates an array of shuffled values, using a version of the Fisher-Yates shuffle.",
+      "!type": "fn(collection: ?) -> !0",
+      "!url": "https://lodash.com/docs#shuffle"
+    },
+    "size": {
+      "!doc": "Gets the size of collection by returning its length for array-like values or the number of own enumerable string keyed properties for objects.",
+      "!type": "fn(collection: ?) -> number",
+      "!url": "https://lodash.com/docs#"
+    },
+    "slice": {
+      "!doc": "Creates a slice of array from start up to, but not including, end.",
+      "!type": "fn(array: [?], start?: number, end?: number) -> !0",
+      "!url": "https://lodash.com/docs#slice"
+    },
+    "snakeCase": {
+      "!doc": "Converts string to snake case.",
+      "!type": "fn(string?: string) -> string",
+      "!url": "https://lodash.com/docs#snakeCase"
+    },
+    "some": {
+      "!doc": "Checks if predicate returns truthy for any element of collection. Iteration is stopped once predicate returns truthy.",
+      "!type": "fn(collection: ?, predicate?: fn(value: ?, key: ?, collection: ?) -> bool) -> bool",
+      "!url": "https://lodash.com/docs#some"
+    },
+    "sortBy": {
+      "!doc": "Creates an array of elements, sorted in ascending order by the results of running each element in a collection thru each iteratee.",
+      "!type": "fn(collection: ?, iteratees?: ?) -> [?]",
+      "!url": "https://lodash.com/docs#sortBy"
+    },
+    "sortedIndex": {
+      "!doc": "Uses a binary search to determine the lowest index at which value should be inserted into array in order to maintain its sort order.",
+      "!type": "fn(array: [?], value: ?) -> number",
+      "!url": "https://lodash.com/docs#sortedIndex"
+    },
+    "sortedIndexBy": {
+      "!doc": "This method is like _.sortedIndex except that it accepts iteratee which is invoked for value and each element of array to compute their sort ranking.",
+      "!type": "fn(array: [?], value: ?, iteratee?: ?) -> number",
+      "!url": "https://lodash.com/docs#"
+    },
+    "sortedIndexOf": {
+      "!doc": "This method is like _.indexOf except that it performs a binary search on a sorted array.",
+      "!type": "fn(array: [?], value: ?) -> number",
+      "!url": "https://lodash.com/docs#sortedIndexOf"
+    },
+    "sortedLastIndex": {
+      "!doc": "This method is like _.sortedIndex except that it returns the highest index at which value should be inserted into array in order to maintain its sort order.",
+      "!type": "fn(array: [?], value: ?) -> number",
+      "!url": "https://lodash.com/docs#sortedLastIndex"
+    },
+    "sortedLastIndexBy": {
+      "!doc": "This method is like _.sortedLastIndex except that it accepts iteratee which is invoked for value and each element of array to compute their sort ranking.",
+      "!type": "fn(array: [?], value: ?, iteratee?: ?) -> number",
+      "!url": "https://lodash.com/docs#sortedLastIndexBy"
+    },
+    "sortedLastIndexOf": {
+      "!doc": "This method is like _.lastIndexOf except that it performs a binary search on a sorted array.",
+      "!type": "fn(array: [?], value: ?) -> number",
+      "!url": "https://lodash.com/docs#sortedLastIndexOf"
+    },
+    "sortedUniq": {
+      "!doc": "This method is like _.uniq except that it’s designed and optimized for sorted arrays.",
+      "!type": "fn(array: [?]) -> !0",
+      "!url": "https://lodash.com/docs#sortedUniq"
+    },
+    "sortedUniqBy": {
+      "!doc": "This method is like _.uniqBy except that it’s designed and optimized for sorted arrays.",
+      "!type": "fn(array: [?], iteratee?: fn()) -> !0",
+      "!url": "https://lodash.com/docs#sortedUniqBy"
+    },
+    "split": {
+      "!doc": "Splits string by separator.",
+      "!type": "fn(string?: string, separator: string, limit?: number) -> [string]",
+      "!url": "https://lodash.com/docs#split"
+    },
+    "spread": {
+      "!doc": "Creates a function that invokes func with the this binding of the create function and an array of arguments much like Function#apply.",
+      "!type": "fn(func: fn(), start?: number) -> !0",
+      "!url": "https://lodash.com/docs#spread"
+    },
+    "startCase": {
+      "!doc": "Converts string to start case.",
+      "!type": "fn(string?: string) -> string",
+      "!url": "https://lodash.com/docs#startCase"
+    },
+    "startsWith": {
+      "!doc": "Checks if string starts with the given target string.",
+      "!type": "fn(string?: string, target?: string, position?: number) -> bool",
+      "!url": "https://lodash.com/docs#startsWith"
+    },
+    "stubArray": {
+      "!doc": "A method that returns a new empty array.",
+      "!type": "fn() -> []",
+      "!url": "https://lodash.com/docs#stubArray"
+    },
+    "stubFalse": {
+      "!doc": "A method that returns false.",
+      "!type": "fn() -> bool",
+      "!url": "https://lodash.com/docs#stubFalse"
+    },
+    "stubObject": {
+      "!doc": "A method that returns a new empty object.",
+      "!type": "fn() -> ?",
+      "!url": "https://lodash.com/docs#stubObject"
+    },
+    "stubString": {
+      "!doc": "A method that returns an empty string.",
+      "!type": "fn() -> string",
+      "!url": "https://lodash.com/docs#"
+    },
+    "stubTrue": {
+      "!doc": "A method that returns true.",
+      "!type": "fn() -> bool",
+      "!url": "https://lodash.com/docs#stubTrue"
+    },
+    "subtract": {
+      "!doc": "Subtract two numbers.",
+      "!type": "fn(minuend: number, subtrahend: nubmer) -> number",
+      "!url": "https://lodash.com/docs#subtract"
+    },
+    "sum": {
+      "!doc": "Computes the sum of the values in array.",
+      "!type": "fn(array: [number]) -> number",
+      "!url": "https://lodash.com/docs#sum"
+    },
+    "sumBy": {
+      "!doc": "This method is like _.sum except that it accepts iteratee which is invoked for each element in array to generate the value to be summed.",
+      "!type": "fn(array: [?], iteratee?: fn(value: ?)) -> number",
+      "!url": "https://lodash.com/docs#sumBy"
+    },
+    "tail": {
+      "!doc": "Gets all but the first element of array.",
+      "!type": "fn(array: [?]) -> !0",
+      "!url": "https://lodash.com/docs#tail"
+    },
+    "take": {
+      "!doc": "Creates a slice of array with n elements taken from the beginning.",
+      "!type": "fn(array: [?], n?: number) -> !0",
+      "!url": "https://lodash.com/docs#take"
+    },
+    "takeRight": {
+      "!doc": "Creates a slice of array with n elements taken from the end.",
+      "!type": "fn(array: [?], n?: number) -> !0",
+      "!url": "https://lodash.com/docs#takeRight"
+    },
+    "takeRightWhile": {
+      "!doc": "Creates a slice of array with elements taken from the end. Elements are taken until predicate returns falsey.",
+      "!type": "fn(array: [?], predicate?: fn(value: ?, index: number, array: ?)) -> !0",
+      "!effects": ["call !1 !0.<i> number !0"],
+      "!url": "https://lodash.com/docs#takeRightWhile"
+    },
+    "takeWhile": {
+      "!doc": "Creates a slice of array with elements taken from the beginning. Elements are taken until predicate returns falsey.",
+      "!type": "fn(array: [?], predicate?: fn(value: ?, index: number, array: ?)) -> !0",
+      "!effects": ["call !1 !0.<i> number !0"],
+      "!url": "https://lodash.com/docs#takeWhile"
+    },
+    "tap": {
+      "!doc": "This method invokes interceptor and returns value.",
+      "!type": "fn(value: ?, interceptor: fn(value: ?)) -> !0",
+      "!effects": ["call !1 !0"],
+      "!url": "https://lodash.com/docs#tap"
+    },
+    "template": {
+      "!doc": "Creates a compiled template function that can interpolate data properties in 'interpolate' delimiters, HTML-escape interpolated data properties in 'escape' delimiters, and execute JavaScript in 'evaluate' delimiters.",
+      "!type": "fn(str?: string, options?: ?) -> fn(data: ?) -> string",
+      "!url": "https://lodash.com/docs#"
+    },
+    "templateSettings": {
+      "!doc": "By default, the template delimiters used by lodash are like those in embedded Ruby (ERB). Change the following template settings to use alternative delimiters.",
+      "escape": "+RegExp",
+      "evaluate": "+RegExp",
+      "imports": {
+        "_": "_"
+      },
+      "interpolate": "+RegExp",
+      "variable": "string",
+      "!url": "https://lodash.com/docs#templateSettings"
+    },
+    "throttle": {
+      "!doc": "Creates a throttled function that only invokes func at most once per every wait milliseconds.",
+      "!type": "fn(func: fn(), wait?: number, options?: ?) -> !0",
+      "!url": "https://lodash.com/docs#throttle"
+    },
+    "thru": {
+      "!doc": "This method is like _.tap except that it returns the result of interceptor.",
+      "!type": "fn(value: ?, interceptor: fn(value: ?)) -> !1.!ret",
+      "!effects": ["call !1 !0"],
+      "!url": "https://lodash.com/docs#thru"
+    },
+    "times": {
+      "!doc": "Invokes the iteratee n times, returning an array of the results of each invocation.",
+      "!type": "fn(n: number, iteratee?: fn(index: number) -> ?) -> [!1.!ret]",
+      "!url": "https://lodash.com/docs#times"
+    },
+    "toArray": {
+      "!doc": "Converts value to an array.",
+      "!type": "fn(value: ?) -> [?]",
+      "!url": "https://lodash.com/docs#toArray"
+    },
+    "toFinite": {
+      "!doc": "Converts value to a finite number.",
+      "!type": "fn(value: ?) -> number",
+      "!url": "https://lodash.com/docs#toFinite"
+    },
+    "toInteger": {
+      "!doc": "Converts value to an integer.",
+      "!type": "fn(value: ?) -> number",
+      "!url": "https://lodash.com/docs#toInteger"
+    },
+    "toLength": {
+      "!doc": "Converts value to an integer suitable for use as the length of an array-like object.",
+      "!type": "fn(value: ?) -> number",
+      "!url": "https://lodash.com/docs#toLength"
+    },
+    "toLower": {
+      "!doc": "Converts string, as a whole, to lower case just like String#toLowerCase.",
+      "!type": "fn(string?: string) -> string",
+      "!url": "https://lodash.com/docs#toLower"
+    },
+    "toNumber": {
+      "!doc": "Converts value to a number.",
+      "!type": "fn(value: ?) -> number",
+      "!url": "https://lodash.com/docs#toNumber"
+    },
+    "toPairs": {
+      "!doc": "Creates an array of own enumerable string keyed-value pairs for object which can be consumed by _.fromPairs. If object is a map or set, its entries are returned.",
+      "!type": "fn(object: ?) -> [?]",
+      "!url": "https://lodash.com/docs#toPairs"
+    },
+    "toPairsIn": {
+      "!doc": "Creates an array of own and inherited enumerable string keyed-value pairs for object which can be consumed by _.fromPairs. If object is a map or set, its entries are returned.",
+      "!type": "fn(object: ?) -> [?]",
+      "!url": "https://lodash.com/docs#toPairsIn"
+    },
+    "toPath": {
+      "!doc": "Converts value to a property path array.",
+      "!type": "fn(value: ?) -> [string]",
+      "!url": "https://lodash.com/docs#toPath"
+    },
+    "toPlainObject": {
+      "!doc": "Converts value to a plain object flattening inherited enumerable string keyed properties of value to own properties of the plain object.",
+      "!type": "fn(value: ?) -> ?",
+      "!url": "https://lodash.com/docs#toPlainObject"
+    },
+    "toSafeInteger": {
+      "!doc": "Converts value to a safe integer. A safe integer can be compared and represented correctly.",
+      "!type": "fn(value: ?) -> number",
+      "!url": "https://lodash.com/docs#toSafeInteger"
+    },
+    "toString": {
+      "!doc": "Converts value to a string. An empty string is returned for null and undefined values. The sign of -0 is preserved.",
+      "!type": "fn(value: ?) -> string",
+      "!url": "https://lodash.com/docs#toString"
+    },
+    "toUpper": {
+      "!doc": "Converts string, as a whole, to upper case just like String#toUpperCase.",
+      "!type": "fn(string?: string) -> string",
+      "!url": "https://lodash.com/docs#toUpper"
+    },
+    "transform": {
+      "!doc": "An alternative to _.reduce; this method transforms object to a new accumulator object which is the result of running each of its own enumerable string keyed properties thru iteratee, with each invocation potentially mutating the accumulator object.",
+      "!type": "fn(object: ?, iteratee?: fn(accumulator: ?, value: ?, key: ?, object: ?), accumulator?: ?) -> !1.!ret",
+      "!url": "https://lodash.com/docs#transform"
+    },
+    "trim": {
+      "!doc": "Removes leading and trailing whitespace or specified characters from string.",
+      "!type": "fn(string?: string, chars?: string) -> string",
+      "!url": "https://lodash.com/docs#trim"
+    },
+    "trimEnd": {
+      "!doc": "Removes trailing whitespace or specified characters from string.",
+      "!type": "fn(string?: string, chars?: string) -> string",
+      "!url": "https://lodash.com/docs#trimEnd"
+    },
+    "trimStart": {
+      "!doc": "Removes leading whitespace or specified characters from string.",
+      "!type": "fn(string?: string, chars?: string) -> string",
+      "!url": "https://lodash.com/docs#trimStart"
+    },
+    "truncate": {
+      "!doc": "Truncates string if it’s longer than the given maximum string length. The last characters of the truncated string are replaced with the omission string which defaults to \"…\".",
+      "!type": "fn(string?: string, options?: ?) -> string",
+      "!url": "https://lodash.com/docs#truncate"
+    },
+    "unary": {
+      "!doc": "Creates a function that accepts up to one argument, ignoring any additional arguments.",
+      "!type": "fn(func: fn()) -> !0",
+      "!url": "https://lodash.com/docs#unary"
+    },
+    "unescape": {
+      "!doc": "The inverse of _.escape; this method converts the HTML entities &amp;, &lt;, &gt;, &quot;, &#39;, and &#96; in string to their corresponding characters.",
+      "!type": "fn(str?: string) -> string",
+      "!url": "https://lodash.com/docs#unescape"
+    },
+    "union": {
+      "!doc": "Creates an array of unique values, in order, from all given arrays using SameValueZero for equality comparisons.",
+      "!type": "fn(array: [?], array2: [?]) -> !0",
+      "!url": "https://lodash.com/docs#union"
+    },
+    "unionBy": {
+      "!doc": "This method is like _.union except that it accepts iteratee which is invoked for each element of each arrays to generate the criterion by which uniqueness is computed.",
+      "!type": "fn(array: [?], array2: [?], iteratee?: ?) -> !0",
+      "!url": "https://lodash.com/docs#"
+    },
+    "unionWith": {
+      "!doc": "This method is like _.union except that it accepts comparator which is invoked to compare elements of arrays.",
+      "!type": "fn(array: [?], array2: [?], comparator?: fn(arrVal: ?, othVal: ?) -> ?) -> !0",
+      "!url": "https://lodash.com/docs#unionWith"
+    },
+    "uniq": {
+      "!doc": "Creates a duplicate-free version of an array, using SameValueZero for equality comparisons, in which only the first occurrence of each element is kept.",
+      "!type": "fn(array: [?]) -> [?]",
+      "!url": "https://lodash.com/docs#uniq"
+    },
+    "uniqBy": {
+      "!doc": "This method is like _.uniq except that it accepts iteratee which is invoked for each element in array to generate the criterion by which uniqueness is computed.",
+      "!type": "fn(array: [?], iteratee?: ?) -> [?]",
+      "!url": "https://lodash.com/docs#uniqBy"
+    },
+    "uniqWith": {
+      "!doc": "This method is like _.uniq except that it accepts comparator which is invoked to compare elements of array.",
+      "!type": "fn(array: [?], comparator?: fn(arrVal: ?, othVal: ?) -> ?) -> [?]",
+      "!url": "https://lodash.com/docs#uniqWith"
+    },
+    "uniqueId": {
+      "!doc": "Generates a unique ID. If prefix is given, the ID is appended to it.",
+      "!type": "fn(prefix?: string) -> string",
+      "!url": "https://lodash.com/docs#uniqueId"
+    },
+    "unset": {
+      "!doc": "Removes the property at path of object.",
+      "!type": "fn(object: ?, path: string) -> bool",
+      "!url": "https://lodash.com/docs#unset"
+    },
+    "unzip": {
+      "!doc": "This method is like _.zip except that it accepts an array of grouped elements and creates an array regrouping the elements to their pre-zip configuration.",
+      "!type": "fn(array: [?]) -> [?]",
+      "!url": "https://lodash.com/docs#unzip"
+    },
+    "unzipWith": {
+      "!doc": "This method is like _.unzip except that it accepts iteratee to specify how regrouped values should be combined.",
+      "!type": "fn(array: [?], iteratee?: fn()) -> [?]",
+      "!url": "https://lodash.com/docs#unzipWith"
+    },
+    "update": {
+      "!doc": "This method is like _.set except that accepts updater to produce the value to set.",
+      "!type": "fn(object: ?, path: string, updater: fn(value: ?)) -> !0",
+      "!url": "https://lodash.com/docs#update"
+    },
+    "updateWith": {
+      "!doc": "This method is like _.update except that it accepts customizer which is invoked to produce the objects of path.",
+      "!type": "fn(object: ?, path: string, updater: fn(value: ?), customizer?: fn(value: ?, key: ?, object: ?)) -> !0",
+      "!url": "https://lodash.com/docs#updateWith"
+    },
+    "upperCase": {
+      "!doc": "Converts string, as space separated words, to upper case.",
+      "!type": "fn(string?: string) -> string",
+      "!url": "https://lodash.com/docs#upperCase"
+    },
+    "upperFirst": {
+      "!doc": "Converts the first character of string to upper case.",
+      "!type": "fn(string?: string) -> string",
+      "!url": "https://lodash.com/docs#upperFirst"
+    },
+    "values": {
+      "!doc": "Creates an array of the own enumerable string keyed property values of object.",
+      "!type": "fn(object: ?) -> [!0.<i>]",
+      "!url": "https://lodash.com/docs#values"
+    },
+    "valuesIn": {
+      "!doc": "Creates an array of the own and inherited enumerable string keyed property values of object.",
+      "!type": "fn(object: ?) -> [!0.<i>]",
+      "!url": "https://lodash.com/docs#valuesIn"
+    },
+    "VERSION": {
+      "!doc": "The semantic version number.",
+      "!type": "string",
+      "!url": "https://lodash.com/docs#VERSION"
+    },
+    "without": {
+      "!doc": "Creates an array excluding all given values using SameValueZero for equality comparisons.",
+      "!type": "fn(array: [?], values?: ?) -> !0",
+      "!url": "https://lodash.com/docs#without"
+    },
+    "words": {
+      "!doc": "Splits string into an array of its words.",
+      "!type": "fn(string?: string, pattern?: string) -> [string]",
+      "!url": "https://lodash.com/docs#words"
+    },
+    "wrap": {
+      "!doc": "Creates a function that provides value to the wrapper function as its first argument.",
+      "!type": "fn(value: ?, wrapper?: fn(?)) -> !0",
+      "!effects": ["call !1 !0"],
+      "!url": "https://lodash.com/docs#wrap"
+    },
+    "xor": {
+      "!doc": "Creates an array of unique values that is the symmetric difference of the given arrays.",
+      "!type": "fn(array: [?], array2: [?]) -> [?]",
+      "!url": "https://lodash.com/docs#xor"
+    },
+    "xorBy": {
+      "!doc": "Creates an array of unique values that is the symmetric difference of the given arrays.",
+      "!type": "fn(array: [?], array2: [?], iteratee?: fn(value: ?)) -> [?]",
+      "!url": "https://lodash.com/docs#xorBy"
+    },
+    "xorWith": {
+      "!doc": "This method is like _.xor except that it accepts comparator which is invoked to compare elements of arrays.",
+      "!type": "fn(array: [?], array2: [?], comparator?: fn(arrVal: ?, othVal) -> bool) -> [?]",
+      "!effects": ["call !2 !0.<i> !1.<i>"],
+      "!url": "https://lodash.com/docs#xorWith"
+    },
+    "zip": {
+      "!doc": "Creates an array of grouped elements, the first of which contains the first elements of the given arrays, the second of which contains the second elements of the given arrays, and so on.",
+      "!type": "fn(array?: [?], array2?: [?]) -> [?]",
+      "!url": "https://lodash.com/docs#zip"
+    },
+    "zipObject": {
+      "!doc": "This method is like _.fromPairs except that it accepts two arrays, one of property identifiers and one of corresponding values.",
+      "!type": "fn(props?: [?], values?: [?]) -> ?",
+      "!url": "https://lodash.com/docs#zipObject"
+    },
+    "zipObjectDeep": {
+      "!doc": "This method is like _.zipObject except that it supports property paths.",
+      "!type": "fn(props?: [?], values?: [?]) -> ?",
+      "!url": "https://lodash.com/docs#zipObjectDeep"
+    },
+    "zipWith": {
+      "!doc": "This method is like _.zip except that it accepts iteratee to specify how grouped values should be combined.",
+      "!type": "fn(array?: [?], array2: [?], iteratee?: fn()) -> [?]",
+      "!url": "https://lodash.com/docs#zipWith"
+    }
+  }
+}

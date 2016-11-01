@@ -1,0 +1,27 @@
+[include]
+	path = ~/.gitinfo
+[apply]
+	whitespace = fix
+[core]
+	excludesfile = ~/.gitignore
+	editor = vim
+	autocrlf = input
+	trustctime = false
+	ignorecase = true
+	precomposeunicode = true
+[diff]
+	tool = vimdiff
+[difftool "vimdiff"]
+	cmd = "vimdiff $LOCAL $REMOTE"
+	prompt = false
+[merge]
+	# splice is a vim plugin by steve losh
+    tool = splice
+	log = true
+[mergetool "splice"]
+	cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
+	trustExitCode = true
+[help]
+	autocorrect = 1
+[push]
+	default = simple

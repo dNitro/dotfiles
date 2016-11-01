@@ -1,0 +1,9 @@
+{
+  "libs": [
+    "reserved",
+    "ecmascript"
+  ],
+  "plugins": {
+    "node": {}
+  }
+}

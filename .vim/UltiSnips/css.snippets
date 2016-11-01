@@ -1,0 +1,413 @@
+snippet cf
+/*--[ Nicolas Gallagher's Micro ClearFix Hack ]-----------------------------*/
+/* For Modern Browsers */
+.cf:before,
+.cf:after {
+   content: " ";
+   display: table;
+}
+
+.cf:after {
+   clear: both;
+}
+
+/* For IE 6/7 Only */
+.cf {
+   *zoom: 1;
+}
+/*--------------------------------------------------------------------------*/
+endsnippet
+
+snippet lg
+linear-gradient(${1:to ${2:bottom}}, ${3:#fb955e} ${4:0}%, ${5:#feccb1} ${6:100}%)${7};
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$3', endColorstr='$5', GradientType=0 ); /* IE6-9 */
+endsnippet
+snippet rlg
+repeating-linear-gradient(${1:to ${2:bottom}}, ${3:#fb955e} ${4:0}%, ${5:#feccb1} ${6:100}%)${7};
+endsnippet
+snippet rg
+radial-gradient(${1:ellipse} ${2:farthest-corner} at ${3:50}% ${4:50}%, ${5:#fb955e} ${6:0}%, ${7:#feccb1} ${8:100}%)${6};
+endsnippet
+snippet rrg
+repeating-radial-gradient(${1:ellipse} ${2:farthest-corner} at ${3:50}% ${4:50}%, ${5:#fb955e} ${6:0}%, ${7:#feccb1} ${8:100}%)${6};
+endsnippet
+snippet today
+Last Modified Date: `jdate +%R`
+endsnippet
+snippet head
+/*--[ ${1:Head} ]------------------------------------------------------------------
+Project: ${2:Project Name}
+URL: ${3:http://www.example.com/index.php}
+Author: ${4:John Doe}
+Author WebPage: ${5:http://www.example.com}
+© `date +%Y`. All Rights Reserved.
+----------------------------------------------------------------------------*/
+endsnippet
+snippet sec
+/*--[ ${1:Section} ]-------------------------------------------------------------*/
+${2}
+/*--------------------------------------------------------------------------*/
+endsnippet
+snippet toc
+/*--[ Table of Contents ]-----------------------------------------------------
+Body
+	1.Header
+		1.1.Navigation
+	2.Sidebar
+	3.Main Content
+	4.Footer
+----------------------------------------------------------------------------*/
+endsnippet
+snippet cg
+/*--[ Color Guide ]-----------------------------------------------------------
+[Color] | [Name] | [Usage]
+----|----|----
+${1:#ffffff}|${2:White}|${3:Headings}
+----------------------------------------------------------------------------*/
+endsnippet
+snippet url
+url("${1:http://www.${2:example.com/bck.png}}")
+endsnippet
+snippet "url " "desc" r
+url("${1:http://www.${2:example.com/bck.png}}") 
+endsnippet
+snippet sexytextdark
+-moz-osx-font-smoothing: auto;
+ -webkit-font-smoothing: subpixel-antialiased;
+         text-rendering: optimizelegibility
+endsnippet
+snippet sexytextlight
+-moz-osx-font-smoothing: grayscale;
+ -webkit-font-smoothing: antialiased;
+         text-rendering: optimizelegibility
+endsnippet
+snippet hidetext
+border: 0;
+font: 0/0 a;
+text-shadow: none;
+color: transparent;
+background-color: transparent
+endsnippet
+snippet "@font-face " "desc" r
+@font-face {
+    font-family: '${1:robotolight}';
+    src: url('${2:roboto-light-webfont}.eot');
+    src: local('☺'),
+         url('$2.eot?#iefix') format('embedded-opentype'),
+         url('$2.woff2') format('woff2'),
+         url('$2.woff') format('woff'),
+         url('$2.ttf') format('truetype'),
+         url('$2.svg#$1') format('svg');
+    font-weight: ${3:normal};
+    font-style: ${4:normal};
+}
+endsnippet
+snippet Arial
+Arial, "Helvetica Neue", Helvetica, sans-serif
+endsnippet
+snippet "Arial Black"
+"Arial Black", "Arial Bold", Gadget, sans-serif
+endsnippet
+snippet "Arial Narrow"
+"Arial Narrow", Arial, sans-serif
+endsnippet
+snippet "Arial Rounded MT Bold"
+"Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif
+endsnippet
+snippet "Avant Garde"
+"Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif
+endsnippet
+snippet Calibri
+Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif
+endsnippet
+snippet Candara
+Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif
+endsnippet
+snippet "Century Gothic"
+"Century Gothic", CenturyGothic, AppleGothic, sans-serif
+endsnippet
+snippet "Franklin Gothic Medium"
+"Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif
+endsnippet
+snippet Futura
+Futura, "Trebuchet MS", Arial, sans-serif
+endsnippet
+snippet Geneva
+Geneva, Tahoma, Verdana, sans-serif
+endsnippet
+snippet "Gill Sans"
+"Gill Sans", "Gill Sans MT", Calibri, sans-serif
+endsnippet
+snippet "Helvetica Neue"
+"Helvetica Neue", Helvetica, Arial, sans-serif
+endsnippet
+snippet Impact
+Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans serif
+endsnippet
+snippet "Lucida Grande"
+"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif
+endsnippet
+snippet Optima
+Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif
+endsnippet
+snippet "Segoe UI"
+"Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif
+endsnippet
+snippet Tahoma
+Tahoma, Verdana, Segoe, sans-serif
+endsnippet
+snippet "Trebuchet MS"
+"Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif
+endsnippet
+snippet Verdana
+Verdana, Geneva, sans-serif
+endsnippet
+snippet Baskerville
+Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif
+endsnippet
+snippet "Big Caslon"
+"Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif
+endsnippet
+snippet "Bodoni MT"
+"Bodoni MT", Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif
+endsnippet
+snippet "Book Antiqua"
+"Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif
+endsnippet
+snippet "Calisto MT"
+"Calisto MT", "Bookman Old Style", Bookman, "Goudy Old Style", Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif
+endsnippet
+snippet Cambria
+Cambria, Georgia, serif
+endsnippet
+snippet Didot
+Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif
+endsnippet
+snippet Garamond
+Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif
+endsnippet
+snippet Georgia
+Georgia, Times, "Times New Roman", serif
+endsnippet
+snippet "Goudy Old Style"
+"Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif
+endsnippet
+snippet "Hoefler Text"
+"Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif
+endsnippet
+snippet "Lucida Bright"
+"Lucida Bright", Georgia, serif
+endsnippet
+snippet Palatino
+Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif
+endsnippet
+snippet Perpetua
+Perpetua, Baskerville, "Big Caslon", "Palatino Linotype", Palatino, "URW Palladio L", "Nimbus Roman No9 L", serif
+endsnippet
+snippet Rockwell
+Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif
+endsnippet
+snippet TimesNewRoman
+TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif
+endsnippet
+snippet "Rockwell Extra Bold"
+"Rockwell Extra Bold", "Rockwell Bold", monospace
+endsnippet
+snippet "Andale Mono"
+"Andale Mono", AndaleMono, monospace
+endsnippet
+snippet Consolas
+Consolas, monaco, monospace
+endsnippet
+snippet "Courier New"
+"Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace
+endsnippet
+snippet "Lucida Console"
+"Lucida Console", "Lucida Sans Typewriter", Monaco, "Bitstream Vera Sans Mono", monospace
+endsnippet
+snippet "Lucida Sans Typewriter"
+"Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace
+endsnippet
+snippet Monaco
+Monaco, Consolas, "Lucida Console", monospace
+endsnippet
+snippet Copperplate
+Copperplate, "Copperplate Gothic Light", fantasy
+endsnippet
+snippet Papyrus
+Papyrus, fantasy
+endsnippet
+snippet "Brush Script MT"
+"Brush Script MT", cursive
+endsnippet
+snippet "flex: initial"
+flex: 0 1 auto
+endsnippet
+snippet "flex: none"
+flex: 0 0 auto
+endsnippet
+snippet "flex: auto"
+flex: 1 1 auto
+endsnippet
+snippet px "desc" i
+${1:1}px
+endsnippet
+snippet % "desc" i
+${1:1}%
+endsnippet
+snippet em "desc" i
+${1:1}em
+endsnippet
+snippet rem "desc" i
+${1:1}rem
+endsnippet
+snippet second "desc" i
+${1:1}s
+endsnippet
+snippet milisecond "desc" i
+${1:1}ms
+endsnippet
+pre_expand "b = re.match('^(\s*.*\{)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
+snippet " {" "desc" rA
+
+  $0
+}
+endsnippet
+snippet # "desc"
+#${1:FFFFFF}
+endsnippet
+snippet rgb
+rgb(${1:255}, ${2:255}, ${0:255})
+endsnippet
+snippet hsl
+hsl(${1:360}, ${2:100}%, ${0:100}%)
+endsnippet
+snippet rgba
+rgba(${1:255}, ${2:255}, ${3:255}, ${0:1.0})
+endsnippet
+snippet hsla
+hsla(${1:360}, ${2:100}%, ${3:100}%, ${0:1.0})
+endsnippet
+snippet "# " "desc" r
+#${1:FFFFFF} 
+endsnippet
+snippet "rgb " "desc" r
+rgb(${1:255}, ${2:255}, ${3:255}) 
+endsnippet
+snippet "hsl " "desc" r
+hsl(${1:360}, ${2:100}%, ${3:100}%) 
+endsnippet
+snippet "rgba " "desc" r
+rgba(${1:255}, ${2:255}, ${3:255}, ${4:1.0}) 
+endsnippet
+snippet "hsla " "desc" r
+hsla(${1:360}, ${2:100}%, ${3:100}%, ${4:1.0}) 
+endsnippet
+snippet "px " "desc" r
+${1:1}px 
+endsnippet
+snippet "% " "desc" r
+${1:100}% 
+endsnippet
+snippet "px px/" "desc" r
+${1:1}px ${2:1}px/
+endsnippet
+snippet "%/" "desc" r
+${1:100}% ${2:100}%/
+endsnippet
+snippet "rem " "desc" r
+${1:1}rem 
+endsnippet
+snippet "em " "desc" r
+${1:1}em 
+endsnippet
+snippet "second " "desc" r
+${1:1}s 
+endsnippet
+snippet "milisecond " "desc" r
+${1:1000}ms 
+endsnippet
+snippet "box-shadow: " "desc" r
+box-shadow: ${1:inset }
+endsnippet
+snippet rect
+rect(${1:10}px, ${2:10}px, ${3:10}px, ${4:10}px)
+endsnippet
+snippet cubic-bezier
+cubic-bezier(${1:0.1}, ${2:0.1}, ${3:0.1}, ${4:0.1})
+endsnippet
+snippet keyframesname
+${1:keyframesname}
+endsnippet
+snippet matrix
+matrix(${1:10}, ${2:10}, ${3:10}, ${4:10},  ${5:10}, ${6:10}}
+endsnippet
+snippet matrix3d
+matrix3d(${1:10}, ${2:10}, ${3:10}, ${4:10},  ${5:10}, ${6:10},  ${7:10},  ${8:10},  ${9:10},  ${10:10},  ${11:10},  ${12:10},  ${13:10},  ${14:10},  ${15:10},  ${16:10})
+endsnippet
+snippet translate
+translate(${1:10}px${2})
+endsnippet
+snippet translate3d
+translate3d(${1:10}px, ${2:10}px, ${3:10}px)
+endsnippet
+snippet translateX
+translateX(${1:10}px)
+endsnippet
+snippet translateY
+translateY(${1:10}px)
+endsnippet
+snippet translateZ
+translateZ(${1:10}px)
+endsnippet
+snippet scale
+scale(${1:2}${2})
+endsnippet
+snippet scale3d
+scale3d(${1:2}, ${2:2}, ${3:2})
+endsnippet
+snippet scaleX
+scaleX(${1:2})
+endsnippet
+snippet scaleY
+scaleY(${1:2})
+endsnippet
+snippet scaleZ
+scaleZ(${1:2})
+endsnippet
+snippet rotate
+rotate(${1:45}deg)
+endsnippet
+snippet rotate3d
+rotate3d(${1:2}, ${2:2}, ${3:2}, ${4:45}deg)
+endsnippet
+snippet rotateX
+rotateX(${1:45}deg)
+endsnippet
+snippet rotateY
+rotateY(${1:45}deg)
+endsnippet
+snippet rotateZ
+rotateZ(${1:45}deg)
+endsnippet
+snippet skew
+skew(${1:45}deg, ${2:45}deg)
+endsnippet
+snippet skewX
+skewX(${1:45}deg)
+endsnippet
+snippet skewY
+skewY(${1:45}deg)
+endsnippet
+snippet perspective
+perspective(${1:30})
+endsnippet
+snippet counter
+counter(${1:parameter})
+endsnippet
+snippet attr
+attr(${1:attribute})
+endsnippet
+snippet string
+${1:string}
+endsnippet

@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+#
+# Install dependencies in series:
+#   - .gitconfig variable file (.gitinfo)
+#   - Max Os X defaults (.macos)
+#   - homebrew formulae (.brew)
+#   - homebrew casks (.brew-cask)
+#   - global npm packages (.package)
+#
+# Use: sh ./install
+# ============================================================================
+
+# source logger
+source $HOME/.init/logger.sh
+
+echo ''
+
+set -e
+
+setup_gitinfo () {
+  if ! [ -f $HOME/.gitinfo ]
+  then
+    info 'setup .gitinfo'
+
+    git_credential='cache'
+    if [ "$(uname -s)" == "Darwin" ]
+    then
+      git_credential='osxkeychain'
+    fi
+
+    user ' - What is your git author name?'
+    read -e git_authorname
+    user ' - What is your git author email?'
+    read -e git_authoremail
+    user ' - What is your github username?'
+    read -e github_user
+
+    sed -e "s/USER_NAME/$git_authorname/g" -e "s/USER_EMAIL/$git_authoremail/g" -e "s/GITHUB_USER/$github_user/g" -e "s/CREDENTIAL_HELPER/$git_credential/g" $HOME/.init/gitinfo.tpl > $HOME/.gitinfo
+
+    success '.gitinfo created successfully!'
+  else
+    success '.gitinfo is already installed!'
+  fi
+}
+
+setup_gitinfo
+
+# Do remaining only if we're on a Mac
+if [ "$(uname -s)" == "Darwin" ]
+then
+  if sh $HOME/.macos &&
+     sh $HOME/.brew &&
+     sh $HOME/.brew-cask &&
+     sh $HOME/.package
+  then
+    success "All Done."
+  else
+    fail "error installing dependencies."
+  fi
+fi
+
+echo ''

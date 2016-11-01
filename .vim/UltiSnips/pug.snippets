@@ -1,0 +1,171 @@
+#--general -----------------------
+snippet =' "desc" i
+='$0'
+endsnippet
+
+#--tags -----------------------
+snippet html "desc" b
+html(lang='$0')
+endsnippet
+
+snippet meta "desc" b
+meta($0)
+endsnippet
+
+snippet link "desc" b
+link(rel='$1' href='$0')
+endsnippet
+
+#--meta http-equiv= -----------------------
+snippet refresh "des" i
+refresh' content='${1:5}${2:; url=http://${3:www.example.com/}}
+endsnippet
+
+snippet X-UA-Compatible "des" i
+X-UA-Compatible' content='IE=edge,chrome=1
+endsnippet
+
+#--meta name= -----------------------
+snippet application-name "des" i
+application-name' content='${0}
+endsnippet
+
+snippet author "des" i
+author' content='${0}
+endsnippet
+
+snippet description "des" i
+description' content='${0}
+endsnippet
+
+snippet generator "des" i
+generator' content='${0}
+endsnippet
+
+snippet keywords "des" i
+keywords' content='${0}
+endsnippet
+
+snippet viewport "des" i
+viewport' content='width=device-width, initial-scale=1.0
+endsnippet
+
+snippet apple-mobile-webapp-capable" "des" i
+apple-mobile-webapp-capable" content="yes
+endsnippet
+
+#--form elemets -----------------------
+snippet form "desc" b
+form(action='$1' method='$0')
+endsnippet
+
+snippet label "desc" b
+label
+	| ${1:Label}
+	input(type='$0')
+endsnippet
+
+snippet "input(.*?)\(" "desc" brA
+input`!p snip.rv = match.group(1)`(type='$0')
+endsnippet
+
+snippet type='text "desc" i
+label(for='${1}') $2
+input(type='text' id='$1' name='$1' placeholder='$3
+endsnippet
+
+snippet input(type='password "desc" b
+label(for='${1}') $2
+input(type='password' id='$1' name='$1' placeholder='$3
+endsnippet
+
+snippet input(type='email "desc" b
+label(for='${1}') $2
+input(type='email' id='$1' name='$1' placeholder='$3
+endsnippet
+
+snippet input(type='search "desc" b
+label(for='${1}') $2
+input(type='search' id='$1' name='$1' placeholder='$3
+endsnippet
+
+pre_expand "b = re.match('^(\s*.*\')', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
+snippet input(type='checkbox "desc" b
+ id='$1' name='$1')
+label(for='${1}') $0
+endsnippet
+
+pre_expand "b = re.match('^(\s*.*\')', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
+snippet input(type='radio "des" b
+ id='$1' name='${0:Group}')
+label(for='${1}') ${2}
+endsnippet
+
+snippet input(type='file "des" b
+label(for='${1}') $0
+input(type='file' id='$1' name='$1
+endsnippet
+
+snippet input(type='hidden "des" b
+input(type='hidden' value='$1' name='$0
+endsnippet
+
+snippet input(type='button "des" b
+input(type='button' value='$0
+endsnippet
+
+snippet button "desc" b
+button(type='$0')
+endsnippet
+
+snippet button(type='submit "des" b
+button(type='submit' value='$0
+endsnippet
+
+snippet button(type='reset "des" b
+button(type='reset' value='$0
+endsnippet
+
+snippet button(type='button "des" b
+button(type='button' value='$0
+endsnippet
+
+snippet input(type='image "des" b
+input(type='image' src='$1' alt='$0
+endsnippet
+
+snippet select "des" b
+label(for='${1}') $0
+select(id='$1' name='$1')
+endsnippet
+
+snippet optgroup "des" b
+optgroup(label='$1')
+endsnippet
+
+snippet option "des" b
+option(value='$1')
+endsnippet
+
+snippet textarea "des" b
+label(for="${1}") ${2}
+textarea(id='$1' name='$1' cols='${3:30}' rows='${0:10}')
+endsnippet
+#--------------------------------------
+snippet bower "desc"
+//- bower:$0
+//- endbower
+endsnippet
+
+snippet inject "desc"
+//- inject:$0
+//- endinject
+endsnippet
+
+snippet "for " "desc" brA
+for ${1:val, index} in ${0:obj,arr}
+endsnippet
+
+snippet "each " "desc" brA
+each ${1:val, index} in ${0:obj,arr}
+endsnippet

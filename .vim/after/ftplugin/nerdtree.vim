@@ -1,0 +1,2 @@
+" Nerdfonts required
+set nolist

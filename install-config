@@ -1,0 +1,37 @@
+# install-config
+#
+# from: https://bitbucket.org/snippets/nicolapaolucci/7rE9K
+# =========================================================
+
+source $HOME/.init/logger.sh
+
+echo ''
+
+info "Installing .myconfig bare repository ..."
+info "Stock configuration files will automatically move to .config-backup"
+
+git clone --bare https://github.com/dNitro/dotfiles.git $HOME/.myconfig
+
+function config {
+   $(which git) --git-dir=$HOME/.myconfig/ --work-tree=$HOME $@
+}
+
+mkdir -p .config-backup
+
+config checkout
+
+if [ $? = 0 ]; then
+  info "Checked out config.";
+  else
+    info "Backing up pre-existing dot files.";
+    config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
+fi;
+
+config checkout
+
+config config status.showUntrackedFiles no
+
+echo "alias nit='$(which git) --git-dir=$HOME/.myconfig/ --work-tree=$HOME'" >> $HOME/.zsh/aliases
+
+success 'Done.'
+echo ''

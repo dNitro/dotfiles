@@ -1,0 +1,44 @@
+snippet #{ "desc"
+#{$1}
+endsnippet
+snippet "@if " "desc" r
+@if ${1:expression} {
+  ${2}
+}
+endsnippet
+snippet "@else if " "desc" r
+@else if ${1:expression} {
+  ${2}
+}
+endsnippet
+snippet "@for " "desc" r
+@for $${1:variable} from ${2:start} through ${3:end} {
+  ${4}
+}
+endsnippet
+snippet "@each " "desc" r
+@each $${1:MultipleVariables} in ${2:Multiple lists or maps} {
+  ${3}
+}
+endsnippet
+snippet "@while " "desc" r
+@while ${1:expression} {
+  ${2}
+}
+endsnippet
+snippet "@mixin " "desc" r
+@mixin ${1:name}(${2:arguments}) {
+  ${3}
+}
+endsnippet
+snippet "@include " "desc" r
+@include ${1:mixin};
+endsnippet
+snippet "@function " "desc" r
+@function ${1:name}(${2:arguments}) {
+  ${3}
+}
+endsnippet
+snippet "@return " "desc" r
+@return ${1:expression};
+endsnippet

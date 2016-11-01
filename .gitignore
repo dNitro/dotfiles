@@ -1,0 +1,12 @@
+.DS_Store
+
+.ssh/*
+!.ssh/config
+!.ssh/control
+.ssh/control/*
+!.ssh/control/.gitkeep
+
+.vim/.netrwhist
+.vim/plugged
+.vim/tmp/*
+!.vim/tmp/.gitkeep

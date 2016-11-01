@@ -1,0 +1,46 @@
+260a261,262
+>   ignorecase = int(vim.eval("g:tern_ignorecase"))
+>   pattern = ("." if bool(ignorecase) else ".*\\W")
+264c266
+<       (not re.match(".*\\W", curLine[int(cached["end"]):curCol]))):
+---
+>       (not re.match(pattern, curLine[int(cached["end"]):curCol]))):
+267c269,271
+<   data = tern_runCommand({"type": "completions", "types": True, "docs": True},
+---
+>   icons = vim.eval("!empty(g:tern_icons)")
+> 
+>   data = tern_runCommand({"type": "completions", "types": True, "docs": True, "caseInsensitive": bool(ignorecase), "origins": bool(icons)},
+273a278,279
+>                         "icase": ignorecase,
+>                         "abbr": tern_iconCatcher(rec),
+284a291,306
+> def tern_iconCatcher(rec):
+>   orig = rec.get("origin")
+>   if orig is None: return ""
+>   wd = rec.get("name")
+>   list = vim.eval("items(g:tern_icons)")
+>   for i in range(len(list)):
+>     if list[i][0] == orig:
+>       icon = list[i][1]
+>       if PY2:
+>         icon = icon.decode('utf-8') 
+>       return icon + wd
+>   default = vim.eval("g:tern_default_icon")
+>   if PY2:
+>     default = default.decode('utf-8')
+>   return  default + wd
+> 
+285a308
+>   name = rec.get("name")
+289,290c312,314
+<      result = tp + "\n" + result
+<   return result
+---
+>     result = name + "\n" + tp + "\n" + "\n".join(result.split("\\n"))
+>   return "\n".join(result.split("\\n"))
+> 
+308c332
+<     doc = ((doc and doc + "\n\n") or "") + "See " + url
+---
+>     doc = ((doc and doc + "\\n\\n") or "") + "See " + url

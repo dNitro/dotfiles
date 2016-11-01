@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+# Global npm packages
+# ===================
+
+# source logger
+source ~/.init/logger.sh
+
+info 'Installing global npm packages ...'
+
+npm install -g npm
+npm install -g yo
+npm install -g gulp-cli
+npm install -g jshint
+npm install -g js-beautify
+npm install -g jsonlint
+npm install -g instant-markdown-d
+
+success 'Packages Done.'

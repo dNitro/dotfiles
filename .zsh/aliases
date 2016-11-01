@@ -1,0 +1,39 @@
+#!/usr/bin/env zsh
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Easier navigation: .., ..., ...., ....., ~ and -
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ~="cd ~" # `cd` is probably faster to type though
+alias -- -="cd -"
+
+# Shortcuts
+alias d="cd ~/Documents/Dropbox"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias p="cd ~/projects"
+
+alias g="git"
+alias h="history"
+alias j="jobs"
+alias v='vim'
+alias q='exit'
+alias cls='clear' # Clear Screen
+
+# NPM
+alias nu='npm update -g'
+alias ng='npm install -g'
+alias ns='npm install --save'
+alias nd='npm install --save-dev'
+
+# Homebrew
+alias br='brew'
+alias bru='brew update; brew upgrade --all; brew cleanup'
+alias brc='brew cask'
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'

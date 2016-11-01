@@ -1,0 +1,35 @@
+#!/bin/bash
+#
+# Install Mac Os X Appas using Homebrew Cask
+# ==========================================
+
+# Source logger
+source $HOME/.init/logger.sh
+
+# Install Homebrew Cask if it's not already installed
+if ! brew tap | grep 'caskroom/cask' &>/dev/null; then
+    info "Installing Homebrew Cask ..."
+    brew tap caskroom/cask
+    success 'Homebrew Cask Installed successfully!'
+else
+    info "Homebrew Casks is already installed!"
+    # no need to update because 'brew update' also updates taps.
+    # just upgrade outdated casks if any
+    if [[ $(brew cask list) ]] &>/dev/null; then
+        info "Upgrading already-installed Casks"
+        brew cask install --force `brew cask list`
+    fi
+fi
+
+info 'Installing Casks ...'
+brew cask install macvim
+brew cask install iterm2
+brew cask install google-chrome
+brew cask install firefox
+brew cask install vlc
+brew cask install utorrent
+
+# Remove outdated versions and download cache
+brew cask cleanup
+
+success 'Casks Done.'

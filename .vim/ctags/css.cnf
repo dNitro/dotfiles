@@ -1,0 +1,9 @@
+--langdef=css
+--langmap=css:.css.less.scss
+--regex-css=/^[ \t]*@([A-Za-z0-9_-]+)/@\1/v,variable/
+--regex-css=/^[ \t]*\.([][ .,*>~="'+:#A-Za-z0-9_-]+)[,{][ \t]*$/.\1/c,class/
+--regex-css=/^[ \t]*#([][ .,*>~="'+:#A-Za-z0-9_-]+)[,{][ \t]*$/#\1/i,id/
+--regex-css=/^[ \t]*([:A-Za-z0-9_-][][ .,*>~="'+:#A-Za-z0-9_-]*)[,{][ \t]*$/\1/t,tag/
+--regex-css=/^[ \t]*@media\s+(.+)[,{][ \t]*$/\1/m,media/
+--regex-css=/^[ \t]*@font-face[ \t]*[,{][ \t]*$/font-face/f,font/
+--regex-css=/^[ \t]*@(-o-|-moz-|-webkit-){0,1}keyframes[ \t]*([A-Za-z0-9_-]+)[ \t]*[,{][ \t]*$/\1keyframes \2/k,keyframe/
