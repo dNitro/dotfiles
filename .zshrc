@@ -51,6 +51,11 @@ export KEYTIMEOUT=1
 export PATH="/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/X11/bin"
 export EDITOR='vim'
 
+# Load TMUX and attach to base session on zsh initiation
+if [ -z "$TMUX" ]; then
+    tmux attach -t base || tmux new -s base
+fi
+
 # Aliases
 source $HOME/.zsh/aliases
 # =============================================
