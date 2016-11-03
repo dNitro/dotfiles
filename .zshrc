@@ -48,7 +48,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 export KEYTIMEOUT=1
 
 # ENVs
-export PATH="/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/X11/bin"
+export PATH="/usr/local/mongodb/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/X11/bin"
 export EDITOR='vim'
 
 # Load TMUX and attach to base session on zsh initiation
