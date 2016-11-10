@@ -65,44 +65,44 @@ label
 	input(type='$0')
 endsnippet
 
-snippet "input(.*?)\(" "desc" brA
-input`!p snip.rv = match.group(1)`(type='$0')
+snippet input "desc" b
+input(type='$0')
 endsnippet
 
-snippet type='text "desc" i
-label(for='${1}') $2
-input(type='text' id='$1' name='$1' placeholder='$3
+snippet input(type='text "desc" b
+label(for='${1}') ${2:$1}
+input(type='text' id='$1' name='$1' placeholder='${3:$1}
 endsnippet
 
 snippet input(type='password "desc" b
-label(for='${1}') $2
-input(type='password' id='$1' name='$1' placeholder='$3
+label(for='${1}') ${2:$1}
+input(type='password' id='$1' name='$1' placeholder='${3:$1}
 endsnippet
 
 snippet input(type='email "desc" b
-label(for='${1}') $2
-input(type='email' id='$1' name='$1' placeholder='$3
+label(for='${1}') ${2:$1}
+input(type='email' id='$1' name='$1' placeholder='${3:$1}
 endsnippet
 
 snippet input(type='search "desc" b
-label(for='${1}') $2
-input(type='search' id='$1' name='$1' placeholder='$3
+label(for='${1}') ${2:$1}
+input(type='search' id='$1' name='$1' placeholder='${3:$1}
 endsnippet
 
 pre_expand "b = re.match('^(\s*.*\')', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
 snippet input(type='checkbox "desc" b
  id='$1' name='$1')
-label(for='${1}') $0
+label(for='${1}') ${0:$1}
 endsnippet
 
 pre_expand "b = re.match('^(\s*.*\')', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
 snippet input(type='radio "des" b
  id='$1' name='${0:Group}')
-label(for='${1}') ${2}
+label(for='${1}') ${2:$1}
 endsnippet
 
 snippet input(type='file "des" b
-label(for='${1}') $0
+label(for='${1}') ${0:$1}
 input(type='file' id='$1' name='$1
 endsnippet
 
@@ -135,7 +135,7 @@ input(type='image' src='$1' alt='$0
 endsnippet
 
 snippet select "des" b
-label(for='${1}') $0
+label(for='${1}') ${0:$1}
 select(id='$1' name='$1')
 endsnippet
 
@@ -144,11 +144,11 @@ optgroup(label='$1')
 endsnippet
 
 snippet option "des" b
-option(value='$1')
+option(value='$1') ${0:$1}
 endsnippet
 
 snippet textarea "des" b
-label(for="${1}") ${2}
+label(for='${1}') ${2:$1}
 textarea(id='$1' name='$1' cols='${3:30}' rows='${0:10}')
 endsnippet
 #--------------------------------------
@@ -162,7 +162,7 @@ snippet inject "desc"
 //- endinject
 endsnippet
 
-snippet "for " "desc" brA
+snippet "for " "desc" br
 for ${1:val, index} in ${0:obj,arr}
 endsnippet
 
