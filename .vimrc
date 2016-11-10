@@ -1,7 +1,7 @@
 " File          : .vimrc
 " Description   : vim text editor configuration file
 " Maintainer    : dNitro <ali.zarifkar AT gmail DOT com>
-" Last modified : 2016 Nov 08 at 02:00:47 AM
+" Last modified : 2016 Nov 10 at 23:33:52 PM
 " License       : MIT
 
 "-[ BASE ]====================================================================
@@ -110,8 +110,8 @@ silent! if plug#begin('~/.vim/plugged')
   endfunction
   Plug 'ternjs/tern_for_vim', { 'do': function('CookTern') }
   Plug 'pangloss/vim-javascript'
-  Plug 'digitaltoad/vim-pug'
-  Plug 'dNitro/vim-pug-complete'
+  Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
+  Plug 'dNitro/vim-pug-complete', { 'for': ['jade', 'pug'] }
   "-2 Lint -------------------------------------------------------------------
   Plug 'scrooloose/syntastic', { 'on': 'SyntasticCheck' }
   "-2 Git --------------------------------------------------------------------
