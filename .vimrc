@@ -1,7 +1,7 @@
 " File          : .vimrc
 " Description   : vim text editor configuration file
 " Maintainer    : dNitro <ali.zarifkar AT gmail DOT com>
-" Last modified : 2016 Nov 03 at 21:00:58 PM
+" Last modified : 2016 Nov 08 at 02:00:47 AM
 " License       : MIT
 
 "-[ BASE ]====================================================================
