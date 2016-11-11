@@ -1,7 +1,7 @@
 " File          : .vimrc
 " Description   : vim text editor configuration file
 " Maintainer    : dNitro <ali.zarifkar AT gmail DOT com>
-" Last modified : 2016 Nov 10 at 23:33:52 PM
+" Last modified : 2016 Nov 11 at 21:10:38 PM
 " License       : MIT
 
 "-[ BASE ]====================================================================
@@ -459,7 +459,9 @@ augroup ftspecific
   au BufNewFile,BufRead *.scss UltiSnipsAddFiletypes css
   au BufNewFile,BufRead gulpfile.js UltiSnipsAddFiletypes javascript-gulp
   au BufNewFile,BufRead .jshintrc setlocal ft=json | Vison jshintrc.json
+  au BufNewFile,BufRead .jscsrc setlocal ft=json | Vison jscsrc.json
   au BufNewFile,BufRead .babelrc setlocal ft=json | Vison babelrc.json
+  au BufNewFile,BufRead .bowerrc setlocal ft=json | Vison bowerrc.json
   au BufNewFile,BufRead *.json Vison
   au BufNewFile,BufRead *{[tT]est,[sS]pec}.js UltiSnipsAddFiletypes javascript-mocha-bdd
 augroup END
