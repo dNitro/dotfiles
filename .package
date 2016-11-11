@@ -8,8 +8,8 @@ source ~/.init/logger.sh
 
 info 'Installing global npm packages ...'
 
-npm install -g npm
 npm install -g yo
+npm install -g bower
 npm install -g gulp-cli
 npm install -g jshint
 npm install -g js-beautify
