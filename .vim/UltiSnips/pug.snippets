@@ -114,6 +114,10 @@ snippet input(type='button "des" b
 input(type='button' value='$0
 endsnippet
 
+snippet input(type='submit "des" b
+input(type='submit' value='$0
+endsnippet
+
 snippet button "desc" b
 button(type='$0')
 endsnippet
@@ -168,4 +172,151 @@ endsnippet
 
 snippet "each " "desc" brA
 each ${1:val, index} in ${0:obj,arr}
+endsnippet
+
+snippet hug_bootstrap "headsupgrid for twitter bootstrap"
+$(document).ready(function() {
+  pageUnits = 'px';
+  colUnits = 'px';
+  pagewidth = 1140;
+  columns = 12;
+  columnwidth = 67.5;
+  gutterwidth = 30;
+  pagetopmargin = 0;
+  rowheight = ${1:0};
+  gridonload = 'on';
+  makehugrid();
+  setgridonload();
+});
+$(window).resize(function() {
+  rowheight = $1;
+  makehugrid();
+});
+endsnippet
+
+snippet hug_960_12 "headsupgrid for 960gs 12 column"
+$(document).ready(function() {
+  pageUnits = 'px';
+  colUnits = 'px';
+  pagewidth = 940;
+  columns = 12;
+  columnwidth = 60;
+  gutterwidth = 20;
+  pagetopmargin = 0;
+  rowheight = ${1:0};
+  gridonload = 'on';
+  makehugrid();
+  setgridonload();
+});
+$(window).resize(function() {
+  rowheight = $1;
+  makehugrid();
+});
+endsnippet
+
+snippet hug_960_16 "headsupgrid for 960gs 16 column"
+$(document).ready(function() {
+  pageUnits = 'px';
+  colUnits = 'px';
+  pagewidth = 940;
+  columns = 16;
+  columnwidth = 40;
+  gutterwidth = 20;
+  pagetopmargin = 0;
+  rowheight = ${1:0};
+  gridonload = 'on';
+  makehugrid();
+  setgridonload();
+});
+$(window).resize(function() {
+  rowheight = $1;
+  makehugrid();
+});
+endsnippet
+
+snippet hug_960_24 "headsupgrid for 960gs 24 column"
+$(document).ready(function() {
+  pageUnits = 'px';
+  colUnits = 'px';
+  pagewidth = 950;
+  columns = 24;
+  columnwidth = 30;
+  gutterwidth = 10;
+  pagetopmargin = 0;
+  rowheight = ${1:0};
+  gridonload = 'on';
+  makehugrid();
+  setgridonload();
+});
+$(window).resize(function() {
+  rowheight = $1;
+  makehugrid();
+});
+endsnippet
+
+snippet hug_resp "headsupgrid responsive"
+definegrid = function() {
+  var browserWidth = $(window).width();
+  if (browserWidth >= 1001)
+  {
+     pageUnits = 'px';
+     colUnits = 'px';
+     pagewidth = 960;
+     columns = 6;
+     columnwidth = 140;
+     gutterwidth = 24;
+     pagetopmargin = 35;
+     rowheight = 20;
+     gridonload = 'off';
+     makehugrid();
+  }
+  if (browserWidth <= 1000)
+  {
+     pageUnits = '%';
+     colUnits = '%';
+     pagewidth = 94;
+     columns = 2;
+     columnwidth = 48;
+     gutterwidth = 4;
+     pagetopmargin = 35;
+     rowheight = 20;
+     gridonload = 'off';
+     makehugrid();
+  }
+  if (browserWidth <= 768)
+  {
+     pageUnits = '%';
+     colUnits = '%';
+     pagewidth = 96;
+     columns = 2;
+     columnwidth = 49;
+     gutterwidth = 2;
+     pagetopmargin = 35;
+     rowheight = 20;
+     gridonload = 'off';
+     makehugrid();
+  }
+}
+$(document).ready(function() {
+  definegrid();
+  setgridonload();
+});
+$(window).resize(function() {
+  definegrid();
+  setgridonresize();
+});
+endsnippet
+
+snippet holderjs "holderjs"
+Holder.addTheme("${1:MyTheme}", {
+  bg: "${2:#bdc3c7}",
+  fg: "${3:#ffffff}",
+  size: ${4:10},
+  font: "${5:Monaco}",
+  fontweight: "${0:bold}"
+});
+endsnippet
+
+snippet placeholder "image placeholder" i
+holder.js/${1:100}x${2:100}${3:?theme=${4:MyTheme}${5:&text=${6:IMAGE}}}
 endsnippet
