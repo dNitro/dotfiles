@@ -1,18 +1,3 @@
-#snippet "^(\s*)<(\w)" "description" rbA
-#`!p snip.rv = match.group(1)`<`!p snip.rv = match.group(2)`$1>$0</`!p snip.rv = match.group(2)`${1/^\s*<(\w*).*/$1/}
-#endsnippet
-# snippet < "desc" A
-# <$1>${1/^(.*?)$/<\/$1/}
-# endsnippet
-#snippet "^(\s*)<\w" "description" rbA
-#`!p snip.rv = match.group(1)`<$1>$0</${1/^(\w*).*/$1/}
-#endsnippet
-snippet wow
-${1:Text}`!p snip.rv = (75-2*len(t[1]))*' '+t[1].upper()`
-endsnippet
-# snippet < "desc" Ai
-# <$1>$0${1/(?:(^\w+)|(^!)|(^%)).*/(?1:<\/$1>:)(?3:$3)/}
-# endsnippet
 snippet < "desc" Ai
 <$1>$0${1/(?:(^\w+)|(^!)|(^%)).*/(?1:<\/$1>)/}
 endsnippet
@@ -71,9 +56,6 @@ endsnippet
 snippet "<(a)\s?" "desc" r
 <`!p snip.rv = match.group(1)` href="$1"$2>$0</`!p snip.rv = match.group(1)`
 endsnippet
-# snippet "(\s+.*?=\")" "desc" r
-# `!p snip.rv = match.group(1)`$0"
-# endsnippet
 snippet =" "desc" i
 ="$1"
 endsnippet
@@ -118,163 +100,168 @@ endsnippet
 snippet <link "des" i
 <link href="$1" rel="$2"$0
 endsnippet
-# snippet <img "des" i
-# <img src="$1" alt="$2"$0
-# endsnippet
+
+snippet <img "des" i
+<img src="$1" alt="$2"$0
+endsnippet
 
 #------------------------------------------------------
-#-----------head Tools & Scripts--------------------
-snippet <normalize "des" i
-<link href="${1:normalize.css}" rel="stylesheet"
+#----------- Tools --------------------
+snippet hug_bootstrap "headsupgrid for twitter bootstrap"
+$(document).ready(function() {
+  pageUnits = 'px';
+  colUnits = 'px';
+  pagewidth = 1140;
+  columns = 12;
+  columnwidth = 67.5;
+  gutterwidth = 30;
+  pagetopmargin = 0;
+  rowheight = ${1:0};
+  gridonload = 'on';
+  makehugrid();
+  setgridonload();
+});
+$(window).resize(function() {
+  rowheight = $1;
+  makehugrid();
+});
 endsnippet
 
-snippet <hug_960_12 "headsupgrid for 960gs 12 column" i
-<link href="styles/960_12_col.css" rel="stylesheet">
-<link href="headsupgrid/hugrid.css" rel="stylesheet">
-<script src="headsupgrid/jquery-1.6.2.min.js"></script>
-<script src="headsupgrid/hugrid.js"></script>
-<script>
-   $(document).ready(function() {
-      pageUnits = 'px';
-      colUnits = 'px';
-      pagewidth = 940;
-      columns = 12;
-      columnwidth = 60;
-      gutterwidth = 20;
-      pagetopmargin = 0;
-      rowheight = ${1:0};
-      gridonload = 'on';
-      makehugrid();
-      setgridonload();
-   });
-   $(window).resize(function() {
-      rowheight = $1;
-      makehugrid();
-   });
-</script
+snippet hug_960_12 "headsupgrid for 960gs 12 column"
+$(document).ready(function() {
+  pageUnits = 'px';
+  colUnits = 'px';
+  pagewidth = 940;
+  columns = 12;
+  columnwidth = 60;
+  gutterwidth = 20;
+  pagetopmargin = 0;
+  rowheight = ${1:0};
+  gridonload = 'on';
+  makehugrid();
+  setgridonload();
+});
+$(window).resize(function() {
+  rowheight = $1;
+  makehugrid();
+});
 endsnippet
 
-snippet <hug_960_16 "headsupgrid for 960gs 16 column" i
-<link href="styles/960_16_col.css" rel="stylesheet">
-<link href="headsupgrid/hugrid.css" rel="stylesheet">
-<script src="headsupgrid/jquery-1.6.2.min.js"></script>
-<script src="headsupgrid/hugrid.js"></script>
-<script>
-   $(document).ready(function() {
-      pageUnits = 'px';
-      colUnits = 'px';
-      pagewidth = 940;
-      columns = 16;
-      columnwidth = 40;
-      gutterwidth = 20;
-      pagetopmargin = 0;
-      rowheight = 0;
-      gridonload = 'on';
-      makehugrid();
-      setgridonload();
-   });
-</script
+snippet hug_960_16 "headsupgrid for 960gs 16 column"
+$(document).ready(function() {
+  pageUnits = 'px';
+  colUnits = 'px';
+  pagewidth = 940;
+  columns = 16;
+  columnwidth = 40;
+  gutterwidth = 20;
+  pagetopmargin = 0;
+  rowheight = ${1:0};
+  gridonload = 'on';
+  makehugrid();
+  setgridonload();
+});
+$(window).resize(function() {
+  rowheight = $1;
+  makehugrid();
+});
 endsnippet
 
-snippet <hug_960_24 "headsupgrid for 960gs 24 column" i
-<link href="styles/960_24_col.css" rel="stylesheet">
-<link href="headsupgrid/hugrid.css" rel="stylesheet">
-<script src="headsupgrid/jquery-1.6.2.min.js"></script>
-<script src="headsupgrid/hugrid.js"></script>
-<script>
-   $(document).ready(function() {
-      pageUnits = 'px';
-      colUnits = 'px';
-      pagewidth = 950;
-      columns = 24;
-      columnwidth = 30;
-      gutterwidth = 10;
-      pagetopmargin = 0;
-      rowheight = 0;
-      gridonload = 'on';
-      makehugrid();
-      setgridonload();
-   });
-</script
+snippet hug_960_24 "headsupgrid for 960gs 24 column"
+$(document).ready(function() {
+  pageUnits = 'px';
+  colUnits = 'px';
+  pagewidth = 950;
+  columns = 24;
+  columnwidth = 30;
+  gutterwidth = 10;
+  pagetopmargin = 0;
+  rowheight = ${1:0};
+  gridonload = 'on';
+  makehugrid();
+  setgridonload();
+});
+$(window).resize(function() {
+  rowheight = $1;
+  makehugrid();
+});
 endsnippet
 
-snippet <headsupgrid "headsupgrid script(this should be in <head> element of your page" i
-<link href="headsupgrid/hugrid.css" type="text/css" rel="stylesheet" />
-<script src="headsupgrid/jquery-1.6.2.min.js"></script>
-<script src="headsupgrid/hugrid.js"></script>
-<script type="text/javascript">
-   $(document).ready(function() {
-      pageUnits = 'px';
-      colUnits = 'px';
-      pagewidth = 960;
-      columns = 6;
-      columnwidth = 140;
-      gutterwidth = 24;
-      pagetopmargin = 35;
-      rowheight = 20;
-      gridonload = 'off';
-      makehugrid();
-      setgridonload();
-   });
-</script
+snippet hug_resp "headsupgrid responsive"
+definegrid = function() {
+  var browserWidth = $(window).width();
+  if (browserWidth >= 1001)
+  {
+     pageUnits = 'px';
+     colUnits = 'px';
+     pagewidth = 960;
+     columns = 6;
+     columnwidth = 140;
+     gutterwidth = 24;
+     pagetopmargin = 35;
+     rowheight = 20;
+     gridonload = 'off';
+     makehugrid();
+  }
+  if (browserWidth <= 1000)
+  {
+     pageUnits = '%';
+     colUnits = '%';
+     pagewidth = 94;
+     columns = 2;
+     columnwidth = 48;
+     gutterwidth = 4;
+     pagetopmargin = 35;
+     rowheight = 20;
+     gridonload = 'off';
+     makehugrid();
+  }
+  if (browserWidth <= 768)
+  {
+     pageUnits = '%';
+     colUnits = '%';
+     pagewidth = 96;
+     columns = 2;
+     columnwidth = 49;
+     gutterwidth = 2;
+     pagetopmargin = 35;
+     rowheight = 20;
+     gridonload = 'off';
+     makehugrid();
+  }
+}
+$(document).ready(function() {
+  definegrid();
+  setgridonload();
+});
+$(window).resize(function() {
+  definegrid();
+  setgridonresize();
+});
 endsnippet
 
-snippet <headsupgridrespo "headsup grid script responsive version" i
-<link href="headsupgrid/hugrid.css" type="text/css" rel="stylesheet" />
-<script src="headsupgrid/jquery-1.6.2.min.js"></script>
-<script src="headsupgrid/hugrid.js"></script>
-<script type="text/javascript">
-   definegrid = function() {
-      var browserWidth = $(window).width();
-      if (browserWidth >= 1001)
-      {
-         pageUnits = 'px';
-         colUnits = 'px';
-         pagewidth = 960;
-         columns = 6;
-         columnwidth = 140;
-         gutterwidth = 24;
-         pagetopmargin = 35;
-         rowheight = 20;
-         gridonload = 'off';
-         makehugrid();
-      }
-      if (browserWidth <= 1000)
-      {
-         pageUnits = '%';
-         colUnits = '%';
-         pagewidth = 94;
-         columns = 2;
-         columnwidth = 48;
-         gutterwidth = 4;
-         pagetopmargin = 35;
-         rowheight = 20;
-         gridonload = 'off';
-         makehugrid();
-      }
-      if (browserWidth <= 768)
-      {
-         pageUnits = '%';
-         colUnits = '%';
-         pagewidth = 96;
-         columns = 2;
-         columnwidth = 49;
-         gutterwidth = 2;
-         pagetopmargin = 35;
-         rowheight = 20;
-         gridonload = 'off';
-         makehugrid();
-      }
-   }
-   $(document).ready(function() {
-      definegrid();
-      setgridonload();
-   });
-   $(window).resize(function() {
-      definegrid();
-      setgridonresize();
-   });
-</script
+snippet holderjs "holderjs"
+Holder.addTheme("${1:MyTheme}", {
+  bg: "${2:#bdc3c7}",
+  fg: "${3:#ffffff}",
+  size: ${4:10},
+  font: "${5:Monaco}",
+  fontweight: "${0:bold}"
+});
+endsnippet
+
+snippet livereload "livereload"
+document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+endsnippet
+
+snippet bower "wiredep"
+<!-- bower:$0 -->
+<!-- endbower -->
+endsnippet
+
+snippet inject "inject"
+<!-- inject:$0 -->
+<!-- endinject -->
 endsnippet
 #--------------------------------------------------------------
 #-------------------body---------------------------------------
@@ -389,31 +376,4 @@ endsnippet
 
 snippet script "des" i
 script src="${1}"
-endsnippet
-##--------------------------------------------------------------
-#----------------------------------------------------------------
-#-----------------Body Tools & Scripts---------------------------
-snippet <script-holder "holder script (should included in body)" i
-<script src="bower_components/holderjs/holder.min.js"></script>
-<script>
-	Holder.addTheme("${1:MyTheme}", {
-		bg: "${2:#bdc3c7}",
-		fg: "${3:#ffffff}",
-		size: ${4:10},
-		font: "${5:Monaco}",
-		fontweight: "${0:bold}"
-	});
-</script
-endsnippet
-
-snippet script-livereload "des" i
-script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script
-endsnippet
-snippet bower "desc"
-<!-- bower:$0 -->
-<!-- endbower -->
-endsnippet
-snippet inject "desc"
-<!-- inject:$0 -->
-<!-- endinject -->
 endsnippet
