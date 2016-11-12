@@ -1,7 +1,7 @@
 " File          : .vimrc
 " Description   : vim text editor configuration file
 " Maintainer    : dNitro <ali.zarifkar AT gmail DOT com>
-" Last modified : 2016 Nov 11 at 21:10:38 PM
+" Last modified : 2016 Nov 12 at 19:29:53 PM
 " License       : MIT
 
 "-[ BASE ]====================================================================
@@ -248,7 +248,7 @@ endfunction
 
 " Paste in NORMAL mode without explicitly turning paste mode on/off
 if s:macvim
-  set clipboard=unnamed
+  set clipboard=
 else
   set clipboard^=unnamed,unnamedplus
 endif
