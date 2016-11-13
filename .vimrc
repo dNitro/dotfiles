@@ -1,7 +1,7 @@
 " File          : .vimrc
 " Description   : vim text editor configuration file
 " Maintainer    : dNitro <ali.zarifkar AT gmail DOT com>
-" Last modified : 2016 Nov 12 at 19:29:53 PM
+" Last modified : 2016 Nov 14 at 00:09:30 AM
 " License       : MIT
 
 "-[ BASE ]====================================================================
@@ -113,7 +113,7 @@ silent! if plug#begin('~/.vim/plugged')
   Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
   Plug 'dNitro/vim-pug-complete', { 'for': ['jade', 'pug'] }
   "-2 Lint -------------------------------------------------------------------
-  Plug 'scrooloose/syntastic', { 'on': 'SyntasticCheck' }
+  Plug 'scrooloose/syntastic'
   "-2 Git --------------------------------------------------------------------
   Plug 'sjl/splice.vim', { 'on': 'SpliceInit' }
   "==-------------------------------------------------------------------------
@@ -211,6 +211,7 @@ set smartcase            " Treat uppercase letters as upper
 " List mode ------------------------------------------------------------------
 set listchars=tab:▸\ ,trail:•,extends:>,precedes:<,nbsp:.,eol:¬
 hi SpecialKey guifg=#ffffff ctermfg=gray
+hi NonText guifg=#666666 ctermfg=gray
 " Vertical split -------------------------------------------------------------
 set fillchars+=vert:│ " Change vertical split character to long bar (U+2502)
 " Remove the background of bar
