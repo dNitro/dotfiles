@@ -315,6 +315,11 @@ noremap <C-l> <C-w>l
 " Up and down arrow keys for numerical increament and decreament
 nnoremap <Up> <c-a>
 nnoremap <Down> <c-x>
+if s:macvim || s:gvim
+  nnoremap <S-Up> 10<c-a>
+  nnoremap <S-Down> 10<c-x>
+endif
+
 " On Return if pumvisible select Popupmenu item otherwise act as Autopairs return
 imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<cr>\<Plug>AutoPairsReturn"
 
