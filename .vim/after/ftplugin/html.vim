@@ -1,6 +1,6 @@
 " Description   : html filetype specific configurations
 " Maintainer    : Ali Zarifakr <ali.zarifar@gmail.com>
-" Last modified : 2016 Oct 23 at 15:03:25 PM
+" Last modified : 2016 Nov 18 at 23:26:45 PM
 
 "-1[ Vanilla ]================================================================
 " Load the current buffer in Browser - Mac OS X
@@ -49,12 +49,12 @@ fun! s:Return()
     return "\<C-y>"
   elseif strpart(getline('.'), col('.')-1, 1) == '>' && match(getline('.'), '</'.tag.'>') == -1
     return "\<Right>\<C-j>"
-  elseif strpart(getline('.'), col('.')-1, 1) == '>' 
+  elseif strpart(getline('.'), col('.')-1, 1) == '>'
     return "\<Right>\<C-j>\<Esc>O"
   elseif tag != '' && match(getline('.'), '</'.tag.'>') > -1
     return "\<C-j>\<Esc>O"
   else
-    return "\<C-R>=delimitMate#ExpandReturn()\<CR>"
+    return "\<CR>"
   endif
 endf
 "==

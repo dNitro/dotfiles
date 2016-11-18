@@ -4,9 +4,6 @@ setlocal completefunc=jquerycomplete#CompleteSelector
 " Remove . from keywords
 set isk-=.
 
-" On Return if pumvisible select Popupmenu item otherwise act as delimitMate return
-imap <buffer> <expr> <CR> pumvisible() ? "\<C-y>" : "<Plug>delimitMateCR"
-
 cnoreabbrev <expr> grunt getcmdtype() ==# ":" && getcmdline() == 'grunt' ? '!clear; grunt' : 'grunt'
 cnoreabbrev <expr> node getcmdtype() ==# ":" && getcmdline() == 'node' ? '!clear; node %' : 'node'
 

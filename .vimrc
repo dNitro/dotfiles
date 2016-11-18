@@ -1,7 +1,7 @@
 " File          : .vimrc
 " Description   : vim text editor configuration file
 " Maintainer    : dNitro <ali.zarifkar AT gmail DOT com>
-" Last modified : 2016 Nov 14 at 00:09:30 AM
+" Last modified : 2016 Nov 18 at 23:17:22 PM
 " License       : MIT
 
 "-[ BASE ]====================================================================
@@ -71,7 +71,11 @@ silent! if plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-dispatch', { 'do': function('CookDispatch') }
   "-2 Edit -------------------------------------------------------------------
   Plug 'editorconfig/editorconfig-vim'
-  Plug 'Raimondi/delimitMate'
+  " Plug 'Raimondi/delimitMate'
+  Plug 'jiangmiao/auto-pairs'
+  let g:AutoPairsFlyMode = 1
+  let g:AutoPairsMapBS = 0
+  let g:AutoPairsMapCh = 0
   Plug 'fadein/vim-FIGlet'
   Plug 'qwertologe/nextval.vim'
   function! CookUltisnips(info)

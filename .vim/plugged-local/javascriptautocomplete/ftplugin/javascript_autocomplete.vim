@@ -1,7 +1,7 @@
 " javascript_autocompleoe.vim: Insert semicolon and inline lint js operators.
 " Version:                     0.1
 " Maintainer:                  Ali Zarifkar<ali.zarifkar@gamil.com>
-" Last modified:               2016 Oct 28 at 01:14:25 AM
+" Last modified:               2016 Nov 18 at 23:49:57 PM
 " License:                     This script is released under the Vim License.
 
 " check if script is already loaded
@@ -11,7 +11,7 @@ endif
 let b:loaded_javascript_autocomplete=1
 
 " ####### KEY MAPPINGS #######
-let operators = ['=', '+', '-', '*', '/', '%', '<', '>', '!', '\\', '&']
+let operators = ['=', '+', '-', '*', '/', '%', '<', '>', '!', '\\', '&', '\|']
 for i in operators
   execute printf('inoremap <buffer> <silent> %s <c-r>=<SID>Space("%s")<cr>', i, i)
 endfor
@@ -49,8 +49,10 @@ function! s:unmapForMappingDriven()
   endif
   for key in s:keysMappingDriven
     execute 'iunmap <buffer> ' . key
-    if key =~ '[''"]'
-      execute 'imap <buffer> ' . key . ' <Plug>delimitMate' . key
+    if key =~ '"'
+      execute 'inoremap <buffer> <silent> ' . key . " <C-R>=AutoPairsInsert('" . key ."')<CR>"
+    elseif key == ''''
+      execute 'inoremap <buffer> <silent> ' . key . ' <C-R>=AutoPairsInsert("' . key .'")<CR>'
     endif
   endfor
   let s:keysMappingDriven = []

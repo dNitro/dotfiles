@@ -1,6 +1,3 @@
-" Map cr to select popupmenu item
-imap <buffer> <expr> <CR> pumvisible() ? "\<C-y>" : "<Plug>delimitMateCR"
-
 " Alphabetically sort CSS properties in file with :SortCSS
 " http://stackoverflow.com/questions/3050797/how-to-alphabetize-a-css-file-in-vim
 command! -buffer -bar -range=% SortCSS <line1>,<line2>g#\({\n\)\@<=#.,/}/sort | noh
@@ -14,7 +11,7 @@ nnoremap <buffer> <silent> <Right> :<C-u>call AddSubtract('')<CR>
 nnoremap <buffer> <silent> <Left> :<C-u>call AddSubtract('b')<CR>
 
 " Don't pair {
-let delimitMate_matchpairs = "(:),[:]"
+let b:AutoPairs = {'(':')', '[':']',"'":"'",'"':'"', '`':'`'}
 
 " Also consider - as keyword
 setlocal iskeyword+=-

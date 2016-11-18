@@ -535,9 +535,11 @@ function acp#onBs()
   " return printf("\<BS>%s\<C-r>=acp#onBSPost()\<CR>",
   "       \       s:behavsCurrent[s:iBehavs].command)
     endif
-    return "\<C-e>\<BS>"
+    " return "\<C-e>\<BS>"
+    return "\<C-e>\<C-R>=AutoPairsDelete()\<CR>"
   else
-    return "\<C-R>=delimitMate#BS()\<CR>"
+    return "\<C-R>=AutoPairsDelete()\<CR>"
+    " return "\<C-R>=delimitMate#BS()\<CR>"
   endif
 endfunction
 

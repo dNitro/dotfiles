@@ -1,7 +1,7 @@
 " json_autocomplete.vim : Map alphabetic keys to Insert comma.
 " Version               : 0.1
 " Maintainer            : Ali Zarifkar <ali.zarifkar@gamil.com>
-" Last modified         : 2016 Oct 23 at 19:50:17 PM
+" Last modified         : 2016 Nov 18 at 23:51:43 PM
 " License               : This script is released under the Vim License.
 
 " check if script is already loaded
@@ -49,7 +49,7 @@ function! s:unmapForMappingDriven()
   for key in s:keysMappingDriven
     execute 'iunmap <buffer> ' . key
     if key == '"'
-      execute 'imap <buffer> ' . key . ' <Plug>delimitMate' . key
+      execute 'inoremap <buffer> <silent> ' . key . " <C-R>=AutoPairsInsert('" . key ."')<CR>"
     endif
   endfor
   let s:keysMappingDriven = []
