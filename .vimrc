@@ -530,6 +530,11 @@ endif
 " let g:UltiSnipsEdit to split your window verticaly
 let g:UltiSnipsEditSplit="vertical"
 
+augroup ultisnips
+  autocmd!
+  autocmd User UltiSnipsEnterFirstSnippet if (winline() * 3 >= winheight(0) * 2) | norm! zza | endif
+augroup END
+
 " Initial variables
 let g:ulti_expand_res = 0
 let g:ulti_expand_or_jump_res = 0
