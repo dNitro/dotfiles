@@ -404,8 +404,8 @@ function! LiveNerd()
 endfunction
 "-2 Insert the current date and time -------------------------------------------
 function! LastMod()
-  if line("$") > 20
-    let l = 20
+  if line("$") > 10
+    let l = 10
   else
     let l = line("$")
   endif
@@ -455,7 +455,7 @@ augroup general
                            \| endif
 
   " Insert the current date and time when writing
-  au BufWritePre,FileWritePre * ks|call LastMod()|'s
+  au BufWritePre,FileWritePre * ks | silent! call LastMod() | 's
 
 augroup END
 
