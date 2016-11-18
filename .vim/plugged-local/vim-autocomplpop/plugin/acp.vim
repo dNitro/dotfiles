@@ -72,6 +72,7 @@ function s:makeDefaultBehavior()
     call add(behavs[key], {
           \   'command' : "\<C-x>\<C-f>",
           \   'meets'   : 'acp#meetsForFile',
+          \   'onPopupClose' : 'acp#fileComplete',
           \   'repeat'  : 1,
           \ })
   endfor

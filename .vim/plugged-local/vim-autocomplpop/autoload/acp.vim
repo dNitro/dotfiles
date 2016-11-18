@@ -96,16 +96,16 @@ function acp#meetsForFile(context)
   else
     let separator = '\/'
   endif
-  if a:context =~ '\%\(href\|src\|action\)="$'
+  if a:context =~ '\%(href\|src\|action\)=["'']$'
     return 1
   endif
   if a:context =~ '\%(include\|extends\)\s\+$'
     return 1
   endif
-  if a:context =~ '\%\(url(\)"$'
+  if a:context =~ '\%(url(\)"$'
     return 1
   endif
-  if a:context =~ '\%\(\(require\|define\)\(([\|(\|(.*,\s*\)\)"$'
+  if a:context =~ '\%(\(require\|define\)\(([\|(\|(.*,\s*\)\)"$'
     return 1
   endif
   if a:context !~ '\f' . separator . '\f\{' . g:acp_behaviorFileLength . ',}$'
@@ -115,6 +115,15 @@ function acp#meetsForFile(context)
     return 0
   endif
   return a:context !~ '[*/\\][/\\]\f*$\|[^[:print:]]\f*$'
+endfunction
+
+function acp#fileComplete()
+  let s:curWord = s:getCurrentText()
+  if s:curWord =~ '\.js$'
+    call feedkeys("\<Esc>F.xcw")
+    return 0
+  endif
+  return 1
 endfunction
 
 "
@@ -155,11 +164,11 @@ function acp#meetsForPhpOmni(context)
   if a:context =~ '[^a-zA-Z0-9_:>\$]$'
     return 0
   endif
-  if a:context =~ 'new \k\{' . 
+  if a:context =~ 'new \k\{' .
      \            g:acp_behaviorPhpOmniLength . ',}$'
      return 1
   endif
-  if a:context =~ '\$\{' . 
+  if a:context =~ '\$\{' .
      \            g:acp_behaviorPhpOmniLength . ',}$'
      return 1
   endif
