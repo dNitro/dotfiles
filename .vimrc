@@ -268,11 +268,11 @@ nnoremap <Esc> :noh<return><Esc>:<Backspace>
 " Placeholders - places where you want to add text to the template, fast
 nnoremap <silent> <tab> /<+.\{-1,}+><cr>c/+>/e<cr>
 
-" Use shift+tab to jump over multiple closing pair
+" Use shift+tab to select previous popupmenu item
 if s:macvim || s:gvim
-  inoremap <expr> <S-Tab> "\<C-r>=delimitMate#JumpMany()\<Cr>"
+  inoremap <expr> <S-Tab> "\<C-p>"
 else
-  inoremap <expr> [Z "\<C-r>=delimitMate#JumpMany()\<Cr>"
+  inoremap <expr> [Z "\<C-p>"
 endif
 
 " Buffer Stuff
@@ -315,16 +315,18 @@ noremap <C-l> <C-w>l
 " Up and down arrow keys for numerical increament and decreament
 nnoremap <Up> <c-a>
 nnoremap <Down> <c-x>
+" On Return if pumvisible select Popupmenu item otherwise act as Autopairs return
+imap <expr> <CR> pumvisible() ? "\<C-y>" : "\<cr>\<Plug>AutoPairsReturn"
 
 " Move the cursor while in insert mode without using the arrow keys
-inoremap <C-h> <ESC><left>a
-inoremap <expr> <C-j> pumvisible() ? "j" : "\<C-j>"
-inoremap <expr> <C-k> pumvisible() ? "k" : "\<C-k>"
-inoremap <C-l> <ESC><right>a
+inoremap <C-h> <Left>
+" inoremap <expr> <C-j> pumvisible() ? "j" : "\<C-j>"
+" inoremap <expr> <C-k> pumvisible() ? "k" : "\<C-k>"
+inoremap <C-l> <right>
 
 " Use j and k to move between popupmenu items
-inoremap <expr> k pumvisible() ? "\<Up>" : "k"
-inoremap <expr> j pumvisible() ? "\<Down>" : "j"
+" inoremap <expr> k pumvisible() ? "\<C-p>" : "k"
+" inoremap <expr> j pumvisible() ? "\<C-n>" : "j"
 
 " Copy visual selection to clipboard
 vnoremap Y "+y
@@ -371,11 +373,12 @@ function! Tabino()
     echo ""
     call UltiSnips#ExpandSnippetOrJump()
     if g:ulti_expand_or_jump_res == 0
-      if delimitMate#ShouldJump()
-        return "\<C-r>=delimitMate#JumpMany()\<Cr>"
-      elseif search('<+', 'nW') > 0
-        return "\<ESC>/<+.\\{-1,}+>\<cr>c/+>/e\<cr>"
-      elseif search('></', 'nW') > 0 || search('""', 'nW') > 0 || search ('<[^<> /]*>\n^\s*$', 'nW') > 0
+      if pumvisible()
+          return "\<C-p>\<C-n>"
+      elseif &filetype == 'html' &&
+        \ search('></', 'nW') > 0 ||
+        \ search('""', 'nW') > 0 ||
+        \ search ('<[^<> /]*>\n^\s*$', 'nW') > 0
         return "\<esc>:call emmet#moveNextPrev(0)\<cr>"
       else
         return "\<tab>"
