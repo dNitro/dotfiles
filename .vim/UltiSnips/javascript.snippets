@@ -77,35 +77,35 @@ endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
 snippet "^\s*if " "desc" rA
 if ( ${1} ) {
-  $2
+  $0
 }
 endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
-snippet "^\s*(}?\s*)else if\s?" "desc" r
+snippet "^\s*(}?\s*)else if\s" "desc" rA
 `!p snip.rv = match.group(1)`else if ( ${1} ) {
   $0
 }
 endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
-snippet "^\s*(}?\s*)else\s?" "desc" rA
+snippet "^\s*(}?\s*)else\s{" "desc" rA
 `!p snip.rv = match.group(1)`else {
   $0
 }
 endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
-snippet "^\s*(}?\s*)try\s?" "desc" r
+snippet "^\s*(}?\s*)try\s" "desc" rA
 `!p snip.rv = match.group(1)`try {
   $0
 }
 endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
-snippet "^\s*(}?\s*)catch" "desc" r
+snippet "^\s*(}?\s*)catch\s" "desc" rA
 `!p snip.rv = match.group(1)`catch ($1) {
   $0
 }
 endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
-snippet "^\s*(}?\s*)finally\s?" "desc" r
+snippet "^\s*(}?\s*)finally\s?" "desc" rA
 `!p snip.rv = match.group(1)`finally {
   $0
 }
@@ -176,7 +176,7 @@ QUnit.test('${1}', function(assert) {
 })
 endsnippet
 snippet require "desc" b
-var ${1} = require('${0:$1}')
+var ${1} = require('${2:$1}')$0
 endsnippet
 snippet con "desc"
 ' + $0 + '
