@@ -1,5 +1,6 @@
 " User completion function
 setlocal completefunc=jquerycomplete#CompleteSelector
+call jsomni#init()
 
 " Remove . from keywords
 set isk-=.
