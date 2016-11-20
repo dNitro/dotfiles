@@ -394,7 +394,7 @@ function acp#JsComplete()
     let s:nextChar = strpart(getline('.'), col('.')-1, 1)
     " let s:Type = acp#getType()
     " echom 'item: ' . string(v:completed_item)
-    if has_key(v:completed_item, 'menu') && v:completed_item.menu =~ "^(fn" && !s:inParens() && g:ulti_expand_res == 0
+    if has_key(v:completed_item, 'menu') && v:completed_item.menu =~ "^(fn" && g:ulti_expand_res == 0
       if s:nextChar == '('
         return 0
       else
@@ -412,11 +412,11 @@ function acp#JsComplete()
     return 0
 endfunction
 
-function s:inParens()
-  let start = searchpair('(', '', ')', 'bnW')
-  let cline = line('.')
-  return (start != 0 && start == cline) ? 1 : 0
-endfunction
+" function s:inParens()
+"   let start = searchpair('(', '', ')', 'bnW')
+"   let cline = line('.')
+"   return (start != 0 && start == cline) ? 1 : 0
+" endfunction
 
 function acp#getType()
   redir => myVar
