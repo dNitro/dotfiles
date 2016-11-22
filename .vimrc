@@ -1,7 +1,7 @@
 " File          : .vimrc
 " Description   : vim text editor configuration file
 " Maintainer    : dNitro <ali.zarifkar AT gmail DOT com>
-" Last modified : 2016 Nov 18 at 23:17:22 PM
+" Last modified : 2016 Nov 22 at 01:49:49 AM
 " License       : MIT
 
 "-[ BASE ]====================================================================
@@ -532,7 +532,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 augroup ultisnips
   autocmd!
-  autocmd User UltiSnipsEnterFirstSnippet if (winline() * 3 >= winheight(0) * 2) | norm! zza | endif
+  autocmd User UltiSnipsEnterFirstSnippet if (winline() * 3 >= winheight(0) * 2) | exe "norm! zza" | endif
 augroup END
 
 " Initial variables
