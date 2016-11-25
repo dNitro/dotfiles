@@ -69,24 +69,29 @@ snippet input "desc" b
 input(type='$0')
 endsnippet
 
-snippet input(type='text "desc" b
+# snippet input(type='text "desc" b
+# label(for='${1}') ${2:$1}
+# input(type='text' id='$1' name='$1' placeholder='${3:$1}
+# endsnippet
+
+snippet "input(.*)\(type='text" "desc" br
 label(for='${1}') ${2:$1}
-input(type='text' id='$1' name='$1' placeholder='${3:$1}
+input`!p snip.rv = match.group(1)`(type='text' id='$1' name='$1' placeholder='${3:$1}
 endsnippet
 
-snippet input(type='password "desc" b
-label(for='${1}') ${2:$1}
-input(type='password' id='$1' name='$1' placeholder='${3:$1}
+snippet "input(.*)\(type='password" "desc" br
+label(for='${1:password}') ${2:$1}
+input`!p snip.rv = match.group(1)`(type='password' id='$1' name='$1' placeholder='${3:$1}
 endsnippet
 
-snippet input(type='email "desc" b
-label(for='${1}') ${2:$1}
-input(type='email' id='$1' name='$1' placeholder='${3:$1}
+snippet "input(.*)\(type='email" "desc" br
+label(for='${1:email}') ${2:$1}
+input`!p snip.rv = match.group(1)`(type='email' id='$1' name='$1' placeholder='${3:$1}
 endsnippet
 
-snippet input(type='search "desc" b
-label(for='${1}') ${2:$1}
-input(type='search' id='$1' name='$1' placeholder='${3:$1}
+snippet "input(.*)\(type='search" "desc" br
+label(for='${1:search}') ${2:$1}
+input`!p snip.rv = match.group(1)`(type='search' id='$1' name='$1' placeholder='${3:$1}
 endsnippet
 
 pre_expand "b = re.match('^(\s*.*\')', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
@@ -101,40 +106,40 @@ snippet input(type='radio "des" b
 label(for='${1}') ${2:$1}
 endsnippet
 
-snippet input(type='file "des" b
+snippet "input(.*)\(type='file" "des" br
 label(for='${1}') ${0:$1}
-input(type='file' id='$1' name='$1
+input`!p snip.rv = match.group(1)`(type='file' id='$1' name='$1
 endsnippet
 
-snippet input(type='hidden "des" b
-input(type='hidden' value='$1' name='$0
+snippet "input(.*)\(type='hidden" "des" br
+input`!p snip.rv = match.group(1)`(type='hidden' value='$1' name='$0
 endsnippet
 
-snippet input(type='button "des" b
-input(type='button' value='$0
+snippet "input(.*)\(type='button" "des" br
+input`!p snip.rv = match.group(1)`(type='button' value='$0
 endsnippet
 
-snippet input(type='submit "des" b
-input(type='submit' value='$0
+snippet "input(.*)\(type='submit" "des" br
+input`!p snip.rv = match.group(1)`(type='submit' value='$0
 endsnippet
 
 snippet button "desc" b
 button(type='$0')
 endsnippet
 
-snippet button(type='submit "des" b
+snippet "button(.*)\(type='submit" "des" br
 button(type='submit' value='$0
 endsnippet
 
-snippet button(type='reset "des" b
+snippet "button(.*)\(type='reset" "des" br
 button(type='reset' value='$0
 endsnippet
 
-snippet button(type='button "des" b
+snippet "button(.*)\(type='button" "des" br
 button(type='button' value='$0
 endsnippet
 
-snippet input(type='image "des" b
+snippet "input(.*)\(type='image" "des" br
 input(type='image' src='$1' alt='$0
 endsnippet
 
