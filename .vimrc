@@ -76,6 +76,7 @@ silent! if plug#begin('~/.vim/plugged')
   let g:AutoPairsFlyMode = 1
   let g:AutoPairsMapBS = 0
   let g:AutoPairsMapCh = 0
+  let g:AutoPairsMapCR = 0
   Plug 'fadein/vim-FIGlet'
   Plug 'qwertologe/nextval.vim'
   function! CookUltisnips(info)
