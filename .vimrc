@@ -99,6 +99,11 @@ silent! if plug#begin('~/.vim/plugged')
   Plug 'altercation/vim-colors-solarized'
   Plug 'morhetz/gruvbox'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'mhinz/vim-startify'
+  augroup startify
+    autocmd!
+    autocmd User Startified setlocal cursorline
+  augroup END
   "-2 Lang -------------------------------------------------------------------
   Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
   Plug 'mattn/emmet-vim'
