@@ -1,6 +1,6 @@
 " Description   : html filetype specific configurations
 " Maintainer    : Ali Zarifakr <ali.zarifar@gmail.com>
-" Last modified : 2016 Nov 18 at 23:26:45 PM
+" Last modified : 2016 Nov 26 at 00:40:18 AM
 
 "-1[ Vanilla ]================================================================
 " Load the current buffer in Browser - Mac OS X
@@ -9,7 +9,7 @@ nnoremap hs :call Browse('/Applications/Google\ Chrome.app')<CR>
 nnoremap gb :call Browse("/Applications/Safari.app")<CR>
 
 " Return gracefully
-inoremap <buffer> <expr> <CR> <SID>Return()
+imap <buffer> <expr> <CR> <SID>Return()
 
 "-1[ Plugins ]================================================================
 "-2[ html5.vim ]--------------------------------------------------------------
@@ -51,10 +51,12 @@ fun! s:Return()
     return "\<Right>\<C-j>"
   elseif strpart(getline('.'), col('.')-1, 1) == '>'
     return "\<Right>\<C-j>\<Esc>O"
-  elseif tag != '' && match(getline('.'), '</'.tag.'>') > -1
+  elseif tag != '' &&
+              \ match(getline('.'), '</'.tag.'>') > -1 &&
+              \ match(getline('.'), '</'.tag.'>') >= col('.') - 1
     return "\<C-j>\<Esc>O"
   else
-    return "\<CR>"
+    return "\<CR>\<Plug>AutoPairsReturn"
   endif
 endf
 "==
