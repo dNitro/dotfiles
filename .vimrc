@@ -42,7 +42,7 @@ silent! if plug#begin('~/.vim/plugged')
   Plug '~/.vim/plugged-local/javascriptautocomplete'
   Plug '~/.vim/plugged-local/jsomni'
   Plug '~/.vim/plugged-local/jsonautocomplete'
-  Plug '~/.vim/plugged-local/vim-autocomplpop'
+  " Plug '~/.vim/plugged-local/vim-autocomplpop'
   Plug '~/.vim/plugged-local/vim-sass'
   Plug '~/.vim/plugged-local/vison'
   "-2 Explore ----------------------------------------------------------------
@@ -120,6 +120,15 @@ silent! if plug#begin('~/.vim/plugged')
   Plug 'scrooloose/syntastic'
   "-2 Git --------------------------------------------------------------------
   Plug 'sjl/splice.vim', { 'on': 'SpliceInit' }
+  "-2 Auto Complete ----------------------------------------------------------
+  Plug 'maralla/completor.vim', { 'do': 'make js' }
+  let g:completor_min_chars = 0
+  let g:completor_select_first = 1
+  let g:completor_disable_ultisnips = 1
+  let g:completor_html_omni_trigger = '(<|<[a-zA-Z][a-zA-Z1-6]*\s+|="|"\s+)$'
+  let g:completor_css_omni_trigger = '([\w-]+|@[\w-]*|[\w-]+:\s*[\w-]*|\S\s+)$'
+  let g:completor_pug_omni_trigger = '(^\s*\w*|\S\s+|\(|=''|\.|\#)$'
+  let g:completor_json_omni_trigger = '(^\s*\w*)$'
   "==-------------------------------------------------------------------------
   call plug#end()
 endif
@@ -268,11 +277,11 @@ nnoremap <Esc> :noh<return><Esc>:<Backspace>
 " Placeholders - places where you want to add text to the template, fast
 nnoremap <silent> <tab> /<+.\{-1,}+><cr>c/+>/e<cr>
 
-" Use shift+tab to select previous popupmenu item
+" Use shift+tab to select last popupmenu item
 if s:macvim || s:gvim
-  inoremap <expr> <S-Tab> "\<C-p>"
+  inoremap <expr> <S-Tab> "\<C-p>\<C-p>\<C-y>"
 else
-  inoremap <expr> [Z "\<C-p>"
+  inoremap <expr> [Z "\<C-p>\<C-p>\<C-y>"
 endif
 
 " Buffer Stuff
@@ -379,7 +388,8 @@ function! Tabino()
     call UltiSnips#ExpandSnippetOrJump()
     if g:ulti_expand_or_jump_res == 0
       if pumvisible()
-          return "\<C-p>\<C-n>"
+          " return "\<C-p>\<C-n>"
+          return "\<C-y>"
       elseif &filetype == 'html' &&
         \ search('></', 'nW') > 0 ||
         \ search('""', 'nW') > 0 ||
