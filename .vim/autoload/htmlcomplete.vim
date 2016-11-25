@@ -288,8 +288,11 @@ function! htmlcomplete#CompleteTags(findstart, base)
         " 1. Find lines of <link stylesheet>
         " 1a. Check file for @import
         " 2. Extract filename(s?) of stylesheet,
+        let l = line('.')
+        let c = col('.')
         call cursor(1,1)
         let head = getline(search('<head\>'), search('<\/head>'))
+        call cursor(l, c)
         let headjoined = join(copy(head), ' ')
         if headjoined =~ '<style'
           " Remove possibly confusing CSS operators
