@@ -3,6 +3,7 @@
     "reserved",
     "ecmascript"
   ],
+  "dependencyBudget": 1000,
   "plugins": {
     "node": {}
   }
