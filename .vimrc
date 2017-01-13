@@ -123,7 +123,7 @@ silent! if plug#begin('~/.vim/plugged')
   Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
   Plug 'dNitro/vim-pug-complete', { 'for': ['jade', 'pug'] }
   "-2 Lint -------------------------------------------------------------------
-  Plug 'scrooloose/syntastic'
+  Plug 'w0rp/ale'
   "-2 Git --------------------------------------------------------------------
   Plug 'sjl/splice.vim', { 'on': 'SpliceInit' }
   "-2 Auto Complete ----------------------------------------------------------
@@ -645,8 +645,14 @@ let tern_icons = {
  \  'chai':       '  ',
  \  'sinon':      '  '
  \}
-"-2 Syntastic ----------------------------------------------------------------
-let g:syntastic_check_on_wq = 0 " Don't check when i do save&exit
+"-2 ale ----------------------------------------------------------------------
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+let g:ale_statusline_format = [' %d', '%d', ' ok']
+let g:ale_lint_on_save = 1 " Only run linters when i save files
+let g:ale_lint_on_text_changed = 0 " Disable default behaviour
+let g:ale_lint_on_enter = 0  " Dont run on file opening
+highlight SignColumn guibg=NONE ctermbg=NONE
 "=============================================================================
 
 "-1 vim:foldmethod=marker:foldmarker="-,"==:foldlevel=0
