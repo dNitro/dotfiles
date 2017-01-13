@@ -503,6 +503,7 @@ augroup ftspecific
   au BufNewFile,BufRead .bowerrc setlocal ft=json | Vison bowerrc.json
   au BufNewFile,BufRead *.json Vison
   au BufNewFile,BufRead *{[tT]est,[sS]pec}.js UltiSnipsAddFiletypes javascript-mocha-bdd
+  au BufNewFile,BufRead *.ejs setlocal ft=html
 augroup END
 "=============================================================================
 "-[ PLUGINS ]=================================================================
