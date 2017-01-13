@@ -183,12 +183,13 @@ function! s:skip()
   if exists('g:completor_whitelist') && type(g:completor_whitelist) == v:t_list
     let skip = skip || index(g:completor_whitelist, &ft) == -1
   endif
-  if has_key(v:completed_item, 'word') && &ft == 'javascript'
-    let skip = skip || matchstr(v:completed_item.word, '\k*$') == word
-  endif
+  " if has_key(v:completed_item, 'word') && &ft == 'javascript'
+  "   let skip = skip || matchstr(v:completed_item.word, '\k*$') == word
+  " endif
   if has_key(v:completed_item, 'word')
     let skip = skip || v:completed_item.word == word
   endif
+  echom skip
   return skip
 endfunction
 
@@ -248,12 +249,15 @@ function! s:on_complete_done()
     endif
   endif
   let file = s:getFile()
-  echom file
   if has_key(v:completed_item, 'menu') &&
         \ v:completed_item.menu == '[F]' &&
-        \ file !~ '\.\f\{2,3}$' &&
+        \ file !~ '\.\f\{2,4}$' &&
         \ g:ulti_expand_res == 0
     return '/'
+  elseif has_key(v:completed_item, 'menu') &&
+        \ v:completed_item.menu == '[F]' &&
+        \ file =~ '\.\f\{2,4}$'
+    return "\<Esc>\<Right>cF."
   endif
   return ''
 endfunction

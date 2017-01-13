@@ -1,7 +1,7 @@
 " File          : .vimrc
 " Description   : vim text editor configuration file
 " Maintainer    : dNitro <ali.zarifkar AT gmail DOT com>
-" Last modified : 2016 Nov 22 at 01:49:49 AM
+" Last modified : 2017 Jan 14 at 01:37:37 AM
 " License       : MIT
 
 "-[ BASE ]====================================================================
@@ -43,6 +43,7 @@ silent! if plug#begin('~/.vim/plugged')
   Plug '~/.vim/plugged-local/jsomni'
   Plug '~/.vim/plugged-local/jsonautocomplete'
   " Plug '~/.vim/plugged-local/vim-autocomplpop'
+  Plug '~/.vim/plugged-local/completor.vim'
   Plug '~/.vim/plugged-local/vim-sass'
   Plug '~/.vim/plugged-local/vison'
   "-2 Explore ----------------------------------------------------------------
@@ -80,8 +81,8 @@ silent! if plug#begin('~/.vim/plugged')
   " Plug 'Raimondi/delimitMate'
   Plug 'jiangmiao/auto-pairs'
   let g:AutoPairsFlyMode = 1
-  let g:AutoPairsMapBS = 0
-  let g:AutoPairsMapCh = 0
+  " let g:AutoPairsMapBS = 0
+  " let g:AutoPairsMapCh = 0
   let g:AutoPairsMapCR = 0
   Plug 'fadein/vim-FIGlet'
   Plug 'qwertologe/nextval.vim'
@@ -134,12 +135,13 @@ silent! if plug#begin('~/.vim/plugged')
   "-2 Git --------------------------------------------------------------------
   Plug 'sjl/splice.vim', { 'on': 'SpliceInit' }
   "-2 Auto Complete ----------------------------------------------------------
-  Plug 'maralla/completor.vim', { 'do': 'make js' }
+  " Plug 'maralla/completor.vim', { 'do': 'make js' }
   let g:completor_min_chars = 0
   let g:completor_select_first = 1
   let g:completor_disable_ultisnips = 1
   let g:completor_html_omni_trigger = '(<|<[a-zA-Z][a-zA-Z1-6]*\s+|="|"\s+)$'
   let g:completor_css_omni_trigger = '([\w-]+|@[\w-]*|[\w-]+:\s*[\w-]*|\S\s+)$'
+  let g:completor_scss_omni_trigger = '([\w-]+|@[\w-]*|[\w-]+:\s*[\w-]*|\S\s+)$'
   let g:completor_pug_omni_trigger = '(^\s*\w*|\S\s+|\(|=''|\.|\#)$'
   let g:completor_json_omni_trigger = '(^\s*\w*)$'
   "==-------------------------------------------------------------------------
