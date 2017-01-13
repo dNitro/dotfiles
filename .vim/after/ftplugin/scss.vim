@@ -1,5 +1,5 @@
 " Equip with css completions
-source ~/.vim/bundle/cssautocomplete/ftplugin/css_autocomplete.vim
+source ~/.vim/plugged-local/cssautocomplete/ftplugin/css_autocomplete.vim
 
 " Set omnifunction same as css files
 setlocal omnifunc=csscomplete#CompleteCSS
