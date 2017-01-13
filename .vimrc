@@ -629,6 +629,11 @@ let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
 "-2 Emmet --------------------------------------------------------------------
 let g:user_emmet_leader_key=','
+let g:user_emmet_settings = {
+            \'html': {
+            \'comment_type': 'lastonly'
+            \}
+          \}
 "-2 vim-expand-region --------------------------------------------------------
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
