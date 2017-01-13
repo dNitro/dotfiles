@@ -112,6 +112,7 @@ silent! if plug#begin('~/.vim/plugged')
     autocmd User Startified setlocal cursorline
   augroup END
   "-2 Lang -------------------------------------------------------------------
+  Plug 'posva/vim-vue'
   Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
   Plug 'mattn/emmet-vim'
   Plug 'othree/html5.vim'
