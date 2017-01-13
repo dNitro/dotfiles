@@ -70,6 +70,12 @@ silent! if plug#begin('~/.vim/plugged')
   endfunction
   Plug 'tpope/vim-dispatch', { 'do': function('CookDispatch') }
   "-2 Edit -------------------------------------------------------------------
+  Plug 'chrisbra/NrrwRgn'
+  command! -nargs=* -bang -range -complete=filetype NN
+            \ :<line1>,<line2> call nrrwrgn#NrrwRgn('',<q-bang>)
+            \ | set filetype=<args>
+  let b:nrrw_aucmd_create = 'exe norm! "\<C-j>\<C-k>\<C-w>="'
+  let b:nrrw_aucmd_close  = "call ale#Queue(0)"
   Plug 'editorconfig/editorconfig-vim'
   " Plug 'Raimondi/delimitMate'
   Plug 'jiangmiao/auto-pairs'
