@@ -296,6 +296,9 @@ else
   inoremap <expr> [Z "\<C-p>\<C-p>\<C-y>"
 endif
 
+" Map Ctrl-w to remove [{('" in pairs
+inoremap <expr> <C-w> strpart(getline('.'), col('.')-2, 1) =~ '[{(\[''"]' ? "\<C-r>=AutoPairsDelete()\<CR>" : "\<C-w>"
+
 " Buffer Stuff
 " List buffers and go to them whether with number or name
 nnoremap bl :ls<CR>:b<Space>
