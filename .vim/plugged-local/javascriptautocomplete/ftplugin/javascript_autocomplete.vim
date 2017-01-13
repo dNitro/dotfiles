@@ -1,7 +1,7 @@
 " javascript_autocompleoe.vim: Insert semicolon and inline lint js operators.
 " Version:                     0.1
 " Maintainer:                  Ali Zarifkar<ali.zarifkar@gamil.com>
-" Last modified:               2016 Nov 18 at 23:49:57 PM
+" Last modified:               2016 Dec 31 at 01:00:00 AM
 " License:                     This script is released under the Vim License.
 
 " check if script is already loaded
@@ -105,7 +105,7 @@ func! s:InComment()
 endfunc
 
 func! s:InString()
-  return stridx(synIDattr(synID(line('.'), col('.')-1, 0), 'name'), 'tring') != -1
+  return stridx(synIDattr(synID(line('.'), col('.'), 0), 'name'), 'tring') != -1
 endfunc
 
 func! s:Space(ope)
@@ -244,7 +244,7 @@ func! s:isState()
   let b:startLine = searchpair('{', '', '}', "bnW")
   let b:startLineTrimmed = s:trim(getline(b:startLine))
   let b:startLineFirstWord = matchstr(b:startLineTrimmed, '^\zs\w\+\ze\s*')
-  if b:startLineFirstWord =~ '^\%(function\|if\|else\|for\|while\|switch\|try\|catch\|finally\|constructor(\|get\|set\|static\)$' || b:startLineTrimmed =~ '^\%(.*:\)\@!\zs\s*\w\+('
+  if b:startLineFirstWord =~ '^\%(function\|if\|else\|for\|while\|switch\|try\|catch\|finally\|constructor(\|get\|set\|static\)$' || b:startLineTrimmed =~ '^\%(.*:\)\@!\zs\s*\w\+(' || b:startLineTrimmed =~ '^}\s*else'
     return 1
   endif
   return 0
@@ -253,7 +253,7 @@ endfunc
 func! javascript_autocomplete#insetBefore()
   echo ''
   let b:currentLineLastChar = matchstr(getline('.'), '\zs.\ze\s*$')
-  if b:currentLineLastChar =~ '[{}\[(,:;]' || b:currentLineLastChar == '' || s:InComment() || s:isState() || s:isInClass() || match(getline('.'), '^\s*$') > -1
+  if b:currentLineLastChar =~ '[{\[(,:;]' || b:currentLineLastChar == '' || s:InComment() || s:isState() || s:isInClass() || match(getline('.'), '^\s*$') > -1
     return ''
   else
     call s:insertComma()
