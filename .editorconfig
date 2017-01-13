@@ -13,7 +13,7 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[*.{js,coffee,json,css,s{a,c}ss,pug,html}]
+[*.{js,coffee,json,css,s{a,c}ss,pug,html,vue}]
 indent_size = 2
 
 [{Makefile,.gitconfig}]
