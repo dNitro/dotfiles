@@ -275,7 +275,7 @@ endfunction
 
 " Paste in NORMAL mode without explicitly turning paste mode on/off
 if s:macvim
-  set clipboard=
+  set clipboard^=unnamed,unnamedplus
 else
   set clipboard^=unnamed,unnamedplus
 endif
