@@ -21,7 +21,7 @@ alias g="git"
 alias h="history"
 alias j="jobs"
 alias v='vim'
-alias t='tree'
+alias t="tree -C -a -I '.git|node_modules|bower_components|vendor'"
 alias q='exit'
 alias cls='clear' # Clear Screen
 
