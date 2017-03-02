@@ -108,13 +108,9 @@ silent! if plug#begin('~/.vim/plugged')
   Plug 'morhetz/gruvbox'
   Plug 'ryanoasis/vim-devicons'
   Plug 'mhinz/vim-startify'
-  augroup startify
-    autocmd!
-    autocmd User Startified setlocal cursorline
-  augroup END
   "-2 Lang -------------------------------------------------------------------
   Plug 'posva/vim-vue'
-  Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
+  " Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
   Plug 'mattn/emmet-vim'
   Plug 'othree/html5.vim'
   Plug 'JulesWang/css.vim'
