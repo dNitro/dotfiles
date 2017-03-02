@@ -700,6 +700,32 @@ let tern_icons = {
  \  'chai':       '  ',
  \  'sinon':      '  '
  \}
+"-2 Startify -----------------------------------------------------------------
+hi StartifyBracket guifg=#586e75 ctermfg=240
+hi StartifyFile    guifg=#2aa198 ctermfg=147
+hi StartifyFooter  guifg=#586e75 ctermfg=240
+hi StartifyHeader  guifg=#586e75 ctermfg=114
+hi StartifyNumber  guifg=#6c71c4 ctermfg=215
+hi StartifyPath    guifg=#586e75 ctermfg=245
+hi StartifySlash   guifg=#586e75 ctermfg=240
+hi StartifySpecial ctermfg=240
+hi StartifySection guifg=#cb4b16
+let g:startify_files_number = 7
+let g:startify_bookmarks = [ {'c': '~/.vimrc'}, '~/.zshrc' ]
+function! s:filter_header(lines) abort
+        let longest_line   = max(map(copy(a:lines), 'strwidth(v:val)'))
+        let centered_lines = map(copy(a:lines),
+            \ 'repeat(" ", ((&columns-4) / 2) - (longest_line / 2)) . v:val')
+        return centered_lines
+    endfunction
+let g:startify_custom_header = s:filter_header(startify#fortune#cowsay())
+let g:startify_custom_footer =
+       \ s:filter_header(['', "   Vim is charityware. Please read ':help uganda'.", ''])
+
+augroup startify
+  autocmd!
+  autocmd User Startified setlocal cursorline
+augroup END
 "-2 ale ----------------------------------------------------------------------
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
