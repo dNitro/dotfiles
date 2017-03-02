@@ -43,7 +43,7 @@ silent! if plug#begin('~/.vim/plugged')
   Plug '~/.vim/plugged-local/jsomni'
   Plug '~/.vim/plugged-local/jsonautocomplete'
   " Plug '~/.vim/plugged-local/vim-autocomplpop'
-  Plug '~/.vim/plugged-local/completor.vim'
+  " Plug '~/.vim/plugged-local/completor.vim'
   Plug '~/.vim/plugged-local/vim-sass'
   Plug '~/.vim/plugged-local/vison'
   "-2 Explore ----------------------------------------------------------------
@@ -133,17 +133,21 @@ silent! if plug#begin('~/.vim/plugged')
   "-2 Lint -------------------------------------------------------------------
   Plug 'w0rp/ale'
   "-2 Git --------------------------------------------------------------------
+  Plug 'tpope/vim-fugitive'
   Plug 'sjl/splice.vim', { 'on': 'SpliceInit' }
   "-2 Auto Complete ----------------------------------------------------------
-  " Plug 'maralla/completor.vim', { 'do': 'make js' }
+  Plug 'maralla/completor.vim', { 'do': 'make js' }
   let g:completor_min_chars = 0
+  let g:completor_python_binary = "/usr/bin/python3"
+  let g:completor_completion_delay = 20
   let g:completor_select_first = 1
   let g:completor_disable_ultisnips = 1
   let g:completor_html_omni_trigger = '(<|<[a-zA-Z][a-zA-Z1-6]*\s+|="|"\s+)$'
   let g:completor_css_omni_trigger = '([\w-]+|@[\w-]*|[\w-]+:\s*[\w-]*|\S\s+)$'
   let g:completor_scss_omni_trigger = '([\w-]+|@[\w-]*|[\w-]+:\s*[\w-]*|\S\s+)$'
   let g:completor_pug_omni_trigger = '(^\s*\w*|\S\s+|\(|=''|\.|\#)$'
-  let g:completor_json_omni_trigger = '(^\s*\w*)$'
+  " let g:completor_json_omni_trigger = '(^\s*\w*)$'
+  let g:completor_json_omni_trigger = '(\s*\w*)$'
   "==-------------------------------------------------------------------------
   call plug#end()
 endif
@@ -168,6 +172,7 @@ if s:macvim || s:gvim
 endif
 "=============================================================================
 "-[ SETTING ]=================================================================
+set shell=/bin/zsh               " Use zsh as default shell
 set encoding=utf-8               " Encode all files in utf-8
 set backspace=indent,eol,start   " Backspace over everything
 set nowrap                       " No line wrapping
@@ -181,7 +186,9 @@ set mouse=a                      " Use mouse
 if has("mouse_sgr")
   set ttymouse=sgr               " SGR mouse if available
 else
-  set ttymouse=xterm2            " Fall back to xterm2 mouse
+  if !has('nvim')
+    set ttymouse=xterm2            " Fall back to xterm2 mouse
+  endif
 end
 set completeopt=menuone,noinsert " Popupmenu menuone and noinsert
 set timeoutlen=140               " Lower the timeout
@@ -200,7 +207,9 @@ endif                            " > Create those folders if they don't already 
 if !isdirectory(&undodir)        " |
   call mkdir(&undodir, "p")      " |
 endif                            " ,
-set viminfo='100,/1000,:1000,<50,s100,h,c,n~/.vim/tmp/viminfo " Increase ' / : history
+if !has('nvim')
+  set viminfo='100,/1000,:1000,<50,s100,h,c,n~/.vim/tmp/viminfo " Increase ' / : history
+endif
 set tags=./tags,tags;            " Search current and parent dirs to find tags file
 set termbidi                     " Terminal is responsible for bidi (bidirectional text)
 set modeline                     " Apply vim setting locally if available
@@ -215,7 +224,9 @@ let mapleader = ","              " Let leader key to , instead of default \
 " performance ----------------------------------------------------------------
 set synmaxcol=500        " Don't highlight lines longer than 500 character
 set ttyfast              " U got a fast terminal
-set ttyscroll=3          " When scrolling is slow
+if !has('nvim')
+  set ttyscroll=3          " When scrolling is slow
+endif
 set lazyredraw           " To avoid scrolling problems
 set regexpengine=1       " Use older but faster regex engine
 syntax sync maxlines=100 " Slow machines
@@ -334,6 +345,15 @@ nnoremap ' `
 nnoremap ` '
 
 " Easier window navigation
+if has('nvim')
+  tnoremap <C-h> <C-\><C-n><C-w>h
+  tnoremap <C-l> <C-\><C-n><C-w>l
+  if &buftype == 'terminal'
+    tnoremap <C-j> <C-\><C-n><C-w>j
+    tnoremap <C-k> <C-\><C-n><C-w>k
+  endif
+  tnoremap <leader>e <C-\><C-n>
+endif
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
@@ -485,6 +505,23 @@ augroup general
   " Insert the current date and time when writing
   au BufWritePre,FileWritePre * ks | silent! call LastMod() | 's
 
+augroup END
+
+" NeoVim
+if has('nvim')
+  augroup terminal
+    au!
+    au BufWinEnter,WinEnter term://* startinsert
+    au BufLeave term://* stopinsert
+  augroup END
+endif
+
+augroup colorscheme
+  au!
+  au ColorScheme *
+              \| highlight SignColumn guibg=NONE ctermbg=NONE ctermfg=NONE guifg=NONE
+              \| highlight ALEErrorSign guibg=NONE ctermbg=NONE guifg=#dc322f ctermfg=02
+              \| highlight ALEWarningSign guibg=NONE ctermbg=NONE guifg=#e9a226 ctermfg=01
 augroup END
 
 augroup vimrc
