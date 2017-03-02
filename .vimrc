@@ -75,8 +75,6 @@ silent! if plug#begin('~/.vim/plugged')
   command! -nargs=* -bang -range -complete=filetype NN
             \ :<line1>,<line2> call nrrwrgn#NrrwRgn('',<q-bang>)
             \ | set filetype=<args>
-  let b:nrrw_aucmd_create = 'exe norm! "\<C-j>\<C-k>\<C-w>="'
-  let b:nrrw_aucmd_close  = "call ale#Queue(0)"
   Plug 'editorconfig/editorconfig-vim'
   " Plug 'Raimondi/delimitMate'
   Plug 'jiangmiao/auto-pairs'
@@ -733,7 +731,8 @@ let g:ale_statusline_format = [' %d', '%d', ' ok']
 let g:ale_lint_on_save = 1 " Only run linters when i save files
 let g:ale_lint_on_text_changed = 0 " Disable default behaviour
 let g:ale_lint_on_enter = 0  " Dont run on file opening
-highlight SignColumn guibg=NONE ctermbg=NONE
+highlight SignColumn guibg=NONE ctermbg=NONE ctermfg=NONE guifg=NONE
+highlight ALEErrorSign guibg=NONE ctermbg=NONE guifg=#dc322f ctermfg=02
+highlight ALEWarningSign guibg=NONE ctermbg=NONE guifg=#e9a226 ctermfg=01
 "=============================================================================
-
 "-1 vim:foldmethod=marker:foldmarker="-,"==:foldlevel=0
