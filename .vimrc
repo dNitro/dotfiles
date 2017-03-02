@@ -1,7 +1,7 @@
 " File          : .vimrc
 " Description   : vim text editor configuration file
 " Maintainer    : dNitro <ali.zarifkar AT gmail DOT com>
-" Last modified : 2017 Jan 14 at 01:37:37 AM
+" Last modified : 2017 Feb 26 at 13:40:58 PM
 " License       : MIT
 
 "-[ BASE ]====================================================================
@@ -608,9 +608,14 @@ endif
 " let g:UltiSnipsEdit to split your window verticaly
 let g:UltiSnipsEditSplit="vertical"
 
+" Center screen when we are within last 1/3 of buffer
+" startinsert in to complete command otherwise endif will inserted at end
 augroup ultisnips
   autocmd!
-  autocmd User UltiSnipsEnterFirstSnippet if (winline() * 3 >= winheight(0) * 2) | exe "norm! zza" | endif
+  autocmd User UltiSnipsEnterFirstSnippet if (winline() * 3 >= (winheight(0) * 2))
+                                            \| norm! zz
+                                            " \| startinsert
+                                        \| endif
 augroup END
 
 " Initial variables
