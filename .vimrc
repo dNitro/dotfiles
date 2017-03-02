@@ -103,6 +103,7 @@ silent! if plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'triglav/vim-visual-increment'
   "-2 UI ---------------------------------------------------------------------
+  Plug 'chriskempson/base16-vim'
   Plug 'altercation/vim-colors-solarized'
   Plug 'morhetz/gruvbox'
   Plug 'ryanoasis/vim-devicons'
