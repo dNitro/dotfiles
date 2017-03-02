@@ -1,7 +1,7 @@
 snippet cg "dest"
 curl \
     -X GET \
-    http://localhost:${1:3000} \
+    ${1:http://localhost:${0:3000}} \
     | jsonlint
 endsnippet
 snippet cp "dest"
@@ -11,4 +11,9 @@ curl \
     -d '$1' \
     http://localhost:${2:3000} \
     | jsonlint
+endsnippet
+snippet ct
+curl \
+    -w '\ntime taken: %{time_total} s\n' \
+    ${1:http://localhost:${0:3000}}
 endsnippet

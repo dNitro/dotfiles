@@ -5,13 +5,13 @@ snippet <% "desc" Ai
 <%$0%
 endsnippet
 snippet "<% " "desc" irA
-<% $0 
+<% $0
 endsnippet
 snippet "<%=" "desc" irA
-<%= $0 
+<%= $0
 endsnippet
 snippet "<%-" "desc" irA
-<%- $0 
+<%- $0
 endsnippet
 snippet if "desc"
 <% if ( $1 ) { %>
@@ -42,11 +42,11 @@ snippet "<% for " "desc" brA
   $0
 <% } %>
 endsnippet
-snippet for "desc" "snip.buffer[snip.line][snip.column - 4] != '%'" e
-<% for ($1; $2; $3) { %>
-  $0
-<% } %>
-endsnippet
+# snippet for "desc" "snip.buffer[snip.line][snip.column - 4] != '%'" e
+# <% for ($1; $2; $3) { %>
+#   $0
+# <% } %>
+# endsnippet
 pre_expand "b = re.match('^(\s*.*r)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
 snippet "<% for" "desc" bA
  ($1; $2; $3) { %>
@@ -392,6 +392,6 @@ snippet <textarea "des" i
 <textarea id="$1" name="$1" cols="${3:30}" rows="${4:10}" placeholder="$1"$0></textarea
 endsnippet
 
-snippet script "des" i
-script src="${1}"
+snippet "<script" "des" ir
+<script src="${1}"></script
 endsnippet

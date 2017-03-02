@@ -69,7 +69,7 @@ snippet url
 url("${1:http://www.${2:example.com/bck.png}}")
 endsnippet
 snippet "url " "desc" r
-url("${1:http://www.${2:example.com/bck.png}}") 
+url("${1:http://www.${2:example.com/bck.png}}")
 endsnippet
 snippet sexytextdark
 -moz-osx-font-smoothing: auto;
@@ -273,6 +273,12 @@ snippet " {" "desc" rA
   $0
 }
 endsnippet
+snippet "border: " "desc" r
+border: 1px solid ${0:red}
+endsnippet
+snippet "outline: " "desc" r
+outline: 1px solid ${0:red}
+endsnippet
 snippet # "desc"
 #${1:FFFFFF}
 endsnippet
@@ -289,25 +295,25 @@ snippet hsla
 hsla(${1:360}, ${2:100}%, ${3:100}%, ${0:1.0})
 endsnippet
 snippet "# " "desc" r
-#${1:FFFFFF} 
+#${1:FFFFFF}
 endsnippet
 snippet "rgb " "desc" r
-rgb(${1:255}, ${2:255}, ${3:255}) 
+rgb(${1:255}, ${2:255}, ${3:255})
 endsnippet
 snippet "hsl " "desc" r
-hsl(${1:360}, ${2:100}%, ${3:100}%) 
+hsl(${1:360}, ${2:100}%, ${3:100}%)
 endsnippet
 snippet "rgba " "desc" r
-rgba(${1:255}, ${2:255}, ${3:255}, ${4:1.0}) 
+rgba(${1:255}, ${2:255}, ${3:255}, ${4:1.0})
 endsnippet
 snippet "hsla " "desc" r
-hsla(${1:360}, ${2:100}%, ${3:100}%, ${4:1.0}) 
+hsla(${1:360}, ${2:100}%, ${3:100}%, ${4:1.0})
 endsnippet
 snippet "px " "desc" r
-${1:1}px 
+${1:1}px
 endsnippet
 snippet "% " "desc" r
-${1:100}% 
+${1:100}%
 endsnippet
 snippet "px px/" "desc" r
 ${1:1}px ${2:1}px/
@@ -316,16 +322,16 @@ snippet "%/" "desc" r
 ${1:100}% ${2:100}%/
 endsnippet
 snippet "rem " "desc" r
-${1:1}rem 
+${1:1}rem
 endsnippet
 snippet "em " "desc" r
-${1:1}em 
+${1:1}em
 endsnippet
 snippet "second " "desc" r
-${1:1}s 
+${1:1}s
 endsnippet
 snippet "milisecond " "desc" r
-${1:1000}ms 
+${1:1000}ms
 endsnippet
 snippet "box-shadow: " "desc" r
 box-shadow: ${1:inset }

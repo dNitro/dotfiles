@@ -18,14 +18,26 @@ snippet h2 "h2 title"
 ${1:${VISUAL:text}}
 ${1/./-/g}
 endsnippet
+snippet h3 "h3 title"
+*** ${VISUAL}$0
+endsnippet
+snippet h4 "h4 title"
+**** ${VISUAL}$0
+endsnippet
+snippet h5 "h5 title"
+***** ${VISUAL}$0
+endsnippet
+snippet h6 "h6 title"
+***** ${VISUAL}$0
+endsnippet
 snippet i "italic"
-${VISUAL/^(.*?)$/*$1*/}
+*${VISUAL}${0}*
 endsnippet
 snippet b "bold"
-${VISUAL/^(.*?)$/**$1**/}
+**${VISUAL}${0}**
 endsnippet
 snippet bi "italic"
-${VISUAL/^(.*?)$/***$1***/}
+***${VISUAL}${0}***
 endsnippet
 snippet code "write some code"
 \`\`\`${1}

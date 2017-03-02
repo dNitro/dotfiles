@@ -77,7 +77,7 @@ endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
 snippet "^\s*if " "desc" rA
 if ( ${1} ) {
-  $0
+  ${VISUAL}$0
 }
 endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
