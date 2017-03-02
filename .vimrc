@@ -464,6 +464,13 @@ function! LastMod()
         \ . strftime("%Y %b %d at %X %p") . '/g'
 endfunction
 "=============================================================================
+funct! Exec(command)
+    redir =>output
+    silent exec a:command
+    redir END
+    let @o = output
+    execute "put o"
+endfunct!
 
 "-1[ AUTO COMMANDS ]==========================================================
 " We should wrap autocmds in augroup, to close it first and run again to not
