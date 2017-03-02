@@ -91,6 +91,7 @@ silent! if plug#begin('~/.vim/plugged')
   endfunction
   Plug 'SirVer/ultisnips', { 'do': function('CookUltisnips') }
   Plug 'KabbAmine/vCoolor.vim'
+  Plug 'iandoe/vim-osx-colorpicker'
   Plug 'tpope/vim-commentary'
   Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)',
                                          \ 'EasyAlign',
