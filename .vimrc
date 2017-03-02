@@ -157,11 +157,13 @@ if !s:macvim || !s:gvim
   set t_Co=256
 endif
 set background=dark
-colorscheme gruvbox
+" colorscheme gruvbox
+" colorscheme base16-ocean
+colorscheme base16-mocha
 "=============================================================================
 "-[ MACVIM ]==================================================================
 if s:macvim || s:gvim
-  set guifont=Consolas\ Italic:h13
+  set guifont=Consolas\ Italic:h14
   set guioptions=aem
   set belloff=all
   colorscheme solarized
