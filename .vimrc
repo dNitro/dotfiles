@@ -486,6 +486,8 @@ augroup general
                             \| silent! call LoadTemplate('%:e')
                             \| match Todo /<+.\{-1,}+>/
                        \| endif
+                       \| let b:nrrw_aucmd_create = "wincmd j|wincmd k|wincmd ="
+                       \| let b:nrrw_aucmd_close  = "call ale#Queue(0)"
 
   " Automatically change current directory to that of the file in the buffer
   au BufEnter * lcd %:p:h
