@@ -8,12 +8,18 @@ source ~/.init/logger.sh
 
 info 'Installing global npm packages ...'
 
-npm install -g yo
 npm install -g bower
+npm install -g browserify
 npm install -g gulp-cli
-npm install -g jshint
-npm install -g js-beautify
-npm install -g jsonlint
+npm install -g html2jade
 npm install -g instant-markdown-d
+npm install -g istanbul
+npm install -g js-beautify
+npm install -g jshint
+npm install -g json2yaml
+npm install -g jsonlint
+npm install -g karma-cli
+npm install -g mocha
+npm install -g yo
 
 success 'Packages Done.'
