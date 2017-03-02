@@ -398,6 +398,8 @@ cnoremap <expr> <CR> <SID>CCR()
 iab teh the
 iab Teh The
 iab cah cha
+iab esle else
+iab naem name
 "=============================================================================
 "-[ FUNCTIONS ]===============================================================
 "-2 Response to CR in command mode gracefully (smooth listing) ---------------
