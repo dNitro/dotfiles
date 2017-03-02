@@ -233,7 +233,10 @@ set smartindent          " Autoindenting when starting a new line
 set autoindent           " Do autoindentation smart
 " Statusline -----------------------------------------------------------------
 set laststatus=2         " Always show the status line and format it like:
-set statusline=%F%m%r%h%w%=\ [%Y]\ [%{&ff}]\ [%04l,%04v]\ [%p%%]\ [%L]
+set statusline=%<%F%m%r%h%w%=\ %Y\ \|\ %{&ff}\ \|\ line\ %l\/%L
+if !empty(glob("$HOME/.vim/plugged/vim-fugitive/plugin/fugitive.vim"))
+  set statusline+=\ %{fugitive#statusline()}         " Fugitive in statusline
+endif
 " Search and Replace ---------------------------------------------------------
 set incsearch            " Set incremental searching
 set hlsearch             " Highlight searching
