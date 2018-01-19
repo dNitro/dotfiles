@@ -1,7 +1,7 @@
 " css_autocomplete.vim  : automatically Inserts semicolon on hitting first alphabetic charachter on every line.
 " Version    		    : 0.1
 " Maintainer 		    : Ali Zarifkar <ali.zarifkar@gmail.com>
-" Last modified  		: 2016 Oct 23 at 15:47:26 PM
+" Last modified  		: 2017 Dec 06 at 6:49:17 PM PM
 " License      		    : This script is released under the Vim License.
 
 " check if script is already loaded
@@ -28,7 +28,7 @@ function! s:mapForMappingDriven()
 		  \ 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
 		  \ ]
 	for key in s:keysMappingDriven
-	  execute printf('inoremap <buffer> <silent> %s %s<C-r>=<SID>insertSemiColon()<CR>',
+	  execute printf('inoremap <nowait> <buffer> <silent> %s %s<C-r>=<SID>insertSemiColon()<CR>',
 			\        key, key)
 	endfor
   endif

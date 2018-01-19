@@ -1,7 +1,7 @@
-snippet #{ "desc"
+snippet #{ "desc" A
 #{$1}
 endsnippet
-snippet "@if " "desc" r
+snippet "^\s*@if " "desc" rA
 @if ${1:expression} {
   ${2}
 }
@@ -31,7 +31,7 @@ snippet "@mixin " "desc" r
   ${3}
 }
 endsnippet
-snippet "@include " "desc" r
+snippet "^\s*@include " "desc" rA
 @include ${1:mixin};
 endsnippet
 snippet "@function " "desc" r

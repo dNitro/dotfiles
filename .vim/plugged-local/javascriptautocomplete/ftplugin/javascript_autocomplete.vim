@@ -1,7 +1,7 @@
 " javascript_autocompleoe.vim: Insert semicolon and inline lint js operators.
 " Version:                     0.1
 " Maintainer:                  Ali Zarifkar<ali.zarifkar@gamil.com>
-" Last modified:               2016 Dec 31 at 01:00:00 AM
+" Last modified:               2017 Dec 06 at 9:03:14 PM PM
 " License:                     This script is released under the Vim License.
 
 " check if script is already loaded
@@ -13,7 +13,7 @@ let b:loaded_javascript_autocomplete=1
 " ####### KEY MAPPINGS #######
 let operators = ['=', '+', '-', '*', '/', '%', '<', '>', '!', '\\', '&', '\|']
 for i in operators
-  execute printf('inoremap <buffer> <silent> %s <c-r>=<SID>Space("%s")<cr>', i, i)
+  execute printf('inoremap <buffer> <nowait> <silent> %s <c-r>=<SID>Space("%s")<cr>', i, i)
 endfor
 
 au InsertEnter <buffer> call <SID>mapForMappingDriven()
@@ -33,10 +33,10 @@ function! s:mapForMappingDriven()
           \ '$', '_', '"', '''']
     for key in s:keysMappingDriven
       if key =~ '[''"]'
-        execute printf('inoremap <buffer> <silent> %s %s%s<Left><C-r>=<SID>insertSemicol(2)<CR>',
+        execute printf('inoremap <buffer> <nowait> <silent> %s %s%s<Left><C-r>=<SID>insertSemicol(2)<CR>',
               \        key, key, key)
       else
-        execute printf('inoremap <buffer> <silent> %s %s<C-r>=<SID>insertSemicol(1)<CR>',
+        execute printf('inoremap <buffer> <nowait> <silent> %s %s<C-r>=<SID>insertSemicol(1)<CR>',
               \        key, key)
       endif
     endfor
@@ -50,9 +50,9 @@ function! s:unmapForMappingDriven()
   for key in s:keysMappingDriven
     execute 'iunmap <buffer> ' . key
     if key =~ '"'
-      execute 'inoremap <buffer> <silent> ' . key . " <C-R>=AutoPairsInsert('" . key ."')<CR>"
+      execute 'inoremap <buffer> <nowait> <silent> ' . key . " <C-R>=AutoPairsInsert('" . key ."')<CR>"
     elseif key == ''''
-      execute 'inoremap <buffer> <silent> ' . key . ' <C-R>=AutoPairsInsert("' . key .'")<CR>'
+      execute 'inoremap <buffer> <nowait>  <silent> ' . key . ' <C-R>=AutoPairsInsert("' . key .'")<CR>'
     endif
   endfor
   let s:keysMappingDriven = []
@@ -214,7 +214,7 @@ func! s:insertSemicol(n)
       elseif b:currentLineLastChar != ';'
         call s:insertComma()
       endif
-    elseif b:prevLineLastChar =~ '[{\[(]' && b:prevLine !~ '\%(function\|if\|for\|while\|switch\|catch\|constructor\)\s*(' && b:prevLine !~ '\%(else\|try\|finally\)\s*{' && b:prevLine !~ '.\+(.*)\s*{'
+    elseif b:prevLineLastChar =~ '[{\[(]' && b:prevLine !~ '\%(function\|if\|for\|while\|switch\|catch\|constructor\)\s*(' && b:prevLine !~ '\%(else\|do\|try\|finally\)\s*{' && b:prevLine !~ '.\+(.*)\s*{'
       if b:nextLineFirstChar =~ '[}\])]'
         return ''
       elseif b:nextLineLastChar == ','
@@ -244,7 +244,7 @@ func! s:isState()
   let b:startLine = searchpair('{', '', '}', "bnW")
   let b:startLineTrimmed = s:trim(getline(b:startLine))
   let b:startLineFirstWord = matchstr(b:startLineTrimmed, '^\zs\w\+\ze\s*')
-  if b:startLineFirstWord =~ '^\%(function\|if\|else\|for\|while\|switch\|try\|catch\|finally\|constructor(\|get\|set\|static\)$' || b:startLineTrimmed =~ '^\%(.*:\)\@!\zs\s*\w\+(' || b:startLineTrimmed =~ '^}\s*else'
+  if b:startLineFirstWord =~ '^\%(function\|if\|else\|for\|do\|while\|switch\|try\|catch\|finally\|constructor\|get\|set\|static\)$' || b:startLineTrimmed =~ '^\%(.*:\)\@!\zs\s*\w\+(' || b:startLineTrimmed =~ '^}\s*\%(else\|catch\|finally\)'
     return 1
   endif
   return 0

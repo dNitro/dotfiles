@@ -1,0 +1,66 @@
+snippet "DECLARE " "desc" rA
+DECLARE @${1:variable} AS ${2:type}${3: = ${0:default}}
+endsnippet
+
+# snippet "IF " "desc" rA
+# IF ${1:predicate} BEGIN
+#   ${VISUAL}$0
+# END
+# endsnippet
+
+snippet begin "desc" A
+BEGIN
+  ${VISUAL}$0
+END
+endsnippet
+
+snippet "TRY " "desc" rA
+BEGIN TRY
+  $0
+END TRY
+endsnippet
+
+
+snippet "CATCH " "desc" rA
+BEGIN CATCH
+  $0
+END CATCH
+endsnippet
+
+# snippet "PRINT " "desc" rA
+# PRINT $0;
+# endsnippet
+
+# snippet "SELECT " "desc" rA
+# SELECT $1 FROM $0;
+# endsnippet
+
+# snippet "WHILE " "desc" rA
+# WHILE ${1:predicate} BEGIN
+#   ${VISUAL}$0
+# END
+# endsnippet
+
+snippet "CASE " "desc" rA
+CASE $1
+  ELSE $0
+END
+endsnippet
+
+snippet "WHEN " "desc" rA
+WHEN $1 THEN $0
+endsnippet
+
+snippet "IIF " "desc" rA
+IIF (${1:predicate}, ${2:ifTrue}, ${0:ifFalse})
+endsnippet
+
+snippet "FUNCTION " "desc" rA
+FUNCTION ${1:schema}.${2:functionName}(${3:parametes})
+RETURNS ${4:returnValue}
+WITH RETURNS NULL ON NULL INPUT
+AS
+BEGIN
+  ${0:functionBody}
+END
+endsnippet

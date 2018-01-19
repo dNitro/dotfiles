@@ -11,7 +11,7 @@ nnoremap <buffer> <silent> <Right> :<C-u>call AddSubtract('')<CR>
 nnoremap <buffer> <silent> <Left> :<C-u>call AddSubtract('b')<CR>
 
 " Don't pair {
-let b:AutoPairs = {'(':')', '[':']',"'":"'",'"':'"', '`':'`'}
+let b:AutoPairs = {'(':')', '[':']', "'":"'", '"':'"', '`':'`'}
 
 " Also consider - as keyword
 setlocal iskeyword+=-

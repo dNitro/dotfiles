@@ -16,6 +16,18 @@
 #})
 #endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
+snippet "^\s*use " "desc" rA
+"use strict";
+endsnippet
+pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
+snippet "^\s*'use " "desc" rA
+'use strict';
+endsnippet
+pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
+snippet !^\s*"use ! "desc" rA
+"use strict";
+endsnippet
+pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
 snippet function "desc" "re.match('^\s*function', snip.buffer[snip.line])" be
 function ${1}(${2}) {
   $0
@@ -38,14 +50,14 @@ endsnippet
 #endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
 snippet (function "desc" "re.match('^\(', snip.buffer[snip.line])" e
-(function(${2}) {
+(function(${1}) {
   $0
-}(${1}));
+}(${2}));
 endsnippet
 snippet (function "desc" "re.match('^\s*var\s*\w+\s*=\s*\(function', snip.buffer[snip.line])" e
-(function(${2}) {
+(function(${1}) {
   $0
-}(${1})
+}(${2})
 endsnippet
 snippet function "desc" i
 function(${1}) {
@@ -60,18 +72,18 @@ setTimeout($0, $1)
 endsnippet
 # class ##################################################
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
-snippet class "desc" b
+snippet "\s*class " "desc" rA
 class ${1} {
   $0
 }
 endsnippet
-snippet extends "desc"
-extends ${0}
-endsnippet
+# snippet extends "desc"
+# extends ${0}
+# endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
-snippet constructor "desc"
-constructor($1) {
-  $0
+snippet "\s*constructor " "desc" rA
+constructor ($1) {
+  ${VISUAL}$0
 }
 endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
@@ -83,19 +95,19 @@ endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
 snippet "^\s*(}?\s*)else if\s" "desc" rA
 `!p snip.rv = match.group(1)`else if ( ${1} ) {
-  $0
+  ${VISUAL}$0
 }
 endsnippet
+# pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
+# snippet "^\s*(}?\s*)else\s{" "desc" rA
+# `!p snip.rv = match.group(1)`else {
+#   $0
+# }
+# endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
-snippet "^\s*(}?\s*)else\s{" "desc" rA
-`!p snip.rv = match.group(1)`else {
-  $0
-}
-endsnippet
-pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
-snippet "^\s*(}?\s*)try\s" "desc" rA
-`!p snip.rv = match.group(1)`try {
-  $0
+snippet "^\s*try\s" "desc" rA
+try {
+  ${VISUAL}$0
 }
 endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
@@ -105,36 +117,36 @@ snippet "^\s*(}?\s*)catch\s" "desc" rA
 }
 endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
-snippet "^\s*(}?\s*)finally\s?" "desc" rA
+snippet "^\s*(}?\s*)finally\s" "desc" rA
 `!p snip.rv = match.group(1)`finally {
   $0
 }
 endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
-snippet switch
+snippet "^\s*switch " "desc" rA
 switch ( ${1} ) {
   case ${2}:
     ${0};
 }
 endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
-snippet case
+snippet "^\s*case " "desc" rA
 case ${1}:
   $0;
 endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
-snippet default
+snippet default "desc" A
 default:
   $0;
 endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
-snippet "^\s*for" "desc" rA
+snippet "^\s*for " "desc" rA
 for (${1}; ${2}; ${3}) {
-  $0
+  ${VISUAL}$0
 }
 endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
-snippet "for in" "for prop in obj using hasOwnProperty" b
+snippet "^\s*forin " "for prop in obj using hasOwnProperty" rA
 for (var ${1:prop} in ${2:obj}) {
   if (Object.prototype.hasOwnProperty.call($2, $1)) {
     ${VISUAL}$0
@@ -142,14 +154,26 @@ for (var ${1:prop} in ${2:obj}) {
 }
 endsnippet
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
-snippet "^\s*while" "desc" r
+snippet "^\s*forof " "desc" rA
+for (let $1 of $2) {
+  ${VISUAL}$0
+}
+endsnippet
+pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
+snippet "^\s*static " "desc" rA
+static $1($2) {
+  ${VISUAL}$0
+}
+endsnippet
+pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
+snippet "^\s*while " "desc" rA
 while (${1:condition}) {
   ${VISUAL}$0
 }
 endsnippet
-snippet "^\s*do" "desc" r
+snippet "^\s*do " "desc" rA
 do {
-  $0
+  ${VISUAL}$0
 }
 while (${1:condition})
 endsnippet
@@ -167,6 +191,9 @@ ${VISUAL/^(.*)$/($0)()/}
 endsnippet
 snippet siv "desc"
 (${VISUAL})(${1})
+endsnippet
+snippet cl "desc"
+console.log(${VISUAL}$0)
 endsnippet
 ###############################################################################
 # QUnit #######################################################################

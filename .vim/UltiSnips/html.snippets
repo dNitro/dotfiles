@@ -1,5 +1,5 @@
 snippet < "desc" Ai
-<$1>$0${1/(?:(^\w+)|(^!)|(^%)|(^\/)).*/(?1:<\/$1>)/}
+<$1>${1/(?:(^\w+)|(^!)|(^%)|(^\/)).*/(?1:<\/$1>)/}
 endsnippet
 snippet <% "desc" Ai
 <%$0%
@@ -47,6 +47,9 @@ endsnippet
 #   $0
 # <% } %>
 # endsnippet
+snippet = "desc" iA
+="$0"
+endsnippet
 pre_expand "b = re.match('^(\s*.*r)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
 snippet "<% for" "desc" bA
  ($1; $2; $3) { %>
@@ -68,10 +71,7 @@ endsnippet
 snippet "<form" "des" irA
 <form action="$1" method="$2"$0></form
 endsnippet
-snippet "<html" "des" ir
-<html lang="$1"$0></html
-endsnippet
-snippet "<html " "des" irA
+snippet "<html\s?" "des" irA
 <html lang="$1"$0></html
 endsnippet
 snippet "<(a)\s?" "desc" irA
@@ -301,7 +301,7 @@ label>
 	<input type="${0}"
 endsnippet
 
-snippet <input "des" i
+snippet <input "des" A
 <input type="$0"
 endsnippet
 

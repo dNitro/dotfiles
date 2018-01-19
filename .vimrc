@@ -1,7 +1,7 @@
 " File          : .vimrc
 " Description   : vim text editor configuration file
 " Maintainer    : dNitro <ali.zarifkar AT gmail DOT com>
-" Last modified : 2017 Feb 26 at 13:40:58 PM
+" Last modified : 2018 Jan 14 at 2:06:21 AM AM
 " License       : MIT
 
 "-[ BASE ]====================================================================
@@ -15,9 +15,14 @@ let s:windows = has('win32') || has('win64')
 let s:gvim = has('gui_running')
 
 " Add $HOME/.vim to windows runtimepath
-if s:windows
-  set rtp+=~/.vim
+if s:windows && s:gvim
+    set runtimepath-=~/vimfiles
+    set runtimepath^=~/.vim
+    set runtimepath-=~/vimfiles/after
+    set runtimepath+=~/.vim/after
 endif
+" no need to this just make a symlink from .vim to vimfiles
+" ln -s .vim vimfiles
 
 " Plugin Management
 if !filereadable(expand("~/.vim/autoload/plug.vim"))
@@ -40,8 +45,9 @@ silent! if plug#begin('~/.vim/plugged')
   "-2 Locals -----------------------------------------------------------------
   Plug '~/.vim/plugged-local/cssautocomplete'
   Plug '~/.vim/plugged-local/javascriptautocomplete'
-  Plug '~/.vim/plugged-local/jsomni'
+  " Plug '~/.vim/plugged-local/jsomni'
   Plug '~/.vim/plugged-local/jsonautocomplete'
+  Plug '~/.vim/plugged-local/dbnext.vim'
   " Plug '~/.vim/plugged-local/vim-autocomplpop'
   " Plug '~/.vim/plugged-local/completor.vim'
   Plug '~/.vim/plugged-local/vim-sass'
@@ -70,6 +76,7 @@ silent! if plug#begin('~/.vim/plugged')
     endif
   endfunction
   Plug 'tpope/vim-dispatch', { 'do': function('CookDispatch') }
+  Plug 'skywind3000/asyncrun.vim'
   "-2 Edit -------------------------------------------------------------------
   Plug 'chrisbra/NrrwRgn'
   command! -nargs=* -bang -range -complete=filetype NN
@@ -78,7 +85,7 @@ silent! if plug#begin('~/.vim/plugged')
   Plug 'editorconfig/editorconfig-vim'
   " Plug 'Raimondi/delimitMate'
   Plug 'jiangmiao/auto-pairs'
-  let g:AutoPairsFlyMode = 1
+  " let g:AutoPairsFlyMode = 0
   " let g:AutoPairsMapBS = 0
   " let g:AutoPairsMapCh = 0
   let g:AutoPairsMapCR = 0
@@ -106,7 +113,7 @@ silent! if plug#begin('~/.vim/plugged')
   Plug 'chriskempson/base16-vim'
   Plug 'altercation/vim-colors-solarized'
   Plug 'morhetz/gruvbox'
-  Plug 'ryanoasis/vim-devicons'
+  " Plug 'ryanoasis/vim-devicons'
   Plug 'mhinz/vim-startify'
   "-2 Lang -------------------------------------------------------------------
   Plug 'posva/vim-vue'
@@ -122,10 +129,16 @@ silent! if plug#begin('~/.vim/plugged')
       !patch ./script/tern.py < ~/.vim/plugged-local/tern/tern.patch
     endif
   endfunction
-  Plug 'ternjs/tern_for_vim', { 'do': function('CookTern') }
+  " Plug 'ternjs/tern_for_vim', { 'do': function('CookTern') }
   Plug 'pangloss/vim-javascript'
   Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
   Plug 'dNitro/vim-pug-complete', { 'for': ['jade', 'pug'] }
+  " Plug 'cosminadrianpopescu/vim-sql-workbench'
+  " let g:sw_exe = 'C:\Users\Davoud\Downloads\Compressed\Workbench-Build122\sqlwbconsole.exe'
+  " let g:sw_config_dir = 'C:\Users\Davoud\.sqlworkbench'
+  Plug 'vim-scripts/sqlserver.vim'
+  let g:dbext_default_profile_mySQLServer  = 'type=SQLSRV:integratedlogin=1:srvname=DESKTOP-5DH60RL:dbname=sinamin_db_avl_tms'
+  " let g:dbext_default_profile_mydb = 'type=SQLSRV:user=sa:srvname=DESKTOP-5DH60RL:dbname=sinamin_db_avl_tms'
   "-2 Lint -------------------------------------------------------------------
   Plug 'w0rp/ale'
   "-2 Git --------------------------------------------------------------------
@@ -134,9 +147,10 @@ silent! if plug#begin('~/.vim/plugged')
   "-2 Auto Complete ----------------------------------------------------------
   Plug 'maralla/completor.vim', { 'do': 'make js' }
   let g:completor_min_chars = 0
-  let g:completor_python_binary = "/usr/bin/python3"
-  let g:completor_completion_delay = 20
-  let g:completor_select_first = 1
+  " let g:completor_python_binary = "/usr/bin/python3"
+  let g:completor_completion_delay = 0
+  let g:completor_refresh_always = 0
+  " let g:completor_select_first = 1
   let g:completor_disable_ultisnips = 1
   let g:completor_html_omni_trigger = '(<|<[a-zA-Z][a-zA-Z1-6]*\s+|="|"\s+)$'
   let g:completor_css_omni_trigger = '([\w-]+|@[\w-]*|[\w-]+:\s*[\w-]*|\S\s+)$'
@@ -153,24 +167,35 @@ filetype plugin indent on
 
 " Syntax highlighting
 syntax on
-if !s:macvim || !s:gvim
-  set t_Co=256
-endif
 set background=dark
-" colorscheme gruvbox
+colorscheme solarized
 " colorscheme base16-ocean
-colorscheme base16-mocha
+" colorscheme base16-mocha
+if !s:macvim || !s:gvim
+  " set term=xterm
+  set t_Co=256
+  let &t_AB="\e[48;5;%dm"
+  let &t_AF="\e[38;5;%dm"
+  colorscheme gruvbox
+  inoremap <Char-0x07F> <BS>
+  nnoremap <Char-0x07F> <BS>
+endif
 "=============================================================================
 "-[ MACVIM ]==================================================================
 if s:macvim || s:gvim
-  set guifont=Consolas\ Italic:h14
-  set guioptions=aem
+  " set guifont=Source_Code_Pro_Semibold:h9:i
+  set guifont=Consolas:h9:b:i
+  " set guifont=Source_Code_Pro_Semibold:h10
+  set guioptions=ae
+
   set belloff=all
-  colorscheme solarized
+  " colorscheme solarized
+  colorscheme base16-ocean
 endif
 "=============================================================================
 "-[ SETTING ]=================================================================
-set shell=/bin/zsh               " Use zsh as default shell
+"set shell=/bin/zsh               " Use zsh as default shell
+set shell=C:/WINDOWS/system32/bash.exe "Use bash as default shell in windows
 set encoding=utf-8               " Encode all files in utf-8
 set backspace=indent,eol,start   " Backspace over everything
 set nowrap                       " No line wrapping
@@ -328,6 +353,12 @@ nnoremap <leader>t :tag /<c-r>=expand('<cword>')<cr><cr>
 " Preview of the definition
 nnoremap <leader>w :ptag /<c-r>=expand('<cword>')<cr><cr>
 
+" Run, Test, Lint
+nnoremap <leader>r :Run<CR>
+nnoremap <leader>t :Test<CR>
+nnoremap <leader>l :Lint<CR>
+
+
 " Space to enter command mode
 noremap <space> :
 
@@ -346,15 +377,16 @@ nnoremap ' `
 nnoremap ` '
 
 " Easier window navigation
-if has('nvim')
-  tnoremap <C-h> <C-\><C-n><C-w>h
-  tnoremap <C-l> <C-\><C-n><C-w>l
-  if &buftype == 'terminal'
-    tnoremap <C-j> <C-\><C-n><C-w>j
-    tnoremap <C-k> <C-\><C-n><C-w>k
-  endif
-  tnoremap <leader>e <C-\><C-n>
-endif
+" now we have support for terminal in all version not only nvim
+" if has('nvim')
+  " if &buftype == 'terminal'
+tnoremap <C-h> <C-\><C-n><C-w>h
+tnoremap <C-l> <C-\><C-n><C-w>l
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <leader>e <C-\><C-n>
+  " endif
+" endif
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
@@ -400,6 +432,7 @@ iab Teh The
 iab cah cha
 iab esle else
 iab naem name
+iab nvarcahr nvarchar
 "=============================================================================
 "-[ FUNCTIONS ]===============================================================
 "-2 Response to CR in command mode gracefully (smooth listing) ---------------
@@ -555,13 +588,14 @@ augroup ftspecific
   au BufNewFile,BufRead *.json Vison
   au BufNewFile,BufRead *{[tT]est,[sS]pec}.js UltiSnipsAddFiletypes javascript-mocha-bdd
   au BufNewFile,BufRead *.ejs setlocal ft=html
+  au BufNewFile,BufRead *.sql SQLSetType sqlserver.vim
 augroup END
 "=============================================================================
 "-[ PLUGINS ]=================================================================
 "-2 commentary ----------------------------------------------------------------
-xmap <leader>e  <Plug>Commentary
-nmap <leader>e  <Plug>Commentary
-omap <leader>e  <Plug>Commentary
+xmap <leader>c  <Plug>Commentary
+nmap <leader>c  <Plug>Commentary
+omap <leader>c  <Plug>Commentary
 "-2 vim-devicons --------------------------------------------------------------
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
@@ -658,8 +692,9 @@ let g:tagbar_type_scss = {
   \ 'deffile' : '~/.vim/ctags/css.cnf'
   \ }
 "-2 VCoolor ------------------------------------------------------------------
-let g:vcoolor_map = '<leader>c'
-let g:vcool_ins_rgb_map = '<leader>r'
+" comment temporarily to use their keybinding for run, comment
+" let g:vcoolor_map = '<leader>c'
+" let g:vcool_ins_rgb_map = '<leader>r'
 let g:vcool_ins_hsl_map = '<leader>h'
 let g:vcool_ins_rgba_map = '<leader>a'
 "-2 vim-multiple-cursors -----------------------------------------------------
@@ -669,19 +704,27 @@ let g:multi_cursor_exit_from_insert_mode = 0
 " Also in visual mode
 let g:multi_cursor_exit_from_visual_mode = 0
 
+" controlling highlight color of multiple cursor
+highlight multiple_cursors_cursor term=reverse cterm=reverse gui=reverse
+highlight link multiple_cursors_visual Visual
+
+"conevert highlights ( * or g* or / ) to multiple cursors
+nnoremap <silent> <M-j> :MultipleCursorsFind <C-R>/<CR>
+vnoremap <silent> <M-j> :MultipleCursorsFind <C-R>/<CR>
+
 " Called once right before you start selecting multiple cursors
-function! Multiple_cursors_before()
-  if exists(':AcpLock')==2
-    exe 'AcpLock'
-  endif
-endfunction
+" function! Multiple_cursors_before()
+"   if exists(':AcpLock')==2
+"     exe 'AcpLock'
+"   endif
+" endfunction
 
 " Called once only when the multiple selection is canceled (default <Esc>)
-function! Multiple_cursors_after()
-  if exists(':AcpUnlock')==2
-    exe 'AcpUnlock'
-  endif
-endfunction
+" function! Multiple_cursors_after()
+"   if exists(':AcpUnlock')==2
+"     exe 'AcpUnlock'
+"   endif
+" endfunction
 "-2 delimitMate --------------------------------------------------------------
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
@@ -697,7 +740,7 @@ vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 "-2 tern-for-vim -------------------------------------------------------------
 set noshowmode  "disable showmode to show preview information in bottom
-let tern_show_argument_hints = 'on_move'
+" let tern_show_argument_hints = 'on_move'
 let tern_ignorecase = 1
 let tern_default_icon = '  '
 let tern_icons = {
@@ -744,14 +787,20 @@ augroup startify
   autocmd User Startified setlocal cursorline
 augroup END
 "-2 ale ----------------------------------------------------------------------
-let g:ale_sign_error = ''
-let g:ale_sign_warning = ''
-let g:ale_statusline_format = [' %d', '%d', ' ok']
+" let g:ale_sign_error = ''
+" let g:ale_sign_warning = ''
+" let g:ale_statusline_format = [' %d', '%d', ' ok']
+let g:ale_sign_error = '»'
+let g:ale_sign_warning = '!'
+let g:ale_statusline_format = ['»%d', '!%d', 'ok']
 let g:ale_lint_on_save = 1 " Only run linters when i save files
 let g:ale_lint_on_text_changed = 0 " Disable default behaviour
 let g:ale_lint_on_enter = 0  " Dont run on file opening
 highlight SignColumn guibg=NONE ctermbg=NONE ctermfg=NONE guifg=NONE
 highlight ALEErrorSign guibg=NONE ctermbg=NONE guifg=#dc322f ctermfg=02
 highlight ALEWarningSign guibg=NONE ctermbg=NONE guifg=#e9a226 ctermfg=01
+" Navigate between errors quickly
+nnoremap <silent> <C-k> <Plug>(ale_previous_wrap)
+nnoremap <silent> <C-j> <Plug>(ale_next_wrap)
 "=============================================================================
 "-1 vim:foldmethod=marker:foldmarker="-,"==:foldlevel=0

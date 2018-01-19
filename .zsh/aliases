@@ -14,8 +14,8 @@ alias -- -="cd -"
 # Shortcuts
 alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
-alias p="cd ~/projects"
+alias ds="cd ~/Desktop"
+alias p="cd ~/Projects"
 
 alias g="git"
 alias h="history"
@@ -38,3 +38,4 @@ alias brc='brew cask'
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+alias nit='/usr/bin/git --git-dir=/mnt/c/Users/Davoud/.myconfig/ --work-tree=/mnt/c/Users/Davoud'

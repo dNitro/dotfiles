@@ -1,7 +1,7 @@
 " json_autocomplete.vim : Map alphabetic keys to Insert comma.
 " Version               : 0.1
 " Maintainer            : Ali Zarifkar <ali.zarifkar@gamil.com>
-" Last modified         : 2016 Nov 18 at 23:51:43 PM
+" Last modified         : 2017 May 18 at 7:06:24 PM PM
 " License               : This script is released under the Vim License.
 
 " check if script is already loaded
@@ -29,11 +29,11 @@ function! s:mapForMappingDriven()
           \ 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
           \ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
           \ 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-          \ '$', '_', '"']
+          \ '$', '_', '"', '''']
     for key in s:keysMappingDriven
-      if key == '"'
+      if key == '"' || key == ''''
         execute printf('inoremap <buffer> <silent> %s %s%s<Left><C-r>=<SID>commaInserter(2)<CR>',
-              \        key, key, key)
+              \        '"', '"', '"')
       else
         execute printf('inoremap <buffer> <silent> %s %s<C-r>=<SID>commaInserter(1)<CR>',
               \        key, key)
@@ -49,7 +49,10 @@ function! s:unmapForMappingDriven()
   for key in s:keysMappingDriven
     execute 'iunmap <buffer> ' . key
     if key == '"'
-      execute 'inoremap <buffer> <silent> ' . key . " <C-R>=AutoPairsInsert('" . key ."')<CR>"
+      execute 'inoremap <buffer> <silent> ' . key . " <C-R>=AutoPairsInsert('".key."')<CR>"
+    endif
+    if key == ''''
+        execute 'imap <buffer> <silent> ' . key . ' "'
     endif
   endfor
   let s:keysMappingDriven = []
@@ -62,7 +65,7 @@ endfunc
 func! s:commaInserter(n)
   let b:curLineLength = len(matchstr(getline('.'), '^\s*\zs.*'))
   let b:curLineFirstChar = matchstr(getline('.'), '^\s*\zs.')
-  if b:curLineLength == a:n && b:curLineFirstChar =~ '[a-zA-Z0-9_$''\"]'
+  if b:curLineLength == a:n && b:curLineFirstChar =~ '[a-zA-Z0-9_$\"]'
     let b:nextLine = getline(nextnonblank(line('.')+1))
     echom 'nextnonblank: ' . b:nextLine
     let b:nextLineFirstChar = matchstr(b:nextLine, '^\s*\zs.')

@@ -34,8 +34,10 @@ setup_gitinfo () {
     read -e git_authoremail
     user ' - What is your github username?'
     read -e github_user
+    user ' - What is your gitlab username?'
+    read -e gitlab_user
 
-    sed -e "s/USER_NAME/$git_authorname/g" -e "s/USER_EMAIL/$git_authoremail/g" -e "s/GITHUB_USER/$github_user/g" -e "s/CREDENTIAL_HELPER/$git_credential/g" $HOME/.init/gitinfo.tpl > $HOME/.gitinfo
+    sed -e "s/USER_NAME/$git_authorname/g" -e "s/USER_EMAIL/$git_authoremail/g" -e "s/GITLAB_USER/$gitlab_user/g" -e "s/GITHUB_USER/$github_user/g" -e "s/CREDENTIAL_HELPER/$git_credential/g" $HOME/.init/gitinfo.tpl > $HOME/.gitinfo
 
     success '.gitinfo created successfully!'
   else
@@ -55,7 +57,7 @@ then
   then
     success "All Done."
   else
-    fail "error installing dependencies."
+    fail "Error installing dependencies."
   fi
 fi
 

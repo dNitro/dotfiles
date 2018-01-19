@@ -22,10 +22,10 @@ if [ $? = 0 ]; then
   printf "\r  [ \033[00;34m..\033[0m ] Checked out config.\n"
   else
     printf "\r  [ \033[00;34m..\033[0m ] Backing up pre-existing dot files.\n"
-    config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
+    config checkout 2>&1 | egrep "\s+\." | sed 's/\/.*//' | sort -u | awk {'print $1'} | xargs tar cf - --remove-files | (cd .config-backup; tar xvf -)
+    config checkout
+    printf "\r  [ \033[00;34m..\033[0m ] Checked out config.\n"
 fi;
-
-config checkout
 
 config config status.showUntrackedFiles no
 
