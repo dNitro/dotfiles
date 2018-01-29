@@ -1,7 +1,7 @@
 " File          : .vimrc
 " Description   : vim text editor configuration file
 " Maintainer    : dNitro <ali.zarifkar AT gmail DOT com>
-" Last modified : 2018 Jan 14 at 2:06:21 AM AM
+" Last modified : 2018 Jan 29 at 7:25:03 PM
 " License       : MIT
 
 "-[ BASE ]====================================================================
@@ -142,6 +142,12 @@ silent! if plug#begin('~/.vim/plugged')
   "-2 Lint -------------------------------------------------------------------
   Plug 'w0rp/ale'
   "-2 Git --------------------------------------------------------------------
+  Plug 'mattn/webapi-vim'
+  Plug 'mattn/gist-vim'
+  let g:github_user='dnitro'
+  let g:gist_api_url='https://api.github.com/'
+  let g:gist_post_private = 1
+  let g:gist_show_privates = 1
   Plug 'tpope/vim-fugitive'
   Plug 'sjl/splice.vim', { 'on': 'SpliceInit' }
   "-2 Auto Complete ----------------------------------------------------------
