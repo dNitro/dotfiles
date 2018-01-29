@@ -503,16 +503,20 @@ function! LastMod()
     let l = line("$")
   endif
   exe '1,' . l . 'g/Last modified\s*:/s/Last modified\(\s*\):\(\s*\).*/Last modified\1:\2'
-        \ . strftime("%Y %b %d at %X %p") . '/g'
+        \ . strftime("%Y %b %d at %X") . '/g'
 endfunction
 "=============================================================================
-funct! Exec(command)
-    redir =>output
-    silent exec a:command
-    redir END
-    let @o = output
-    execute "put o"
-endfunct!
+function! Exec(command)
+    if v:version == 800
+        :put =execute(a:command)
+    else
+        redir =>output
+        silent exec a:command
+        redir END
+        let @o = output
+        execute "put o"
+    endif
+endfunction!
 
 "-1[ AUTO COMMANDS ]==========================================================
 " We should wrap autocmds in augroup, to close it first and run again to not
