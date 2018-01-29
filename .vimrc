@@ -215,6 +215,8 @@ else
   endif
 end
 set completeopt=menuone,noinsert " Popupmenu menuone and noinsert
+set complete-=i                  " disable scanning included files
+set complete-=t                  " disable searching tags
 set timeoutlen=140               " Lower the timeout
 set hidden                       " Change buffers without saving
 set history=1000                 " Increase history from default 50 to 1000 line
