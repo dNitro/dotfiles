@@ -323,6 +323,12 @@ else
 endif
 "=============================================================================
 "-[ MAPPINGS ]================================================================
+" Quickly changee font size in gui with + and - in normal mode
+command! Bigger  :let &guifont = substitute(&guifont, 'h\zs\d\+\ze:', '\=submatch(0)+1', '')
+command! Smaller :let &guifont = substitute(&guifont, 'h\zs\d\+\ze:', '\=submatch(0)-1', '')
+nnoremap + :Bigger<CR>
+nnoremap - :Smaller<CR>
+
 " Insert empty line without leaving normal mode in command window (q:) and ... act normal
 nnoremap <expr> <CR> (empty(&buftype) && !empty(bufname(''))) ? ":\<C-u>call append(line('.'), repeat([''], v:count1))\<CR>j": "\<CR>"
 
