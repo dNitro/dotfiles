@@ -196,6 +196,7 @@ endif
 "-[ SETTING ]=================================================================
 "set shell=/bin/zsh               " Use zsh as default shell
 set shell=C:/WINDOWS/system32/bash.exe "Use bash as default shell in windows
+set shellslash                   " Be consistent with shell slashes
 set encoding=utf-8               " Encode all files in utf-8
 set backspace=indent,eol,start   " Backspace over everything
 set nowrap                       " No line wrapping
