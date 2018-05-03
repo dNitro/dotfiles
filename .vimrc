@@ -333,7 +333,7 @@ else
 endif
 "=============================================================================
 "-[ MAPPINGS ]================================================================
-" Quickly changee font size in gui with + and - in normal mode
+" Quickly change font size in gui with + and - in normal mode
 command! Bigger  :let &guifont = substitute(&guifont, 'h\zs\d\+\ze:', '\=submatch(0)+1', '')
 command! Smaller :let &guifont = substitute(&guifont, 'h\zs\d\+\ze:', '\=submatch(0)-1', '')
 nnoremap + :Bigger<CR>
