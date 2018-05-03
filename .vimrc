@@ -679,6 +679,14 @@ augroup ultisnips
                                         \| endif
 augroup END
 
+" Also on charachter typing and entering insert mode
+augroup autoCenter
+  autocmd!
+  autocmd InsertCharPre,InsertEnter * if (winline() * 3 >= (winheight(0) * 2))
+                                            \| norm! zz
+                                        \| endif
+augroup END
+
 " Initial variables
 let g:ulti_expand_res = 0
 let g:ulti_expand_or_jump_res = 0
