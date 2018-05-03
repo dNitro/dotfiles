@@ -72,7 +72,7 @@ setTimeout($0, $1)
 endsnippet
 # class ##################################################
 pre_expand "b = re.match('^(\s*)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
-snippet "\s*class " "desc" rA
+snippet "^\s*class " "desc" rA
 class ${1} {
   $0
 }
@@ -194,6 +194,11 @@ snippet siv "desc"
 endsnippet
 snippet cl "desc"
 console.log(${VISUAL}$0)
+endsnippet
+snippet method "a class method"
+${1:methodName}() {
+  $0
+}
 endsnippet
 ###############################################################################
 # QUnit #######################################################################
