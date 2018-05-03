@@ -119,6 +119,7 @@ silent! if plug#begin('~/.vim/plugged')
   Plug 'mhinz/vim-startify'
   "-2 Lang -------------------------------------------------------------------
   Plug 'posva/vim-vue'
+  Plug 'iloginow/vim-stylus'
   " Plug 'suan/vim-instant-markdown', { 'for': 'markdown' }
   Plug 'mattn/emmet-vim'
   Plug 'othree/html5.vim'
@@ -162,7 +163,8 @@ silent! if plug#begin('~/.vim/plugged')
   let g:completor_disable_ultisnips = 1
   let g:completor_html_omni_trigger = '(<|<[a-zA-Z][a-zA-Z1-6]*\s+|="|"\s+)$'
   let g:completor_css_omni_trigger = '([\w-]+|@[\w-]*|[\w-]+:\s*[\w-]*|\S\s+)$'
-  let g:completor_scss_omni_trigger = '([\w-]+|@[\w-]*|[\w-]+:\s*[\w-]*|\S\s+)$'
+  let g:completor_stylus_omni_trigger = '(@)$'
+  let g:completor_scss_omni_trigger = '([\w-]+|@[\w-]*|[\w-]+:\s*[\w-]*|\S\s+|&:)$'
   let g:completor_pug_omni_trigger = '(^\s*\w*|\S\s+|\(|=''|\.|\#)$'
   " let g:completor_json_omni_trigger = '(^\s*\w*)$'
   let g:completor_json_omni_trigger = '(\s*\w*)$'
