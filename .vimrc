@@ -831,6 +831,14 @@ let g:ale_statusline_format = ['»%d', '!%d', 'ok']
 let g:ale_lint_on_save = 1 " Only run linters when i save files
 let g:ale_lint_on_text_changed = 0 " Disable default behaviour
 let g:ale_lint_on_enter = 0  " Dont run on file opening
+" After this is configured, :ALEFix will try and fix your JS code with specified fixers.
+let g:ale_fixers = {
+\   'javascript': ['prettier', 'eslint'],
+\}
+" Fix files automatically on save using above specified fixers.
+let g:ale_fix_on_save = 1
+" Show loclist ( or quickfix ) window when file contain warnings or errors
+let g:ale_open_list = 1
 highlight SignColumn guibg=NONE ctermbg=NONE ctermfg=NONE guifg=NONE
 highlight ALEErrorSign guibg=NONE ctermbg=NONE guifg=#dc322f ctermfg=02
 highlight ALEWarningSign guibg=NONE ctermbg=NONE guifg=#e9a226 ctermfg=01
