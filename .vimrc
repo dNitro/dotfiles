@@ -1,7 +1,7 @@
 " File          : .vimrc
 " Description   : vim text editor configuration file
 " Maintainer    : dNitro <ali.zarifkar AT gmail DOT com>
-" Last modified : 2018 Jan 29 at 7:25:03 PM
+" Last modified : 2018 Apr 25 at 9:43:19 PM
 " License       : MIT
 
 "-[ BASE ]====================================================================
@@ -52,6 +52,7 @@ silent! if plug#begin('~/.vim/plugged')
   " Plug '~/.vim/plugged-local/completor.vim'
   Plug '~/.vim/plugged-local/vim-sass'
   Plug '~/.vim/plugged-local/vison'
+  Plug '~/.vim/plugged-local/vim-pug-complete'
   "-2 Explore ----------------------------------------------------------------
   Plug 'ctrlpvim/ctrlp.vim', { 'on': '<Plug>(ctrlp)' }
   Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -132,7 +133,7 @@ silent! if plug#begin('~/.vim/plugged')
   " Plug 'ternjs/tern_for_vim', { 'do': function('CookTern') }
   Plug 'pangloss/vim-javascript'
   Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
-  Plug 'dNitro/vim-pug-complete', { 'for': ['jade', 'pug'] }
+  " Plug 'dNitro/vim-pug-complete', { 'for': ['jade', 'pug'] }
   " Plug 'cosminadrianpopescu/vim-sql-workbench'
   " let g:sw_exe = 'C:\Users\Davoud\Downloads\Compressed\Workbench-Build122\sqlwbconsole.exe'
   " let g:sw_config_dir = 'C:\Users\Davoud\.sqlworkbench'
