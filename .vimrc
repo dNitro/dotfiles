@@ -97,7 +97,8 @@ silent! if plug#begin('~/.vim/plugged')
       !sed -i -e "s/if trigger.lower() == '<tab>':/if trigger.lower() == '':/" ~/.vim/plugged/ultisnips/pythonx/UltiSnips/snippet_manager.py
     endif
   endfunction
-  Plug 'SirVer/ultisnips', { 'do': function('CookUltisnips') }
+  " Plug 'SirVer/ultisnips', { 'do': function('CookUltisnips') }
+  Plug 'SirVer/ultisnips'
   Plug 'KabbAmine/vCoolor.vim'
   Plug 'iandoe/vim-osx-colorpicker'
   Plug 'tpope/vim-commentary'
