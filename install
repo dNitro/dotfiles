@@ -27,6 +27,10 @@ setup_gitinfo () {
     then
       git_credential='osxkeychain'
     fi
+    if [[ "$(uname -s)" == MSYS* ]]
+    then
+      git_credential='wincred'
+    fi
 
     user ' - What is your git author name?'
     read -e git_authorname
