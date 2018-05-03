@@ -435,6 +435,10 @@ inoremap <C-l> <right>
 " Copy visual selection to clipboard
 vnoremap Y "+y
 
+" Continuously indent visual selected lines back and forth
+vnoremap > >gv
+vnoremap < <gv
+
 " Jump back and forth fast in command line
 cnoremap <C-b> <S-Left>
 cnoremap <C-e> <S-Right>
