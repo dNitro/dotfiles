@@ -4,11 +4,25 @@
 " Last Change:	2007 May 5
 
 let s:values = split("all additive-symbols align-content align-items align-self animation animation-delay animation-direction animation-duration animation-fill-mode animation-iteration-count animation-name animation-play-state animation-timing-function backface-visibility background background-attachment background-color background-image background-position background-size background-origin background-clip background-repeat border bottom border-collapse border-color border-spacing border-style border-block-end border-block-end-color border-block-end-style border-block-end-width border-block-start border-block-start-color border-block-start-style border-block-start-width border-top border-right border-bottom border-left border-top-color border-right-color border-bottom-color border-left-color  border-top-style border-right-style border-bottom-style border-left-style border-top-width border-right-width border-bottom-width border-left-width border-width border-radius border-top-left-radius border-top-right-radius border-bottom-right-radius border-bottom-left-radius border-image border-image-source border-image-slice border-image-width border-image-outset border-image-repeat box-shadow box-sizing break-before break-after break-inside caption-side clear clip clip-path color column-count column-gap column-rule column-rule-color column-rule-style column-rule-width column-span column-width columns content counter-increment counter-reset cue cue-after cue-before cursor display direction elevation empty-cells fallback filter flex flex-basis flex-direction flex-flow flex-grow flex-shrink flex-wrap float font font-family font-feature-settings font-kerning font-language-override font-size font-size-adjust font-stretch font-style font-synthesis font-variant font-variant-alternates font-variant-caps font-variant-east-asian font-variant-ligatures font-variant-numeric font-variant-position font-weight height image-rendering image-resolution image-orientation ime-mode inline-size isolation justify-content left letter-spacing line-break line-height list-style list-style-image list-style-position list-style-type margin margin-right margin-left margin-top margin-bottom margin-block-end margin-block-start margin-inline-end margin-inline-start max-block-size max-height max-inline-size max-width min-block-size min-height min-inline-size min-width max-zoom min-zoom mix-blend-mode opacity orientation order orphans outline outline-color outline-offset outline-style outline-width overflow overflow-wrap overflow-x overflow-y padding padding-top padding-right padding-bottom padding-left page-break-after page-break-before page-break-inside pause pause-after pause-before perspective perspective-origin pointer-events play-during position quotes right richness resize speak speak-header speak-numeral speak-punctuation src table-layout text-align text-decoration text-emphasis text-emphasis-color text-emphasis-position text-emphasis-style text-indent text-orientation text-overflow text-rendering text-shadow text-transform top touch-action transform transform-origin transform-style transition transition-property transition-duration transition-timing-function transition-delay unicode-bidi unicode-range user-zoom vertical-align visibility voice-family voice-pitch voice-rate voice-range voice-stress voice-volume white-space width widows will-change word-break word-spacing word-wrap writing-mode z-index zoom")
+let s:tags = split("a abbr address area article aside audio b base bdi bdo bgsound blockquote body br button canvas caption center cite code col colgroup command content data datalist dd del details dfn dialog div dl dt element em embed fieldset figcaption figure font footer form frame frameset head header hgroup hr html i iframe image img input ins isindex kbd keygen label legend li link main map mark menu menuitem meta meter nav nobr noframes noscript object ol optgroup option output p param picture pre progress q rp rt rtc ruby s samp script section select shadow small source span strong style sub summary sup table tbody td template textarea tfoot th thead time title tr track u ul var video wbr")
+
+func! s:getFutLine(lineNum, direction, limitLineNum)
+  if (a:lineNum == a:limitLineNum)
+      return ''
+  endif
+  return getline(a:lineNum + (1 * a:direction)) =~ '^\s*$' ? s:getFutLine(a:lineNum + (1 * a:direction), a:direction, a:limitLineNum) : getline(a:lineNum + (1 * a:direction))
+endfunc
+
+"get non-empty previous line
+func! s:getPrevLine(lineNum)
+  return s:getFutLine(a:lineNum, -1, 1)
+endfunc
 
 function! csscomplete#CompleteCSS(findstart, base)
 
   if a:findstart
     " We need whole line to proper checking
+    let previous_line = s:getPrevLine(line('.'))
     let line = getline('.')
     let start = col('.') - 1
     let compl_begin = col('.') - 2
@@ -16,7 +30,7 @@ function! csscomplete#CompleteCSS(findstart, base)
       let start -= 1
     endwhile
     let b:after = line[compl_begin :]
-    let b:compl_context = line[0:compl_begin]
+    let b:compl_context = previous_line . line[0:compl_begin]
     return start
   endif
 
@@ -85,7 +99,10 @@ function! csscomplete#CompleteCSS(findstart, base)
   endif
 
 
-  if len(borders) == 0 || borders[max(keys(borders))] =~ '^\%(openbrace\|semicolon\|opencomm\|closecomm\|style\)$'
+  if len(borders) == 0 || borders[max(keys(borders))] =~ '^\%(closebrace\|closecomm\)$'
+      return s:tags
+
+  elseif borders[max(keys(borders))] =~ '^\%(openbrace\|semicolon\|opencomm\|closecomm\|style\)$'
     " Complete properties
 
 
@@ -683,8 +700,8 @@ function! csscomplete#CompleteCSS(findstart, base)
     else
       " If no property match it is possible we are outside of {} and
       " trying to complete pseudo-(class|element)
-      let element = tolower(matchstr(line, '\zs[a-zA-Z1-6]*\ze:[^:[:space:]]\{-}$'))
-      if stridx(',a,abbr,acronym,address,area,b,base,bdo,big,blockquote,body,br,button,caption,cite,code,col,colgroup,dd,del,dfn,div,dl,dt,em,fieldset,form,head,h1,h2,h3,h4,h5,h6,hr,html,i,img,input,ins,kbd,label,legend,li,link,map,meta,noscript,object,ol,optgroup,option,p,param,pre,q,samp,script,select,small,span,strong,style,sub,sup,table,tbody,td,textarea,tfoot,th,thead,title,tr,tt,ul,var,', ','.element.',') > -1
+      let element = tolower(matchstr(line, '\zs[a-zA-Z1-6&]*\ze:[^:[:space:]]\{-}$'))
+      if stridx(',&,a,abbr,acronym,address,area,b,base,bdo,big,blockquote,body,br,button,caption,cite,code,col,colgroup,dd,del,dfn,div,dl,dt,em,fieldset,form,head,h1,h2,h3,h4,h5,h6,hr,html,i,img,input,ins,kbd,label,legend,li,link,map,meta,noscript,object,ol,optgroup,option,p,param,pre,q,samp,script,select,small,span,strong,style,sub,sup,table,tbody,td,textarea,tfoot,th,thead,title,tr,tt,ul,var,', ','.element.',') > -1
         let values = ["root", "nth-child(n)", "nth-last-child(n)", "nth-of-type(n)", "nth-last-of-type(n)", "first-child", "last-child", "first-of-type", "last-of-type", "only-child", "only-of-type", "empty", "link", "visited", "hover", "active", "focus", "target", "lang(fr)", "enabled", "disabled", "checked", ":first-line", ":first-letter", ":before", ":after", ":selection", "not(s)"]
       else
         return []
@@ -759,37 +776,37 @@ function! csscomplete#CompleteCSS(findstart, base)
       elseif atrulename == 'charset'
         let entered_atruleafter = matchstr(line, '.*@charset\s\+\zs.*$')
         let values = [
-          \ '"UTF-8";', '"ANSI_X3.4-1968";', '"ISO_8859-1:1987";', '"ISO_8859-2:1987";', '"ISO_8859-3:1988";', '"ISO_8859-4:1988";', '"ISO_8859-5:1988";', 
-          \ '"ISO_8859-6:1987";', '"ISO_8859-7:1987";', '"ISO_8859-8:1988";', '"ISO_8859-9:1989";', '"ISO-8859-10";', '"ISO_6937-2-add";', '"JIS_X0201";', 
+          \ '"UTF-8";', '"ANSI_X3.4-1968";', '"ISO_8859-1:1987";', '"ISO_8859-2:1987";', '"ISO_8859-3:1988";', '"ISO_8859-4:1988";', '"ISO_8859-5:1988";',
+          \ '"ISO_8859-6:1987";', '"ISO_8859-7:1987";', '"ISO_8859-8:1988";', '"ISO_8859-9:1989";', '"ISO-8859-10";', '"ISO_6937-2-add";', '"JIS_X0201";',
           \ '"JIS_Encoding";', '"Shift_JIS";', '"Extended_UNIX_Code_Packed_Format_for_Japanese";', '"Extended_UNIX_Code_Fixed_Width_for_Japanese";',
           \ '"BS_4730";', '"SEN_850200_C";', '"IT";', '"ES";', '"DIN_66003";', '"NS_4551-1";', '"NF_Z_62-010";', '"ISO-10646-UTF-1";', '"ISO_646.basic:1983";',
           \ '"INVARIANT";', '"ISO_646.irv:1983";', '"NATS-SEFI";', '"NATS-SEFI-ADD";', '"NATS-DANO";', '"NATS-DANO-ADD";', '"SEN_850200_B";', '"KS_C_5601-1987";',
-          \ '"ISO-2022-KR";', '"EUC-KR";', '"ISO-2022-JP";', '"ISO-2022-JP-2";', '"JIS_C6220-1969-jp";', '"JIS_C6220-1969-ro";', '"PT";', '"greek7-old";', 
-          \ '"latin-greek";', '"NF_Z_62-010_(1973)";', '"Latin-greek-1";', '"ISO_5427";', '"JIS_C6226-1978";', '"BS_viewdata";', '"INIS";', '"INIS-8";', 
-          \ '"INIS-cyrillic";', '"ISO_5427:1981";', '"ISO_5428:1980";', '"GB_1988-80";', '"GB_2312-80";', '"NS_4551-2";', '"videotex-suppl";', '"PT2";', 
-          \ '"ES2";', '"MSZ_7795.3";', '"JIS_C6226-1983";', '"greek7";', '"ASMO_449";', '"iso-ir-90";', '"JIS_C6229-1984-a";', '"JIS_C6229-1984-b";', 
-          \ '"JIS_C6229-1984-b-add";', '"JIS_C6229-1984-hand";', '"JIS_C6229-1984-hand-add";', '"JIS_C6229-1984-kana";', '"ISO_2033-1983";', 
-          \ '"ANSI_X3.110-1983";', '"T.61-7bit";', '"T.61-8bit";', '"ECMA-cyrillic";', '"CSA_Z243.4-1985-1";', '"CSA_Z243.4-1985-2";', '"CSA_Z243.4-1985-gr";', 
-          \ '"ISO_8859-6-E";', '"ISO_8859-6-I";', '"T.101-G2";', '"ISO_8859-8-E";', '"ISO_8859-8-I";', '"CSN_369103";', '"JUS_I.B1.002";', '"IEC_P27-1";', 
-          \ '"JUS_I.B1.003-serb";', '"JUS_I.B1.003-mac";', '"greek-ccitt";', '"NC_NC00-10:81";', '"ISO_6937-2-25";', '"GOST_19768-74";', '"ISO_8859-supp";', 
-          \ '"ISO_10367-box";', '"latin-lap";', '"JIS_X0212-1990";', '"DS_2089";', '"us-dk";', '"dk-us";', '"KSC5636";', '"UNICODE-1-1-UTF-7";', '"ISO-2022-CN";', 
-          \ '"ISO-2022-CN-EXT";', '"ISO-8859-13";', '"ISO-8859-14";', '"ISO-8859-15";', '"ISO-8859-16";', '"GBK";', '"GB18030";', '"OSD_EBCDIC_DF04_15";', 
+          \ '"ISO-2022-KR";', '"EUC-KR";', '"ISO-2022-JP";', '"ISO-2022-JP-2";', '"JIS_C6220-1969-jp";', '"JIS_C6220-1969-ro";', '"PT";', '"greek7-old";',
+          \ '"latin-greek";', '"NF_Z_62-010_(1973)";', '"Latin-greek-1";', '"ISO_5427";', '"JIS_C6226-1978";', '"BS_viewdata";', '"INIS";', '"INIS-8";',
+          \ '"INIS-cyrillic";', '"ISO_5427:1981";', '"ISO_5428:1980";', '"GB_1988-80";', '"GB_2312-80";', '"NS_4551-2";', '"videotex-suppl";', '"PT2";',
+          \ '"ES2";', '"MSZ_7795.3";', '"JIS_C6226-1983";', '"greek7";', '"ASMO_449";', '"iso-ir-90";', '"JIS_C6229-1984-a";', '"JIS_C6229-1984-b";',
+          \ '"JIS_C6229-1984-b-add";', '"JIS_C6229-1984-hand";', '"JIS_C6229-1984-hand-add";', '"JIS_C6229-1984-kana";', '"ISO_2033-1983";',
+          \ '"ANSI_X3.110-1983";', '"T.61-7bit";', '"T.61-8bit";', '"ECMA-cyrillic";', '"CSA_Z243.4-1985-1";', '"CSA_Z243.4-1985-2";', '"CSA_Z243.4-1985-gr";',
+          \ '"ISO_8859-6-E";', '"ISO_8859-6-I";', '"T.101-G2";', '"ISO_8859-8-E";', '"ISO_8859-8-I";', '"CSN_369103";', '"JUS_I.B1.002";', '"IEC_P27-1";',
+          \ '"JUS_I.B1.003-serb";', '"JUS_I.B1.003-mac";', '"greek-ccitt";', '"NC_NC00-10:81";', '"ISO_6937-2-25";', '"GOST_19768-74";', '"ISO_8859-supp";',
+          \ '"ISO_10367-box";', '"latin-lap";', '"JIS_X0212-1990";', '"DS_2089";', '"us-dk";', '"dk-us";', '"KSC5636";', '"UNICODE-1-1-UTF-7";', '"ISO-2022-CN";',
+          \ '"ISO-2022-CN-EXT";', '"ISO-8859-13";', '"ISO-8859-14";', '"ISO-8859-15";', '"ISO-8859-16";', '"GBK";', '"GB18030";', '"OSD_EBCDIC_DF04_15";',
           \ '"OSD_EBCDIC_DF03_IRV";', '"OSD_EBCDIC_DF04_1";', '"ISO-11548-1";', '"KZ-1048";', '"ISO-10646-UCS-2";', '"ISO-10646-UCS-4";', '"ISO-10646-UCS-Basic";',
-          \ '"ISO-10646-Unicode-Latin1";', '"ISO-10646-J-1";', '"ISO-Unicode-IBM-1261";', '"ISO-Unicode-IBM-1268";', '"ISO-Unicode-IBM-1276";', 
-          \ '"ISO-Unicode-IBM-1264";', '"ISO-Unicode-IBM-1265";', '"UNICODE-1-1";', '"SCSU";', '"UTF-7";', '"UTF-16BE";', '"UTF-16LE";', '"UTF-16";', '"CESU-8";', 
-          \ '"UTF-32";', '"UTF-32BE";', '"UTF-32LE";', '"BOCU-1";', '"ISO-8859-1-Windows-3.0-Latin-1";', '"ISO-8859-1-Windows-3.1-Latin-1";', 
-          \ '"ISO-8859-2-Windows-Latin-2";', '"ISO-8859-9-Windows-Latin-5";', '"hp-roman8";', '"Adobe-Standard-Encoding";', '"Ventura-US";', 
-          \ '"Ventura-International";', '"DEC-MCS";', '"IBM850";', '"PC8-Danish-Norwegian";', '"IBM862";', '"PC8-Turkish";', '"IBM-Symbols";', '"IBM-Thai";', 
-          \ '"HP-Legal";', '"HP-Pi-font";', '"HP-Math8";', '"Adobe-Symbol-Encoding";', '"HP-DeskTop";', '"Ventura-Math";', '"Microsoft-Publishing";', 
-          \ '"Windows-31J";', '"GB2312";', '"Big5";', '"macintosh";', '"IBM037";', '"IBM038";', '"IBM273";', '"IBM274";', '"IBM275";', '"IBM277";', '"IBM278";', 
-          \ '"IBM280";', '"IBM281";', '"IBM284";', '"IBM285";', '"IBM290";', '"IBM297";', '"IBM420";', '"IBM423";', '"IBM424";', '"IBM437";', '"IBM500";', '"IBM851";', 
-          \ '"IBM852";', '"IBM855";', '"IBM857";', '"IBM860";', '"IBM861";', '"IBM863";', '"IBM864";', '"IBM865";', '"IBM868";', '"IBM869";', '"IBM870";', '"IBM871";', 
-          \ '"IBM880";', '"IBM891";', '"IBM903";', '"IBM904";', '"IBM905";', '"IBM918";', '"IBM1026";', '"EBCDIC-AT-DE";', '"EBCDIC-AT-DE-A";', '"EBCDIC-CA-FR";', 
-          \ '"EBCDIC-DK-NO";', '"EBCDIC-DK-NO-A";', '"EBCDIC-FI-SE";', '"EBCDIC-FI-SE-A";', '"EBCDIC-FR";', '"EBCDIC-IT";', '"EBCDIC-PT";', '"EBCDIC-ES";', 
-          \ '"EBCDIC-ES-A";', '"EBCDIC-ES-S";', '"EBCDIC-UK";', '"EBCDIC-US";', '"UNKNOWN-8BIT";', '"MNEMONIC";', '"MNEM";', '"VISCII";', '"VIQR";', '"KOI8-R";', 
-          \ '"HZ-GB-2312";', '"IBM866";', '"IBM775";', '"KOI8-U";', '"IBM00858";', '"IBM00924";', '"IBM01140";', '"IBM01141";', '"IBM01142";', '"IBM01143";', 
-          \ '"IBM01144";', '"IBM01145";', '"IBM01146";', '"IBM01147";', '"IBM01148";', '"IBM01149";', '"Big5-HKSCS";', '"IBM1047";', '"PTCP154";', '"Amiga-1251";', 
-          \ '"KOI7-switched";', '"BRF";', '"TSCII";', '"windows-1250";', '"windows-1251";', '"windows-1252";', '"windows-1253";', '"windows-1254";', '"windows-1255";', 
+          \ '"ISO-10646-Unicode-Latin1";', '"ISO-10646-J-1";', '"ISO-Unicode-IBM-1261";', '"ISO-Unicode-IBM-1268";', '"ISO-Unicode-IBM-1276";',
+          \ '"ISO-Unicode-IBM-1264";', '"ISO-Unicode-IBM-1265";', '"UNICODE-1-1";', '"SCSU";', '"UTF-7";', '"UTF-16BE";', '"UTF-16LE";', '"UTF-16";', '"CESU-8";',
+          \ '"UTF-32";', '"UTF-32BE";', '"UTF-32LE";', '"BOCU-1";', '"ISO-8859-1-Windows-3.0-Latin-1";', '"ISO-8859-1-Windows-3.1-Latin-1";',
+          \ '"ISO-8859-2-Windows-Latin-2";', '"ISO-8859-9-Windows-Latin-5";', '"hp-roman8";', '"Adobe-Standard-Encoding";', '"Ventura-US";',
+          \ '"Ventura-International";', '"DEC-MCS";', '"IBM850";', '"PC8-Danish-Norwegian";', '"IBM862";', '"PC8-Turkish";', '"IBM-Symbols";', '"IBM-Thai";',
+          \ '"HP-Legal";', '"HP-Pi-font";', '"HP-Math8";', '"Adobe-Symbol-Encoding";', '"HP-DeskTop";', '"Ventura-Math";', '"Microsoft-Publishing";',
+          \ '"Windows-31J";', '"GB2312";', '"Big5";', '"macintosh";', '"IBM037";', '"IBM038";', '"IBM273";', '"IBM274";', '"IBM275";', '"IBM277";', '"IBM278";',
+          \ '"IBM280";', '"IBM281";', '"IBM284";', '"IBM285";', '"IBM290";', '"IBM297";', '"IBM420";', '"IBM423";', '"IBM424";', '"IBM437";', '"IBM500";', '"IBM851";',
+          \ '"IBM852";', '"IBM855";', '"IBM857";', '"IBM860";', '"IBM861";', '"IBM863";', '"IBM864";', '"IBM865";', '"IBM868";', '"IBM869";', '"IBM870";', '"IBM871";',
+          \ '"IBM880";', '"IBM891";', '"IBM903";', '"IBM904";', '"IBM905";', '"IBM918";', '"IBM1026";', '"EBCDIC-AT-DE";', '"EBCDIC-AT-DE-A";', '"EBCDIC-CA-FR";',
+          \ '"EBCDIC-DK-NO";', '"EBCDIC-DK-NO-A";', '"EBCDIC-FI-SE";', '"EBCDIC-FI-SE-A";', '"EBCDIC-FR";', '"EBCDIC-IT";', '"EBCDIC-PT";', '"EBCDIC-ES";',
+          \ '"EBCDIC-ES-A";', '"EBCDIC-ES-S";', '"EBCDIC-UK";', '"EBCDIC-US";', '"UNKNOWN-8BIT";', '"MNEMONIC";', '"MNEM";', '"VISCII";', '"VIQR";', '"KOI8-R";',
+          \ '"HZ-GB-2312";', '"IBM866";', '"IBM775";', '"KOI8-U";', '"IBM00858";', '"IBM00924";', '"IBM01140";', '"IBM01141";', '"IBM01142";', '"IBM01143";',
+          \ '"IBM01144";', '"IBM01145";', '"IBM01146";', '"IBM01147";', '"IBM01148";', '"IBM01149";', '"Big5-HKSCS";', '"IBM1047";', '"PTCP154";', '"Amiga-1251";',
+          \ '"KOI7-switched";', '"BRF";', '"TSCII";', '"windows-1250";', '"windows-1251";', '"windows-1252";', '"windows-1253";', '"windows-1254";', '"windows-1255";',
           \ '"windows-1256";', '"windows-1257";', '"windows-1258";', '"TIS-620";']
 
       elseif atrulename == 'namespace'
@@ -830,7 +847,7 @@ function! csscomplete#CompleteCSS(findstart, base)
           endif
           if b:after =~? '"' && stridx(m, '"') > -1
             let m = m[0:stridx(m, '"')-1]
-          endif 
+          endif
           call add(res, m)
         elseif m =~? entered_atruleafter
           if m =~? '^"'
