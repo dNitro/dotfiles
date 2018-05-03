@@ -5,6 +5,7 @@
   ],
   "dependencyBudget": 1000,
   "plugins": {
-    "node": {}
+    "node": {},
+    "commonjs": {}
   }
 }
