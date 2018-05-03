@@ -1,6 +1,6 @@
 noremap <space> :
-nnoremap ,g :bn<CR>
-nnoremap ,s :bp<CR>
+nnoremap ,g :bp<CR>
+nnoremap ,s :bn<CR>
 nnoremap ,r :run<CR>
 vnoremap ,r :run<CR>
 vnoremap ,c :vsc ReSharper.ReSharper_LineComment<CR>
