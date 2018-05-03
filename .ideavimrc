@@ -1,0 +1,85 @@
+" File          : .ideavimrc
+" Description   : intelij IDE configuration file of ideavim plugin
+" Maintainer    : dNitro <ali.zarifkar AT gmail DOT com>
+" Last modified : 2018 Apr 20 at 12:39:15 AM
+" License       : MIT
+
+"-[ GENERAL ]=================================================================
+let mapleader=","
+"=============================================================================
+"-[ SETTINGS ]================================================================
+set clipboard=unnamed,unnamedplus " Integrate with system clipboard
+set history=1000                  " Increase history from default 50 to 1000 line
+set incsearch                     " Set incremental searching
+set hlsearch                      " Live highlight while searching
+set ignorecase                    " Case insensitive search
+set smartcase                     " Treat uppercase letters as upper
+" set relativenumber                " show the line number relative to the line with
+"=============================================================================
+"-[ MAPPINGS ]================================================================
+" Space to enter command mode
+nnoremap <space> :
+
+" Quickly change fontsize
+nnoremap + :action EditorIncreaseFontSize<CR>
+nnoremap - :action EditorDecreaseFontSize<CR>
+
+" Clear last search highlighting
+nnoremap <Esc> :noh<CR><Esc>
+
+" Run current file
+nnoremap <leader>r :action Run<CR>
+
+" Open terminal
+nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
+
+" Hide all windows ( z denotes `ZOOM`; on editor window of course )
+nnoremap <leader>z :action HideAllWindows<CR>
+
+" Comment/UnComment visual selected lines
+" ( `gv` relaads last visual select and enables instant toggle )
+vnoremap <leader>c :action CommentByLineComment<CR>gv
+
+" surround visual select
+vnoremap <Tab> gv:action SurroundWith<CR>
+
+" Y yanks from the cursor to the end of the line, instead of being a synonym for yy
+nnoremap Y y$
+
+" Swap behavior of ' and ` for easier typing
+nnoremap ' `
+nnoremap ` '
+
+" Next Tab
+nnoremap <leader>g :action NextTab<CR>
+" Previous Tab
+nnoremap <leader>s :action PreviousTab<CR>
+
+" Move visual selected line(s) Up or Down
+vnoremap <S-k> :action MoveLineUp<CR>
+vnoremap <S-j> :action MoveLineDown<CR>
+
+" Multiple Cursors
+vnoremap <C-n> :action RenameElement<CR>
+
+" continuously indent visual selected line back and forth
+vnoremap > >gv
+vnoremap < <gv
+
+" Easier window navigation
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+" Up and down arrow keys for numerical increament and decreament
+nnoremap <Up> <c-a>
+nnoremap <Down> <c-x>
+" Holding Shift to speed it up
+nnoremap <S-Up> 10<c-a>
+nnoremap <S-Down> 10<c-x>
+"=============================================================================
+"-[ PLUGINS ]=================================================================
+set surround
+"=============================================================================
+"-1 vim:foldmethod=marker:foldmarker="-,"==:foldlevel=0
