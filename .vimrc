@@ -1,7 +1,7 @@
 " File          : .vimrc
 " Description   : vim text editor configuration file
 " Maintainer    : dNitro <ali.zarifkar AT gmail DOT com>
-" Last modified : 2018 Apr 25 at 9:43:19 PM
+" Last modified : 2018 May 03 at 11:29:27 AM
 " License       : MIT
 
 "-[ BASE ]====================================================================
@@ -204,9 +204,11 @@ if s:macvim || s:gvim
 endif
 "=============================================================================
 "-[ SETTING ]=================================================================
-"set shell=/bin/zsh               " Use zsh as default shell
-set shell=C:/WINDOWS/system32/bash.exe "Use bash as default shell in windows
-set shellslash                   " Be consistent with shell slashes
+if s:windows
+    set shell=cmd.exe            " Use cmd as default shell if windows
+else
+    set shell=/bin/zsh           " Use zsh as default shell otherwise
+endif
 set encoding=utf-8               " Encode all files in utf-8
 set backspace=indent,eol,start   " Backspace over everything
 set nowrap                       " No line wrapping
