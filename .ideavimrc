@@ -1,7 +1,7 @@
 " File          : .ideavimrc
 " Description   : intelij IDE configuration file of ideavim plugin
 " Maintainer    : dNitro <ali.zarifkar AT gmail DOT com>
-" Last modified : 2018 Apr 20 at 12:39:15 AM
+" Last modified : 2018 May 08 at 11:59:46 PM
 " License       : MIT
 
 "-[ GENERAL ]=================================================================
@@ -54,6 +54,9 @@ nnoremap ` '
 nnoremap <leader>g :action NextTab<CR>
 " Previous Tab
 nnoremap <leader>s :action PreviousTab<CR>
+
+" Colorpicker
+inoremap <leader>c <ESC>:action ShowColorPicker<CR>
 
 " Move visual selected line(s) Up or Down
 vnoremap <S-k> :action MoveLineUp<CR>
