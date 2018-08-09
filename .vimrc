@@ -1,7 +1,7 @@
 " File          : .vimrc
 " Description   : vim text editor configuration file
 " Maintainer    : dNitro <ali.zarifkar AT gmail DOT com>
-" Last modified : 2018 May 03 at 11:29:27 AM
+" Last modified : 2018 May 15 at 12:41:56 AM
 " License       : MIT
 
 "-[ BASE ]====================================================================
@@ -684,7 +684,7 @@ augroup END
 " Also on charachter typing and entering insert mode
 augroup autoCenter
   autocmd!
-  autocmd InsertCharPre,InsertEnter * if (winline() * 3 >= (winheight(0) * 2))
+  autocmd InsertEnter * if (winline() * 3 >= (winheight(0) * 2))
                                             \| norm! zz
                                         \| endif
 augroup END
