@@ -1,7 +1,7 @@
 " File          : .vimrc
 " Description   : vim text editor configuration file
 " Maintainer    : dNitro <ali.zarifkar AT gmail DOT com>
-" Last modified : 2018 Aug 13 at 01:40:25
+" Last modified : 2018 Aug 20 at 01:46:15
 " License       : MIT
 
 "-[ BASE ]====================================================================
@@ -134,6 +134,7 @@ silent! if plug#begin('~/.vim/plugged')
   endfunction
   " Plug 'ternjs/tern_for_vim', { 'do': function('CookTern') }
   Plug 'pangloss/vim-javascript'
+  Plug 'mxw/vim-jsx'
   Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
   " Plug 'dNitro/vim-pug-complete', { 'for': ['jade', 'pug'] }
   " Plug 'cosminadrianpopescu/vim-sql-workbench'
@@ -770,7 +771,10 @@ let delimitMate_expand_space = 1
 let g:user_emmet_leader_key=','
 let g:user_emmet_settings = {
             \'html': {
-            \'comment_type': 'lastonly'
+            \  'comment_type': 'lastonly'
+            \},
+            \'javascript.jsx' : {
+            \  'extends': 'jsx'
             \}
           \}
 "-2 vim-expand-region --------------------------------------------------------
