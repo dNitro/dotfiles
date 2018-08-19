@@ -54,7 +54,6 @@ brew install node
 brew install mongodb
 brew install editorconfig
 brew install tree
-brew install fontforge
 brew install figlet
 
 # Remove outdated versions and download cache.

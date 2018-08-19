@@ -197,7 +197,7 @@ defaults write com.apple.terminal SecureKeyboardEntry -bool true
 defaults write com.apple.Terminal ShowLineMarks -int 0
 
 # Install fonts
-cp $HOME/.init/font/*.ttf /Library/Fonts/
+#cp $HOME/.init/font/*.ttf /Library/Fonts/
 
 # Install themes
 open "${HOME}/.init/theme/SolarizedDark.terminal"
