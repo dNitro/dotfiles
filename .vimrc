@@ -1,7 +1,7 @@
 " File          : .vimrc
 " Description   : vim text editor configuration file
 " Maintainer    : dNitro <ali.zarifkar AT gmail DOT com>
-" Last modified : 2018 May 15 at 12:41:56 AM
+" Last modified : 2018 Aug 13 at 01:40:25
 " License       : MIT
 
 "-[ BASE ]====================================================================
@@ -18,7 +18,7 @@ let s:gvim = has('gui_running')
 if s:windows && s:gvim
     set runtimepath-=~/vimfiles
     set runtimepath^=~/.vim
-    set runtimepath-=~/vimfiles/after
+    set runtimepath-=~/vimfiles/after'
     set runtimepath+=~/.vim/after
 endif
 " no need to this just make a symlink from .vim to vimfiles
@@ -157,6 +157,7 @@ silent! if plug#begin('~/.vim/plugged')
   Plug 'maralla/completor.vim', { 'do': 'make js' }
   let g:completor_min_chars = 0
   " let g:completor_python_binary = "/usr/bin/python3"
+  let g:completor_node_binary = '/usr/local/bin/node'
   let g:completor_completion_delay = 0
   let g:completor_refresh_always = 0
   " let g:completor_select_first = 1
@@ -682,12 +683,12 @@ augroup ultisnips
 augroup END
 
 " Also on charachter typing and entering insert mode
-augroup autoCenter
-  autocmd!
-  autocmd InsertEnter * if (winline() * 3 >= (winheight(0) * 2))
-                                            \| norm! zz
-                                        \| endif
-augroup END
+" augroup autoCenter
+"   autocmd!
+"   autocmd InsertEnter * if (winline() * 3 >= (winheight(0) * 2))
+"                                             \| norm! zz
+"                                         \| endif
+" augroup END
 
 " Initial variables
 let g:ulti_expand_res = 0
