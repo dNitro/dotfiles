@@ -1,9 +1,8 @@
 " File          : .vimrc
 " Description   : vim text editor configuration file
 " Maintainer    : dNitro <ali.zarifkar AT gmail DOT com>
-" Last modified : 2018 Aug 20 at 01:46:15
+" Last-Modified : 2023 Feb 13 at 20:33:52
 " License       : MIT
-
 "-[ BASE ]====================================================================
 " Be IMproved
 set nocompatible
@@ -23,6 +22,10 @@ if s:windows && s:gvim
 endif
 " no need to this just make a symlink from .vim to vimfiles
 " ln -s .vim vimfiles
+
+" force python3
+if has('python3')
+endif
 
 " Plugin Management
 if !filereadable(expand("~/.vim/autoload/plug.vim"))
@@ -52,7 +55,7 @@ silent! if plug#begin('~/.vim/plugged')
   " Plug '~/.vim/plugged-local/completor.vim'
   Plug '~/.vim/plugged-local/vim-sass'
   Plug '~/.vim/plugged-local/vison'
-  Plug '~/.vim/plugged-local/vim-pug-complete'
+  " Plug '~/.vim/plugged-local/vim-pug-complete', { 'for': ['jade', 'pug'] }
   "-2 Explore ----------------------------------------------------------------
   Plug 'ctrlpvim/ctrlp.vim', { 'on': '<Plug>(ctrlp)' }
   Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -92,13 +95,23 @@ silent! if plug#begin('~/.vim/plugged')
   let g:AutoPairsMapCR = 0
   Plug 'fadein/vim-FIGlet'
   Plug 'qwertologe/nextval.vim'
-  function! CookUltisnips(info)
-    if a:info.status == 'installed' || a:info.force
-      !sed -i -e "s/if trigger.lower() == '<tab>':/if trigger.lower() == '':/" ~/.vim/plugged/ultisnips/pythonx/UltiSnips/snippet_manager.py
-    endif
-  endfunction
+  " function! CookUltisnips(info)
+  "   if a:info.status == 'installed' || a:info.force
+  "     !sed -i -e "s/if trigger.lower() == '<tab>':/if trigger.lower() == '':/" ~/.vim/plugged/ultisnips/pythonx/UltiSnips/snippet_manager.py
+  "   endif
+  " endfunction
   " Plug 'SirVer/ultisnips', { 'do': function('CookUltisnips') }
   Plug 'SirVer/ultisnips'
+  " snipmate -----------------
+  " Install
+  Plug 'MarcWeber/vim-addon-mw-utils'
+  Plug 'tomtom/tlib_vim'
+  Plug 'garbas/vim-snipmate'
+  " Config
+  let g:snipMate = {
+    \ 'snippet_version': 1
+    \ }
+  " --------------------------
   Plug 'KabbAmine/vCoolor.vim'
   Plug 'iandoe/vim-osx-colorpicker'
   Plug 'tpope/vim-commentary'
@@ -136,7 +149,7 @@ silent! if plug#begin('~/.vim/plugged')
   Plug 'pangloss/vim-javascript'
   Plug 'mxw/vim-jsx'
   Plug 'digitaltoad/vim-pug', { 'for': ['jade', 'pug'] }
-  " Plug 'dNitro/vim-pug-complete', { 'for': ['jade', 'pug'] }
+  Plug 'dNitro/vim-pug-complete', { 'for': ['jade', 'pug'] }
   " Plug 'cosminadrianpopescu/vim-sql-workbench'
   " let g:sw_exe = 'C:\Users\Davoud\Downloads\Compressed\Workbench-Build122\sqlwbconsole.exe'
   " let g:sw_config_dir = 'C:\Users\Davoud\.sqlworkbench'
@@ -154,9 +167,39 @@ silent! if plug#begin('~/.vim/plugged')
   let g:gist_show_privates = 1
   Plug 'tpope/vim-fugitive'
   Plug 'sjl/splice.vim', { 'on': 'SpliceInit' }
+  "-2 Note -------------------------------------------------------------------
+  Plug 'https://github.com/aserebryakov/vim-todo-lists.git'
+  Plug 'https://github.com/mattn/calendar-vim'
+  Plug 'https://github.com/vimwiki/vimwiki.git'
+  let g:vimwiki_list = [{'path': '~/wiki/', 'syntax': 'markdown', 'ext': '.md'},{'path': '~/wikishadow', 'syntax': 'markdown', 'ext': '.md'}]
+  let g:vimwiki_global_ext = 0
+  function! ToggleCalendar()
+    execute ":Calendar"
+    if exists("g:calendar_open")
+      if g:calendar_open == 1
+        execute "q"
+        unlet g:calendar_open
+      else
+        g:calendar_open = 1
+      end
+    else
+      let g:calendar_open = 1
+    end
+  endfunction
+  " autocmd FileType vimwiki map c :call ToggleCalendar()
+  Plug 'https://github.com/tools-life/taskwiki'
+  let g:taskwiki_disable_concealcursor = 1
+  let g:taskwiki_extra_warriors={'S': {'data_location': '~/wikishadow/.task', 'taskrc_location': '~/.taskrcshadow'}}
+  " sync tasks every time you open vimwiki or leave vim
+  augroup TaskWiki
+    autocmd!
+    autocmd BufEnter vimwiki :TWSync
+  "  autocmd VimLeave * :TWSync
+  augroup END
   "-2 Auto Complete ----------------------------------------------------------
   Plug 'maralla/completor.vim', { 'do': 'make js' }
   let g:completor_min_chars = 0
+  let g:completor_complete_options = 'menuone,noinsert'
   " let g:completor_python_binary = "/usr/bin/python3"
   let g:completor_node_binary = '/usr/local/bin/node'
   let g:completor_completion_delay = 0
@@ -196,8 +239,9 @@ endif
 "-[ MACVIM ]==================================================================
 if s:macvim || s:gvim
   " set guifont=Source_Code_Pro_Semibold:h9:i
-  set guifont=Consolas:h9:b:i
+  " set guifont=Consolas:h9:b:i
   " set guifont=Source_Code_Pro_Semibold:h10
+  set guifont=Monaco:h11
   set guioptions=ae
 
   set belloff=all
@@ -231,7 +275,17 @@ end
 set completeopt=menuone,noinsert " Popupmenu menuone and noinsert
 set complete-=i                  " disable scanning included files
 set complete-=t                  " disable searching tags
-set timeoutlen=140               " Lower the timeout
+"--------
+" Disabled because of vimwiki which needs leader key mapping ( 140 is too fast to press )
+"set timeoutlen=140               " Lower the mapping delay
+" Increase timeoutlen when <Leader> is pressed
+" Only one of these lines is needed.  I am not sure which is most recommended.
+"nnoremap <silent> <Leader> :<C-U>set timeoutlen=9999 ttimeoutlen=9999<CR><Leader>
+"nnoremap <silent> <Leader> :<C-U>set timeoutlen=1000<CR>:call feedkeys('<Leader>')<CR>
+
+" Reset timeoutline to normal soon afterwards
+"autocmd CursorMoved * set timeoutlen=140 ttimeoutlen=-1
+"--------
 set hidden                       " Change buffers without saving
 set history=1000                 " Increase history from default 50 to 1000 line
 set visualbell t_vb=             " No beep nor flash
@@ -344,7 +398,7 @@ nnoremap + :Bigger<CR>
 nnoremap - :Smaller<CR>
 
 " Insert empty line without leaving normal mode in command window (q:) and ... act normal
-nnoremap <expr> <CR> (empty(&buftype) && !empty(bufname(''))) ? ":\<C-u>call append(line('.'), repeat([''], v:count1))\<CR>j": "\<CR>"
+"nnoremap <expr> <CR> (empty(&buftype) && !empty(bufname(''))) ? ":\<C-u>call append(line('.'), repeat([''], v:count1))\<CR>j": "\<CR>"
 
 " Clear last search highlighting. :<Backspace> to get rid of :noh shown in the commandline
 nnoremap <Esc> :noh<return><Esc>:<Backspace>
@@ -374,7 +428,8 @@ nnoremap <leader>s :bp<CR>
 " Jump to the definition
 nnoremap <leader>t :tag /<c-r>=expand('<cword>')<cr><cr>
 " Preview of the definition
-nnoremap <leader>w :ptag /<c-r>=expand('<cword>')<cr><cr>
+" desabled because of conflict with vim wiki
+" nnoremap <leader>w :ptag /<c-r>=expand('<cword>')<cr><cr>
 
 " Run, Test, Lint
 nnoremap <leader>r :Run<CR>
@@ -398,6 +453,10 @@ nnoremap X "_D
 " Swap behavior of ' and ` for easier typing
 nnoremap ' `
 nnoremap ` '
+
+" Keep search matches in the middle of the screen
+nnoremap n nzz
+nnoremap N Nzz
 
 " Easier window navigation
 " now we have support for terminal in all version not only nvim
@@ -442,6 +501,16 @@ vnoremap Y "+y
 " Continuously indent visual selected lines back and forth
 vnoremap > >gv
 vnoremap < <gv
+
+" Move visual block
+vnoremap K :m '<-2<CR>gv=gv
+vnoremap J :m '>+1<CR>gv=gv
+
+" 1. base64-encode(visual-selection) -> F2 -> encoded base64-string
+vnoremap <F2> c<c-r>=system("base64 -w 0", @")<cr><esc>
+
+" 2. base64-decode(visual-selection) -> F3 -> decoded string
+vnoremap <F3> c<c-r>=system("base64 --decode", @")<cr>
 
 " Jump back and forth fast in command line
 cnoremap <C-b> <S-Left>
@@ -520,10 +589,10 @@ function! LastMod()
   else
     let l = line("$")
   endif
-  exe '1,' . l . 'g/Last modified\s*:/s/Last modified\(\s*\):\(\s*\).*/Last modified\1:\2'
+  exe '1,' . l . 'g/[Ll]ast[ -]\?[mM]odified\s*:/s/[Ll]ast[ -]\?[mM]odified\(\s*\):\(\s*\).*/Last-Modified\1:\2'
         \ . strftime("%Y %b %d at %X") . '/g'
 endfunction
-"=============================================================================
+"-2 Put result of a command into buffer --------------------------------------
 function! Exec(command)
     if v:version == 800
         :put =execute(a:command)
@@ -535,7 +604,15 @@ function! Exec(command)
         execute "put o"
     endif
 endfunction!
-
+"-2 Copy results of a match to clipboard ( or register if pass parameter )----
+function! CopyMatches(reg)
+  let hits = []
+  %s//\=len(add(hits, submatch(0))) ? submatch(0) : ''/gne
+  let reg = empty(a:reg) ? '+' : a:reg
+  execute 'let @'.reg.' = join(hits, "\n") . "\n"'
+endfunction
+command! -register CopyMatches call CopyMatches(<q-reg>)
+"=============================================================================
 "-1[ AUTO COMMANDS ]==========================================================
 " We should wrap autocmds in augroup, to close it first and run again to not
 " slowing down vim
@@ -563,7 +640,7 @@ augroup general
   au VimResized * :wincmd =
 
   " Make Tab SuperTab
-  au InsertEnter * exec "inoremap " . g:UltiSnipsExpandTrigger . " <C-R>=Tabino()<cr>"
+  " au InsertEnter * exec "inoremap " . g:UltiSnipsExpandTrigger . " <C-R>=Tabino()<cr>"
 
   " Disable line numbers in popupmenu Preview window
   autocmd WinEnter * if &pvw | setlocal nonu | endif
@@ -813,7 +890,7 @@ hi StartifySlash   guifg=#586e75 ctermfg=240
 hi StartifySpecial ctermfg=240
 hi StartifySection guifg=#cb4b16
 let g:startify_files_number = 7
-let g:startify_bookmarks = [ {'c': '~/.vimrc'}, '~/.zshrc' ]
+let g:startify_bookmarks = [ {'c': '~/.vimrc'}, { 'z': '~/.zshrc' } ]
 function! s:filter_header(lines) abort
         let longest_line   = max(map(copy(a:lines), 'strwidth(v:val)'))
         let centered_lines = map(copy(a:lines),
@@ -840,7 +917,8 @@ let g:ale_lint_on_text_changed = 0 " Disable default behaviour
 let g:ale_lint_on_enter = 0  " Dont run on file opening
 " After this is configured, :ALEFix will try and fix your JS code with specified fixers.
 let g:ale_fixers = {
-\   'javascript': ['prettier', 'eslint'],
+\   'javascript': ['eslint'],
+\   'javascript.jsx': ['eslint'],
 \}
 " Fix files automatically on save using above specified fixers.
 let g:ale_fix_on_save = 1
