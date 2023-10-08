@@ -56,6 +56,12 @@ brew install editorconfig
 brew install tree
 brew install figlet
 brew install toilet
+# Now cask is part of homebrew, so we dont need a separate brew-cask
+brew install --cask google-chrome
+brew install --cask firefox
+brew install --cask visual-studio-code
+brew install --cask macvim
+brew install --cask iterm2
 
 # Remove outdated versions and download cache.
 brew cleanup
