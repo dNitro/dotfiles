@@ -74,12 +74,12 @@ endsnippet
 snippet sexytextdark
 -moz-osx-font-smoothing: auto;
  -webkit-font-smoothing: subpixel-antialiased;
-         text-rendering: optimizelegibility
+         text-rendering: optimizeLegibility;
 endsnippet
 snippet sexytextlight
 -moz-osx-font-smoothing: grayscale;
  -webkit-font-smoothing: antialiased;
-         text-rendering: optimizelegibility
+         text-rendering: optimizeLegibility;
 endsnippet
 snippet hidetext
 border: 0;
@@ -252,7 +252,7 @@ endsnippet
 snippet px "desc" i
 ${1:1}px
 endsnippet
-snippet % "desc" iA
+snippet % "desc" i
 ${1:1}%
 endsnippet
 snippet em "desc"
@@ -268,7 +268,7 @@ snippet milisecond "desc" i
 ${1:1}ms
 endsnippet
 pre_expand "b = re.match('^(\s*.*\{)', snip.buffer[snip.line]); a = b.group(1); snip.buffer[snip.line] = a; snip.cursor.set(snip.line, len(a))"
-snippet " {" "desc" rA
+snippet { "desc" A
 
   $0
 }
