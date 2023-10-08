@@ -50,5 +50,4 @@ alias brc='brew cask'
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
-alias nit='/usr/bin/git --git-dir=/mnt/c/Users/Davoud/.myconfig/ --work-tree=/mnt/c/Users/Davoud'
-alias nit='/usr/bin/git --git-dir=/Users/david/.myconfig/ --work-tree=/Users/david'
+alias nit='/usr/bin/git --git-dir=$HOME/.myconfig/ --work-tree=$HOME'
