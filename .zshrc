@@ -25,11 +25,10 @@ if ! zgen saved; then
     zgen oh-my-zsh plugins/git
     zgen oh-my-zsh plugins/brew
     zgen oh-my-zsh plugins/npm
-    zgen oh-my-zsh plugins/bower
     zgen oh-my-zsh plugins/vi-mode
     zgen oh-my-zsh plugins/z
-    zgen load zsh-users/zsh-history-substring-search
     zgen load zsh-users/zsh-syntax-highlighting
+    zgen load zsh-users/zsh-history-substring-search
     zgen load hlissner/zsh-autopair "autopair.zsh"
     zgen load ~/.zsh/plugin/zsh-snippets
 
@@ -59,3 +58,19 @@ fi
 # Aliases
 source $HOME/.zsh/aliases
 # =============================================
+# Add Visual Studio Code (code)
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+# =============================================
+# Android SDK
+export ANDROID_HOME=/usr/local/share/android-sdk
+export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
+export ANDROID_AVD_HOME=$HOME/.android/avd
+alias emu="$ANDROID_HOME/emulator/emulator"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
+# =============================================
+# python
+export PATH="$PATH:/Users/david/Library/Python/3.7/bin"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
