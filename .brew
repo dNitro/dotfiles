@@ -55,6 +55,7 @@ brew install mongodb
 brew install editorconfig
 brew install tree
 brew install figlet
+brew install toilet
 
 # Remove outdated versions and download cache.
 brew cleanup
