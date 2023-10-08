@@ -21,6 +21,7 @@ alias g="git"
 alias h="history"
 alias j="jobs"
 alias v='vim'
+alias c='code .'
 alias t="tree -C -a -I '.git|node_modules|bower_components|vendor'"
 alias q='exit'
 alias cls='clear' # Clear Screen
@@ -31,6 +32,17 @@ alias ng='npm install -g'
 alias ns='npm install --save'
 alias nd='npm install --save-dev'
 
+# yarn
+alias ya='yarn add'
+alias yad='yarn add --dev'
+alias yas='yarn start'
+alias yab='yarn build'
+alias yat='yarn test'
+alias yac='yarn create'
+
+# http-server
+alias hs='http-server -o'
+
 # Homebrew
 alias br='brew'
 alias bru='brew update; brew upgrade --all; brew cleanup'
@@ -39,3 +51,4 @@ alias brc='brew cask'
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 alias nit='/usr/bin/git --git-dir=/mnt/c/Users/Davoud/.myconfig/ --work-tree=/mnt/c/Users/Davoud'
+alias nit='/usr/bin/git --git-dir=/Users/david/.myconfig/ --work-tree=/Users/david'
